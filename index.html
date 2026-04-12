@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAMB Practice App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div>
+        <h1>JAMB Practice</h1>
+        <p class="subtitle">Offline practice app for your students</p>
+      </div>
+      <button id="resetProgressBtn" class="ghost-btn">Reset Progress</button>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen active">
+        <div class="hero card">
+          <div>
+            <span class="badge">CBT Practice</span>
+            <h2>Practice UTME-style questions in a clean app.</h2>
+            <p>
+              This version is an original practice app inspired by common CBT flows. It is not a copy of any third-party product.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Start Practice</h3>
+            <div class="form-grid">
+              <label>
+                Student Name
+                <input id="studentName" type="text" placeholder="Enter student name" maxlength="60" />
+              </label>
+              <label>
+                Subject
+                <select id="subjectSelect"></select>
+              </label>
+              <label>
+                Mode
+                <select id="modeSelect">
+                  <option value="practice">Practice Mode</option>
+                  <option value="exam">Exam Mode</option>
+                </select>
+              </label>
+              <label>
+                Number of Questions
+                <select id="questionCountSelect">
+                  <option value="10">10 Questions</option>
+                  <option value="20">20 Questions</option>
+                  <option value="50">50 Questions</option>
+                  <option value="all">All Available</option>
+                </select>
+              </label>
+            </div>
+            <button id="startBtn" class="primary-btn">Start Practice</button>
+          </div>
+
+          <div class="card">
+            <h3>Quick Stats</h3>
+            <div class="stats-grid">
+              <div class="stat-box">
+                <span>Total Sessions</span>
+                <strong id="statSessions">0</strong>
+              </div>
+              <div class="stat-box">
+                <span>Average Score</span>
+                <strong id="statAverage">0%</strong>
+              </div>
+              <div class="stat-box">
+                <span>Best Score</span>
+                <strong id="statBest">0%</strong>
+              </div>
+              <div class="stat-box">
+                <span>Questions Bank</span>
+                <strong id="statQuestions">0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-head">
+            <h3>Recent Results</h3>
+          </div>
+          <div id="historyList" class="history-list empty-state">No practice history yet.</div>
+        </div>
+      </section>
+
+      <section id="quizScreen" class="screen">
+        <div class="quiz-shell">
+          <aside class="quiz-sidebar card">
+            <div>
+              <p class="muted">Student</p>
+              <h3 id="sidebarStudent">-</h3>
+            </div>
+            <div>
+              <p class="muted">Subject</p>
+              <h3 id="sidebarSubject">-</h3>
+            </div>
+            <div>
+              <p class="muted">Mode</p>
+              <h3 id="sidebarMode">-</h3>
+            </div>
+            <div>
+              <p class="muted">Time Left</p>
+              <h3 id="timerDisplay">--:--</h3>
+            </div>
+            <div class="progress-wrap">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span id="progressText">0/0</span>
+              </div>
+              <div class="progress-bar"><div id="progressBar"></div></div>
+            </div>
+            <div id="questionPills" class="question-pills"></div>
+            <button id="submitBtn" class="danger-btn">Submit Test</button>
+          </aside>
+
+          <section class="quiz-main card">
+            <div class="question-head">
+              <span class="badge" id="questionNumberBadge">Question 1</span>
+              <button id="backHomeBtn" class="ghost-btn">Exit</button>
+            </div>
+            <h2 id="questionText">Question text</h2>
+            <div id="optionsList" class="options-list"></div>
+            <div id="explanationBox" class="explanation-box hidden"></div>
+            <div class="nav-row">
+              <button id="prevBtn" class="ghost-btn">Previous</button>
+              <button id="nextBtn" class="primary-btn">Next</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="resultScreen" class="screen">
+        <div class="card result-card">
+          <span class="badge">Completed</span>
+          <h2>Your Result</h2>
+          <div class="result-score" id="resultScore">0%</div>
+          <p id="resultSummary">Summary</p>
+          <div id="resultBreakdown" class="result-breakdown"></div>
+          <div class="nav-row center">
+            <button id="reviewBtn" class="ghost-btn">Review Answers</button>
+            <button id="restartBtn" class="primary-btn">Back to Home</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
