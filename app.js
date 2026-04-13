@@ -11,7 +11,13 @@
     studentName: document.getElementById('studentName'),
     loginBtn: document.getElementById('loginBtn'),
     currentStudentBox: document.getElementById('currentStudentBox'),
+    sessionTypeSelect: document.getElementById('sessionTypeSelect'),
+    singleSubjectWrap: document.getElementById('singleSubjectWrap'),
+    comboConfig: document.getElementById('comboConfig'),
     subjectSelect: document.getElementById('subjectSelect'),
+    comboSubject1: document.getElementById('comboSubject1'),
+    comboSubject2: document.getElementById('comboSubject2'),
+    comboSubject3: document.getElementById('comboSubject3'),
     modeSelect: document.getElementById('modeSelect'),
     questionCountSelect: document.getElementById('questionCountSelect'),
     durationSelect: document.getElementById('durationSelect'),
@@ -32,8 +38,11 @@
     progressBar: document.getElementById('progressBar'),
     questionPills: document.getElementById('questionPills'),
     questionNumberBadge: document.getElementById('questionNumberBadge'),
+    questionSubjectMeta: document.getElementById('questionSubjectMeta'),
     questionText: document.getElementById('questionText'),
+    diagramBox: document.getElementById('diagramBox'),
     optionsList: document.getElementById('optionsList'),
+    toggleExplanationBtn: document.getElementById('toggleExplanationBtn'),
     explanationBox: document.getElementById('explanationBox'),
     prevBtn: document.getElementById('prevBtn'),
     nextBtn: document.getElementById('nextBtn'),
@@ -54,11 +63,14 @@
     currentIndex: 0,
     mode: 'practice',
     subject: '',
+    subjects: [],
     student: '',
     reviewMode: false,
+    showReviewExplanation: false,
     timerId: null,
     timeLeft: 0,
-    chosenDurationMinutes: null
+    chosenDurationMinutes: null,
+    sessionType: 'single'
   };
 
   init();
@@ -69,14 +81,29 @@
     renderCurrentUser();
     renderStats();
     renderHistory();
+    syncSessionTypeUi();
     showScreen('home');
   }
 
   function populateSubjects() {
     const subjects = Object.keys(QUESTION_BANK);
     el.subjectSelect.innerHTML = subjects
-      .map(subject => `<option value="${subject}">${formatSubject(subject)}</option>`)
+      .map(subject => `<option value="${escapeHtml(subject)}">${formatSubject(subject)}</option>`)
       .join('');
+
+    const comboSubjects = subjects.filter(subject => subject !== 'english');
+    const options = comboSubjects
+      .map(subject => `<option value="${escapeHtml(subject)}">${formatSubject(subject)}</option>`)
+      .join('');
+
+    [el.comboSubject1, el.comboSubject2, el.comboSubject3].forEach(select => {
+      select.innerHTML = options;
+    });
+
+    el.comboSubject1.value = 'mathematics';
+    el.comboSubject2.value = 'physics';
+    el.comboSubject3.value = 'chemistry';
+
     const totalQuestions = subjects.reduce((sum, subject) => sum + QUESTION_BANK[subject].length, 0);
     el.statQuestions.textContent = String(totalQuestions);
   }
@@ -93,6 +120,8 @@
     el.resetProgressBtn.addEventListener('click', resetProgress);
     el.switchUserBtn.addEventListener('click', switchUser);
     el.modeSelect.addEventListener('change', syncDurationUi);
+    el.sessionTypeSelect.addEventListener('change', syncSessionTypeUi);
+    el.toggleExplanationBtn.addEventListener('click', toggleReviewExplanation);
   }
 
   function loginStudent() {
@@ -120,40 +149,81 @@
       if (!state.currentUser) return;
     }
 
-    const subject = el.subjectSelect.value;
-    const mode = el.modeSelect.value;
-    const pool = shuffle([...QUESTION_BANK[subject]]);
-    const countValue = el.questionCountSelect.value;
-    const selectedCount = countValue === 'all' ? pool.length : Math.min(Number(countValue), pool.length);
-
-    state.currentQuestions = pool.slice(0, selectedCount);
-    state.answers = new Array(selectedCount).fill(null);
-    state.currentIndex = 0;
-    state.mode = mode;
-    state.subject = subject;
-    state.student = state.currentUser;
+    state.sessionType = el.sessionTypeSelect.value;
+    state.mode = el.modeSelect.value;
     state.reviewMode = false;
-    state.chosenDurationMinutes = getChosenDurationMinutes(selectedCount, mode);
-    state.timeLeft = mode === 'exam' ? state.chosenDurationMinutes * 60 : 0;
+    state.showReviewExplanation = false;
+    state.currentIndex = 0;
+    state.student = state.currentUser;
+
+    const selection = state.sessionType === 'combo'
+      ? buildComboSession()
+      : buildSingleSession();
+
+    if (!selection.questions.length) {
+      window.alert('No questions available for the selected setup.');
+      return;
+    }
+
+    state.currentQuestions = selection.questions;
+    state.answers = new Array(state.currentQuestions.length).fill(null);
+    state.subject = selection.sessionLabel;
+    state.subjects = selection.subjects;
+    state.chosenDurationMinutes = getChosenDurationMinutes(state.currentQuestions.length, state.mode);
+    state.timeLeft = state.mode === 'exam' ? state.chosenDurationMinutes * 60 : 0;
 
     if (state.timerId) {
       clearInterval(state.timerId);
       state.timerId = null;
     }
 
-    if (mode === 'exam') {
+    if (state.mode === 'exam') {
       startTimer();
     } else {
       el.timerDisplay.textContent = 'Practice';
     }
 
     el.sidebarStudent.textContent = state.student;
-    el.sidebarSubject.textContent = formatSubject(subject);
-    el.sidebarMode.textContent = mode === 'exam' ? `Exam · ${state.chosenDurationMinutes} min` : 'Practice Mode';
+    el.sidebarSubject.textContent = selection.sessionLabel;
+    el.sidebarMode.textContent = state.mode === 'exam' ? `Exam · ${state.chosenDurationMinutes} min` : 'Practice Mode';
 
     buildQuestionPills();
     renderQuestion();
     showScreen('quiz');
+  }
+
+  function buildSingleSession() {
+    const subject = el.subjectSelect.value;
+    const pool = shuffle([...QUESTION_BANK[subject]]);
+    const countValue = el.questionCountSelect.value;
+    const selectedCount = countValue === 'all' ? pool.length : Math.min(Number(countValue), pool.length);
+    return {
+      questions: pool.slice(0, selectedCount).map(question => ({ ...question, sourceSubject: question.sourceSubject || subject })),
+      subjects: [subject],
+      sessionLabel: formatSubject(subject)
+    };
+  }
+
+  function buildComboSession() {
+    const chosen = [el.comboSubject1.value, el.comboSubject2.value, el.comboSubject3.value].filter(Boolean);
+    const unique = [...new Set(chosen)];
+    if (unique.length !== 3) {
+      window.alert('Choose 3 different subjects for the full JAMB combination.');
+      return { questions: [], subjects: [], sessionLabel: '' };
+    }
+
+    const englishPool = shuffle([...QUESTION_BANK.english]);
+    const englishQuestions = englishPool.slice(0, Math.min(60, englishPool.length)).map(q => ({ ...q, sourceSubject: 'english' }));
+    const otherQuestions = unique.flatMap(subject => {
+      const pool = shuffle([...QUESTION_BANK[subject]]);
+      return pool.slice(0, Math.min(40, pool.length)).map(q => ({ ...q, sourceSubject: subject }));
+    });
+
+    return {
+      questions: [...englishQuestions, ...otherQuestions],
+      subjects: ['english', ...unique],
+      sessionLabel: ['english', ...unique].map(formatSubject).join(' + ')
+    };
   }
 
   function getChosenDurationMinutes(selectedCount, mode) {
@@ -165,6 +235,13 @@
 
   function syncDurationUi() {
     el.durationSelect.disabled = el.modeSelect.value !== 'exam';
+  }
+
+  function syncSessionTypeUi() {
+    const isCombo = el.sessionTypeSelect.value === 'combo';
+    el.singleSubjectWrap.classList.toggle('hidden', isCombo);
+    el.comboConfig.classList.toggle('hidden', !isCombo);
+    syncDurationUi();
   }
 
   function startTimer() {
@@ -206,9 +283,14 @@
     if (!current) return;
 
     el.questionNumberBadge.textContent = `Question ${state.currentIndex + 1}`;
-    el.questionText.textContent = current.question;
-    el.optionsList.innerHTML = '';
+    el.questionSubjectMeta.textContent = formatSubject(current.sourceSubject || state.subject);
+    el.questionText.innerHTML = escapeHtml(current.question).replace(/\n/g, '<br>');
 
+    const hasDiagram = Boolean(current.diagram);
+    el.diagramBox.classList.toggle('hidden', !hasDiagram);
+    el.diagramBox.innerHTML = hasDiagram ? current.diagram : '';
+
+    el.optionsList.innerHTML = '';
     current.options.forEach((option, index) => {
       const button = document.createElement('button');
       button.className = 'option-btn';
@@ -230,7 +312,14 @@
     });
 
     const selected = state.answers[state.currentIndex];
-    const shouldShowExplanation = state.mode === 'practice' && selected !== null;
+    const shouldShowExplanation = (
+      (state.mode === 'practice' && selected !== null) ||
+      (state.reviewMode && (state.mode === 'practice' ? selected !== null : state.showReviewExplanation))
+    );
+
+    const shouldShowToggle = state.reviewMode && state.mode === 'exam';
+    el.toggleExplanationBtn.classList.toggle('hidden', !shouldShowToggle);
+    el.toggleExplanationBtn.textContent = state.showReviewExplanation ? 'Hide Explanation' : 'Show Explanation';
     el.explanationBox.classList.toggle('hidden', !shouldShowExplanation);
     el.explanationBox.textContent = shouldShowExplanation ? current.explanation : '';
 
@@ -241,6 +330,12 @@
     el.progressText.textContent = `${answeredCount}/${state.currentQuestions.length}`;
     el.progressBar.style.width = `${(answeredCount / state.currentQuestions.length) * 100}%`;
     syncPills();
+  }
+
+  function toggleReviewExplanation() {
+    if (!(state.reviewMode && state.mode === 'exam')) return;
+    state.showReviewExplanation = !state.showReviewExplanation;
+    renderQuestion();
   }
 
   function selectAnswer(index) {
@@ -287,8 +382,9 @@
 
     const result = {
       student: state.student,
-      subject: formatSubject(state.subject),
+      subject: state.subject,
       mode: state.mode,
+      sessionType: state.sessionType,
       durationMinutes: state.chosenDurationMinutes,
       total,
       correct,
@@ -320,6 +416,7 @@
   function enterReviewMode() {
     state.reviewMode = true;
     state.currentIndex = 0;
+    state.showReviewExplanation = state.mode === 'practice';
     showScreen('quiz');
     renderQuestion();
   }
@@ -404,7 +501,7 @@
         <div><strong>${item.percent}%</strong><br><span class="muted" style="text-transform:none">Score</span></div>
         <div><strong>${item.correct}/${item.total}</strong><br><span class="muted" style="text-transform:none">Correct</span></div>
         <div><strong>${item.mode === 'exam' ? 'Exam' : 'Practice'}</strong><br><span class="muted" style="text-transform:none">Mode</span></div>
-        <div><strong>${item.mode === 'exam' ? `${item.durationMinutes || '-' } min` : '-'}</strong><br><span class="muted" style="text-transform:none">Time</span></div>
+        <div><strong>${item.mode === 'exam' ? `${item.durationMinutes || '-'} min` : '-'}</strong><br><span class="muted" style="text-transform:none">Time</span></div>
       </div>
     `).join('');
   }

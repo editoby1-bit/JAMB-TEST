@@ -72,6 +72,7 @@ h3 { margin: 0; }
   gap: 14px;
   margin: 14px 0 18px;
 }
+.compact-top { margin-top: 10px; }
 .login-row {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -105,6 +106,10 @@ button {
 .primary-btn:hover { background: var(--primary-dark); }
 .ghost-btn { background: #eef2f6; color: var(--text); }
 .danger-btn { background: var(--danger); color: #fff; }
+.combo-note {
+  margin-top: 10px;
+  line-height: 1.5;
+}
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -215,7 +220,30 @@ button {
   align-items: center;
   gap: 12px;
 }
+.subject-meta {
+  margin-top: 8px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
 .quiz-main h2 { line-height: 1.45; margin: 18px 0; }
+.diagram-box {
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  background: #fff;
+  overflow-x: auto;
+}
+.diagram-box svg {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 .options-list {
   display: grid;
   gap: 12px;
@@ -239,7 +267,7 @@ button {
   border-radius: 12px;
   line-height: 1.5;
 }
-.hidden { display: none; }
+.hidden { display: none !important; }
 .nav-row {
   display: flex;
   justify-content: space-between;

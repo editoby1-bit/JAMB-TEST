@@ -9,7 +9,8 @@ const QUESTION_BANK = {
         "careless"
       ],
       "answer": 1,
-      "explanation": "Diligent means hardworking and careful."
+      "explanation": "Diligent means hardworking and careful.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the option opposite in meaning to 'expand'.",
@@ -20,7 +21,8 @@ const QUESTION_BANK = {
         "stretch"
       ],
       "answer": 2,
-      "explanation": "Contract is the opposite of expand."
+      "explanation": "Contract is the opposite of expand.",
+      "sourceSubject": "english"
     },
     {
       "question": "Select the correctly punctuated sentence.",
@@ -31,7 +33,8 @@ const QUESTION_BANK = {
         "After the meeting we left, quietly."
       ],
       "answer": 0,
-      "explanation": "A comma follows the introductory phrase."
+      "explanation": "A comma follows the introductory phrase.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the correct spelling.",
@@ -42,7 +45,8 @@ const QUESTION_BANK = {
         "Acomodation"
       ],
       "answer": 1,
-      "explanation": "Accommodation is the correct spelling."
+      "explanation": "Accommodation is the correct spelling.",
+      "sourceSubject": "english"
     },
     {
       "question": "The expression 'at the eleventh hour' means:",
@@ -53,7 +57,8 @@ const QUESTION_BANK = {
         "during worship"
       ],
       "answer": 2,
-      "explanation": "It means at the last possible moment."
+      "explanation": "It means at the last possible moment.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the word with the same vowel sound as in 'food'.",
@@ -64,7 +69,8 @@ const QUESTION_BANK = {
         "cot"
       ],
       "answer": 2,
-      "explanation": "Food and rude have the long /uː/ sound."
+      "explanation": "Food and rude have the long /uː/ sound.",
+      "sourceSubject": "english"
     },
     {
       "question": "Identify the grammatical name of the underlined expression: 'That he failed' surprised everyone.",
@@ -75,7 +81,8 @@ const QUESTION_BANK = {
         "phrase"
       ],
       "answer": 0,
-      "explanation": "It functions as the subject, so it is a noun clause."
+      "explanation": "It functions as the subject, so it is a noun clause.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the best completion: Each of the boys ____ a locker.",
@@ -86,7 +93,8 @@ const QUESTION_BANK = {
         "were having"
       ],
       "answer": 2,
-      "explanation": "Each takes a singular verb."
+      "explanation": "Each takes a singular verb.",
+      "sourceSubject": "english"
     },
     {
       "question": "The antonym of 'hostile' is:",
@@ -97,7 +105,8 @@ const QUESTION_BANK = {
         "violent"
       ],
       "answer": 1,
-      "explanation": "Friendly is the opposite of hostile."
+      "explanation": "Friendly is the opposite of hostile.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the sentence with correct concord.",
@@ -108,7 +117,8 @@ const QUESTION_BANK = {
         "The news have been encouraging."
       ],
       "answer": 1,
-      "explanation": "News takes a singular verb here."
+      "explanation": "News takes a singular verb here.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the most appropriate title for a passage on road safety.",
@@ -119,7 +129,8 @@ const QUESTION_BANK = {
         "Travelling Abroad"
       ],
       "answer": 1,
-      "explanation": "A title should reflect the main idea."
+      "explanation": "A title should reflect the main idea.",
+      "sourceSubject": "english"
     },
     {
       "question": "A person who writes poems is a:",
@@ -130,7 +141,8 @@ const QUESTION_BANK = {
         "orator"
       ],
       "answer": 2,
-      "explanation": "A poet writes poems."
+      "explanation": "A poet writes poems.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the option that best completes: She insisted ____ paying the bill.",
@@ -141,7 +153,8 @@ const QUESTION_BANK = {
         "with"
       ],
       "answer": 1,
-      "explanation": "The expression is insist on."
+      "explanation": "The expression is insist on.",
+      "sourceSubject": "english"
     },
     {
       "question": "The phrase 'a blessing in disguise' means:",
@@ -152,7 +165,8 @@ const QUESTION_BANK = {
         "a hidden enemy"
       ],
       "answer": 1,
-      "explanation": "It describes an unexpected good outcome."
+      "explanation": "It describes an unexpected good outcome.",
+      "sourceSubject": "english"
     },
     {
       "question": "Select the odd item.",
@@ -163,7 +177,8 @@ const QUESTION_BANK = {
         "homonym"
       ],
       "answer": 2,
-      "explanation": "Paragraph is not a lexical relation."
+      "explanation": "Paragraph is not a lexical relation.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the word correctly divided into syllables.",
@@ -174,7 +189,8 @@ const QUESTION_BANK = {
         "beaut-if-ul"
       ],
       "answer": 2,
-      "explanation": "Beautiful is commonly divided as beau-ti-ful."
+      "explanation": "Beautiful is commonly divided as beau-ti-ful.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the best interpretation of 'The man kicked the bucket.'",
@@ -185,7 +201,8 @@ const QUESTION_BANK = {
         "He ran away."
       ],
       "answer": 2,
-      "explanation": "It is an idiom meaning he died."
+      "explanation": "It is an idiom meaning he died.",
+      "sourceSubject": "english"
     },
     {
       "question": "From the options, choose the emphatic stress for contrast in: I wanted the RED pen, not the blue one.",
@@ -196,7 +213,8 @@ const QUESTION_BANK = {
         "pen"
       ],
       "answer": 2,
-      "explanation": "Red carries the contrastive stress."
+      "explanation": "Red carries the contrastive stress.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the correctly reported speech: Ada said, 'I am tired.'",
@@ -207,7 +225,8 @@ const QUESTION_BANK = {
         "Ada said that I was tired."
       ],
       "answer": 1,
-      "explanation": "Backshift is used in reported speech."
+      "explanation": "Backshift is used in reported speech.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the option nearest in meaning to 'reluctant'.",
@@ -218,7 +237,8 @@ const QUESTION_BANK = {
         "excited"
       ],
       "answer": 1,
-      "explanation": "Reluctant means unwilling."
+      "explanation": "Reluctant means unwilling.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the word opposite in meaning to 'scarce'.",
@@ -229,7 +249,8 @@ const QUESTION_BANK = {
         "little"
       ],
       "answer": 2,
-      "explanation": "Plentiful is the opposite."
+      "explanation": "Plentiful is the opposite.",
+      "sourceSubject": "english"
     },
     {
       "question": "Which word is a noun?",
@@ -240,7 +261,8 @@ const QUESTION_BANK = {
         "beautifully"
       ],
       "answer": 0,
-      "explanation": "Beauty names a thing or quality."
+      "explanation": "Beauty names a thing or quality.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the best completion: If I ____ you, I would apologize.",
@@ -251,7 +273,8 @@ const QUESTION_BANK = {
         "be"
       ],
       "answer": 2,
-      "explanation": "The subjunctive 'were' is standard here."
+      "explanation": "The subjunctive 'were' is standard here.",
+      "sourceSubject": "english"
     },
     {
       "question": "Select the sentence with the correct question tag.",
@@ -262,7 +285,8 @@ const QUESTION_BANK = {
         "You came early, isn't it?"
       ],
       "answer": 0,
-      "explanation": "Positive statement takes negative tag with auxiliary did."
+      "explanation": "Positive statement takes negative tag with auxiliary did.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the word with the same consonant sound as the first sound in 'church'.",
@@ -273,7 +297,8 @@ const QUESTION_BANK = {
         "chemist"
       ],
       "answer": 0,
-      "explanation": "Chair begins with /tʃ/."
+      "explanation": "Chair begins with /tʃ/.",
+      "sourceSubject": "english"
     },
     {
       "question": "The plural of 'criterion' is:",
@@ -284,7 +309,8 @@ const QUESTION_BANK = {
         "criterias"
       ],
       "answer": 1,
-      "explanation": "Criteria is the correct plural."
+      "explanation": "Criteria is the correct plural.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the best completion: Neither Bisi nor her friends ____ ready.",
@@ -295,7 +321,8 @@ const QUESTION_BANK = {
         "has"
       ],
       "answer": 2,
-      "explanation": "Verb agrees with the nearer plural subject."
+      "explanation": "Verb agrees with the nearer plural subject.",
+      "sourceSubject": "english"
     },
     {
       "question": "An adjective qualifies a:",
@@ -306,7 +333,8 @@ const QUESTION_BANK = {
         "conjunction"
       ],
       "answer": 1,
-      "explanation": "Adjectives describe nouns."
+      "explanation": "Adjectives describe nouns.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the sentence that is grammatically correct.",
@@ -317,7 +345,8 @@ const QUESTION_BANK = {
         "He didn't knew me."
       ],
       "answer": 2,
-      "explanation": "Doesn't takes the base verb know."
+      "explanation": "Doesn't takes the base verb know.",
+      "sourceSubject": "english"
     },
     {
       "question": "The expression 'to sit on the fence' means:",
@@ -328,7 +357,8 @@ const QUESTION_BANK = {
         "to oppose everyone"
       ],
       "answer": 1,
-      "explanation": "It means not taking sides."
+      "explanation": "It means not taking sides.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the correct passive form of 'The teacher praised the boy.'",
@@ -339,7 +369,8 @@ const QUESTION_BANK = {
         "The teacher was praised by the boy."
       ],
       "answer": 0,
-      "explanation": "That is the passive transformation."
+      "explanation": "That is the passive transformation.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the word nearest in meaning to 'commend'.",
@@ -350,7 +381,8 @@ const QUESTION_BANK = {
         "hide"
       ],
       "answer": 1,
-      "explanation": "To commend is to praise."
+      "explanation": "To commend is to praise.",
+      "sourceSubject": "english"
     },
     {
       "question": "A clause must contain a:",
@@ -361,7 +393,8 @@ const QUESTION_BANK = {
         "title"
       ],
       "answer": 1,
-      "explanation": "A clause contains a subject and predicate."
+      "explanation": "A clause contains a subject and predicate.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the correct sentence.",
@@ -372,7 +405,8 @@ const QUESTION_BANK = {
         "My scissors has blunt."
       ],
       "answer": 1,
-      "explanation": "Scissors is treated as plural."
+      "explanation": "Scissors is treated as plural.",
+      "sourceSubject": "english"
     },
     {
       "question": "The opposite of 'generous' is:",
@@ -383,7 +417,8 @@ const QUESTION_BANK = {
         "patient"
       ],
       "answer": 1,
-      "explanation": "Mean means ungenerous."
+      "explanation": "Mean means ungenerous.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the best completion: He was absent ____ illness.",
@@ -394,7 +429,8 @@ const QUESTION_BANK = {
         "although"
       ],
       "answer": 1,
-      "explanation": "Because of is followed by a noun."
+      "explanation": "Because of is followed by a noun.",
+      "sourceSubject": "english"
     },
     {
       "question": "The mood of the sentence 'Please close the door.' is:",
@@ -405,7 +441,8 @@ const QUESTION_BANK = {
         "subjunctive"
       ],
       "answer": 2,
-      "explanation": "It gives a command."
+      "explanation": "It gives a command.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the word with a silent 'b'.",
@@ -416,7 +453,8 @@ const QUESTION_BANK = {
         "rubber"
       ],
       "answer": 1,
-      "explanation": "The b in bomb is silent."
+      "explanation": "The b in bomb is silent.",
+      "sourceSubject": "english"
     },
     {
       "question": "Select the correct comparative form.",
@@ -427,7 +465,8 @@ const QUESTION_BANK = {
         "gooder"
       ],
       "answer": 2,
-      "explanation": "Better is the comparative of good."
+      "explanation": "Better is the comparative of good.",
+      "sourceSubject": "english"
     },
     {
       "question": "Choose the most suitable summary statement for a passage about honesty in leadership.",
@@ -438,7 +477,248 @@ const QUESTION_BANK = {
         "Citizens dislike change."
       ],
       "answer": 1,
-      "explanation": "It captures the central message."
+      "explanation": "It captures the central message.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the option nearest in meaning to 'meticulous'.",
+      "options": [
+        "careless",
+        "untidy",
+        "very careful",
+        "restless"
+      ],
+      "answer": 2,
+      "explanation": "A meticulous person pays close attention to detail.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the option opposite in meaning to 'obsolete'.",
+      "options": [
+        "ancient",
+        "current",
+        "outdated",
+        "broken"
+      ],
+      "answer": 1,
+      "explanation": "Obsolete means no longer in use, so current is the opposite.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Select the sentence that is grammatically correct.",
+      "options": [
+        "Neither the teacher nor the students was late.",
+        "Neither the teacher nor the students were late.",
+        "Neither the teacher nor the students is late.",
+        "Neither the teacher nor the students has been late."
+      ],
+      "answer": 1,
+      "explanation": "With 'neither...nor', the verb usually agrees with the nearer subject, students.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the correct interpretation of 'The committee sat on the fence.'",
+      "options": [
+        "It built a fence.",
+        "It remained undecided.",
+        "It escaped danger.",
+        "It held an outdoor meeting."
+      ],
+      "answer": 1,
+      "explanation": "To sit on the fence means to avoid taking a clear position.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Pick the word that has a different stress pattern.",
+      "options": [
+        "record (noun)",
+        "present (noun)",
+        "behind",
+        "conflict (noun)"
+      ],
+      "answer": 2,
+      "explanation": "The first three have first-syllable stress except 'behind', which is stressed on the second syllable.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the best completion: Hardly had the match started ____ the rain began.",
+      "options": [
+        "than",
+        "when",
+        "that",
+        "while"
+      ],
+      "answer": 1,
+      "explanation": "The standard correlative expression is 'hardly...when'.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Which option contains only count nouns?",
+      "options": [
+        "equipment, luggage, chair",
+        "book, chair, idea",
+        "advice, table, water",
+        "furniture, bag, rice"
+      ],
+      "answer": 1,
+      "explanation": "Book, chair and idea can all be counted individually.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the correct reported speech: 'Have you finished?' the coach asked me.",
+      "options": [
+        "The coach asked me have I finished.",
+        "The coach asked me if I had finished.",
+        "The coach asked me if had I finished.",
+        "The coach asked me whether have I finished."
+      ],
+      "answer": 1,
+      "explanation": "A yes/no question is reported with if/whether and normal statement order.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "In the sentence 'Walking briskly, the prefect entered the hall,' the underlined expression functions as a",
+      "options": [
+        "noun phrase",
+        "participial phrase",
+        "adverbial clause",
+        "relative clause"
+      ],
+      "answer": 1,
+      "explanation": "'Walking briskly' is a participial phrase modifying the subject.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the option that best completes the sentence: No sooner had she arrived ____ she was asked to speak.",
+      "options": [
+        "when",
+        "than",
+        "that",
+        "then"
+      ],
+      "answer": 1,
+      "explanation": "The correct pair is 'no sooner...than'.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "The word 'ubiquitous' most nearly means",
+      "options": [
+        "expensive",
+        "present everywhere",
+        "very fragile",
+        "carefully hidden"
+      ],
+      "answer": 1,
+      "explanation": "Ubiquitous means found everywhere.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the sentence with the correct punctuation.",
+      "options": [
+        "My brothers, James, Peter and John arrived.",
+        "My brothers James, Peter and John arrived.",
+        "My brothers James Peter, and John arrived.",
+        "My brothers, James Peter and John, arrived."
+      ],
+      "answer": 1,
+      "explanation": "No comma is needed before the list when the names identify the brothers.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the correct question tag: Let us begin, ____?",
+      "options": [
+        "shall we",
+        "will we",
+        "don't we",
+        "shouldn't we"
+      ],
+      "answer": 0,
+      "explanation": "The normal tag for 'let us' suggestions is 'shall we?'",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the option nearest in meaning to 'candid'.",
+      "options": [
+        "frank",
+        "hostile",
+        "timid",
+        "brief"
+      ],
+      "answer": 0,
+      "explanation": "Candid means open and frank.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Select the sentence with the best concord.",
+      "options": [
+        "One of the girls have won the prize.",
+        "One of the girls has won the prize.",
+        "One of the girls were winning the prize.",
+        "One of the girls are winning the prize."
+      ],
+      "answer": 1,
+      "explanation": "The subject is 'one', so the singular verb 'has' is correct.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the option opposite in meaning to 'lenient'.",
+      "options": [
+        "merciful",
+        "strict",
+        "careful",
+        "pleasant"
+      ],
+      "answer": 1,
+      "explanation": "Lenient means not strict.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Which option is an example of oxymoron?",
+      "options": [
+        "sweet melody",
+        "bitter truth",
+        "deafening silence",
+        "long speech"
+      ],
+      "answer": 2,
+      "explanation": "An oxymoron combines apparently contradictory terms, as in 'deafening silence'.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the best completion: The principal, together with the teachers, ____ present.",
+      "options": [
+        "are",
+        "were",
+        "is",
+        "have been"
+      ],
+      "answer": 2,
+      "explanation": "The main subject is 'principal', so the singular verb is used.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Pick the word that best completes: The speaker's argument was so ____ that even his critics applauded.",
+      "options": [
+        "petty",
+        "convincing",
+        "random",
+        "careless"
+      ],
+      "answer": 1,
+      "explanation": "A persuasive argument is convincing.",
+      "sourceSubject": "english"
+    },
+    {
+      "question": "Choose the correct spelling.",
+      "options": [
+        "Questionnaire",
+        "Questionaire",
+        "Quesionnaire",
+        "Questioneer"
+      ],
+      "answer": 0,
+      "explanation": "Questionnaire is the correct spelling.",
+      "sourceSubject": "english"
     }
   ],
   "mathematics": [
@@ -451,7 +731,8 @@ const QUESTION_BANK = {
         "8"
       ],
       "answer": 1,
-      "explanation": "2x=12, so x=6."
+      "explanation": "2x=12, so x=6.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Evaluate 3^2 + 4.",
@@ -462,7 +743,8 @@ const QUESTION_BANK = {
         "13"
       ],
       "answer": 3,
-      "explanation": "3 squared is 9, and 9+4=13."
+      "explanation": "3 squared is 9, and 9+4=13.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Find 25% of 240.",
@@ -473,7 +755,8 @@ const QUESTION_BANK = {
         "80"
       ],
       "answer": 2,
-      "explanation": "25% of 240 is 60."
+      "explanation": "25% of 240 is 60.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "If y/3 = 5, find y.",
@@ -484,7 +767,8 @@ const QUESTION_BANK = {
         "18"
       ],
       "answer": 2,
-      "explanation": "Multiply both sides by 3."
+      "explanation": "Multiply both sides by 3.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Simplify 1/2 + 1/4.",
@@ -495,7 +779,8 @@ const QUESTION_BANK = {
         "1"
       ],
       "answer": 2,
-      "explanation": "Common denominator gives 3/4."
+      "explanation": "Common denominator gives 3/4.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The mean of 2, 4, 6, 8 is:",
@@ -506,7 +791,8 @@ const QUESTION_BANK = {
         "7"
       ],
       "answer": 1,
-      "explanation": "Sum is 20, divide by 4."
+      "explanation": "Sum is 20, divide by 4.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Find the simple interest on ₦2000 at 5% for 3 years.",
@@ -517,7 +803,8 @@ const QUESTION_BANK = {
         "₦350"
       ],
       "answer": 2,
-      "explanation": "SI = PRT/100 = 300."
+      "explanation": "SI = PRT/100 = 300.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "A trader buys for ₦900 and sells for ₦1,080. Profit percent is:",
@@ -528,7 +815,8 @@ const QUESTION_BANK = {
         "25%"
       ],
       "answer": 2,
-      "explanation": "Profit is 180; 180/900 x100 =20%."
+      "explanation": "Profit is 180; 180/900 x100 =20%.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Solve: 5a = 45.",
@@ -539,7 +827,8 @@ const QUESTION_BANK = {
         "10"
       ],
       "answer": 2,
-      "explanation": "a=9."
+      "explanation": "a=9.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Convert 0.6 to a fraction in lowest terms.",
@@ -550,7 +839,8 @@ const QUESTION_BANK = {
         "6/10"
       ],
       "answer": 1,
-      "explanation": "0.6 = 6/10 = 3/5."
+      "explanation": "0.6 = 6/10 = 3/5.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The angles in a straight line add up to:",
@@ -561,7 +851,8 @@ const QUESTION_BANK = {
         "360°"
       ],
       "answer": 1,
-      "explanation": "A straight angle is 180°."
+      "explanation": "A straight angle is 180°.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Factorize x^2 + 5x + 6.",
@@ -572,7 +863,8 @@ const QUESTION_BANK = {
         "(x+5)(x+1)"
       ],
       "answer": 1,
-      "explanation": "2 and 3 multiply to 6 and sum to 5."
+      "explanation": "2 and 3 multiply to 6 and sum to 5.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "What is the median of 3, 5, 7, 9, 11?",
@@ -583,7 +875,8 @@ const QUESTION_BANK = {
         "11"
       ],
       "answer": 1,
-      "explanation": "The middle value is 7."
+      "explanation": "The middle value is 7.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Evaluate 12 ÷ 3 × 2.",
@@ -594,7 +887,8 @@ const QUESTION_BANK = {
         "12"
       ],
       "answer": 2,
-      "explanation": "Work left to right: 12÷3=4, 4×2=8."
+      "explanation": "Work left to right: 12÷3=4, 4×2=8.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "If 4 pens cost ₦120, one pen costs:",
@@ -605,7 +899,8 @@ const QUESTION_BANK = {
         "₦40"
       ],
       "answer": 2,
-      "explanation": "120 divided by 4 is 30."
+      "explanation": "120 divided by 4 is 30.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Find the perimeter of a rectangle of length 8 cm and width 5 cm.",
@@ -616,7 +911,8 @@ const QUESTION_BANK = {
         "80 cm"
       ],
       "answer": 1,
-      "explanation": "Perimeter = 2(l+w)=26."
+      "explanation": "Perimeter = 2(l+w)=26.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Solve 3(x - 2) = 15.",
@@ -627,7 +923,8 @@ const QUESTION_BANK = {
         "9"
       ],
       "answer": 2,
-      "explanation": "x-2=5 so x=7."
+      "explanation": "x-2=5 so x=7.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The probability of getting a head when a fair coin is tossed once is:",
@@ -638,7 +935,8 @@ const QUESTION_BANK = {
         "1"
       ],
       "answer": 2,
-      "explanation": "One favorable outcome out of two."
+      "explanation": "One favorable outcome out of two.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Write 3.25 as a mixed number.",
@@ -649,7 +947,8 @@ const QUESTION_BANK = {
         "3 3/5"
       ],
       "answer": 1,
-      "explanation": "0.25 is 1/4."
+      "explanation": "0.25 is 1/4.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Find the mode of 2, 4, 4, 5, 6.",
@@ -660,7 +959,8 @@ const QUESTION_BANK = {
         "6"
       ],
       "answer": 1,
-      "explanation": "4 occurs most often."
+      "explanation": "4 occurs most often.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The area of a triangle is given by:",
@@ -671,7 +971,8 @@ const QUESTION_BANK = {
         "l×w"
       ],
       "answer": 0,
-      "explanation": "Area formula is half base times height."
+      "explanation": "Area formula is half base times height.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Evaluate 7 + 3(4 - 2).",
@@ -682,7 +983,8 @@ const QUESTION_BANK = {
         "13"
       ],
       "answer": 3,
-      "explanation": "Bracket 2, times 3 is 6, plus 7 gives 13."
+      "explanation": "Bracket 2, times 3 is 6, plus 7 gives 13.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "If 2 : x = 4 : 10, then x =",
@@ -693,7 +995,8 @@ const QUESTION_BANK = {
         "8"
       ],
       "answer": 2,
-      "explanation": "2/ x = 4/10, so x=5."
+      "explanation": "2/ x = 4/10, so x=5.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "A number increased by 9 is 21. The number is:",
@@ -704,7 +1007,8 @@ const QUESTION_BANK = {
         "13"
       ],
       "answer": 2,
-      "explanation": "21-9 =12."
+      "explanation": "21-9 =12.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The sum of interior angles of a quadrilateral is:",
@@ -715,7 +1019,8 @@ const QUESTION_BANK = {
         "540°"
       ],
       "answer": 2,
-      "explanation": "Quadrilateral interior angles sum to 360°."
+      "explanation": "Quadrilateral interior angles sum to 360°.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Simplify 2x + 3x - x.",
@@ -726,7 +1031,8 @@ const QUESTION_BANK = {
         "5x"
       ],
       "answer": 2,
-      "explanation": "Combine like terms."
+      "explanation": "Combine like terms.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Find the volume of a cube of side 3 cm.",
@@ -737,7 +1043,8 @@ const QUESTION_BANK = {
         "36 cm³"
       ],
       "answer": 2,
-      "explanation": "Volume = 3^3 = 27."
+      "explanation": "Volume = 3^3 = 27.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "If the ratio of boys to girls is 3:2 and there are 30 boys, girls are:",
@@ -748,7 +1055,8 @@ const QUESTION_BANK = {
         "25"
       ],
       "answer": 2,
-      "explanation": "Scale factor is 10, so girls 20."
+      "explanation": "Scale factor is 10, so girls 20.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The value of 5! is:",
@@ -759,7 +1067,8 @@ const QUESTION_BANK = {
         "120"
       ],
       "answer": 3,
-      "explanation": "5×4×3×2×1 = 120."
+      "explanation": "5×4×3×2×1 = 120.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Round 8.746 to 2 decimal places.",
@@ -770,7 +1079,8 @@ const QUESTION_BANK = {
         "8.80"
       ],
       "answer": 2,
-      "explanation": "Third decimal is 6 so round up."
+      "explanation": "Third decimal is 6 so round up.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Which of the following is prime?",
@@ -781,7 +1091,8 @@ const QUESTION_BANK = {
         "21"
       ],
       "answer": 2,
-      "explanation": "17 has only 1 and itself."
+      "explanation": "17 has only 1 and itself.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Solve 2x - 3 = 9.",
@@ -792,7 +1103,8 @@ const QUESTION_BANK = {
         "6"
       ],
       "answer": 3,
-      "explanation": "2x=12, x=6."
+      "explanation": "2x=12, x=6.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Find 15% of ₦800.",
@@ -803,7 +1115,8 @@ const QUESTION_BANK = {
         "₦150"
       ],
       "answer": 2,
-      "explanation": "0.15×800 =120."
+      "explanation": "0.15×800 =120.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The HCF of 12 and 18 is:",
@@ -814,7 +1127,8 @@ const QUESTION_BANK = {
         "12"
       ],
       "answer": 1,
-      "explanation": "Highest common factor is 6."
+      "explanation": "Highest common factor is 6.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The LCM of 4 and 6 is:",
@@ -825,7 +1139,8 @@ const QUESTION_BANK = {
         "24"
       ],
       "answer": 2,
-      "explanation": "Least common multiple is 12."
+      "explanation": "Least common multiple is 12.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "If a square has side 7 cm, its area is:",
@@ -836,7 +1151,8 @@ const QUESTION_BANK = {
         "49 cm²"
       ],
       "answer": 3,
-      "explanation": "Area = side squared."
+      "explanation": "Area = side squared.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "Convert 3/8 to decimal.",
@@ -847,7 +1163,8 @@ const QUESTION_BANK = {
         "0.625"
       ],
       "answer": 2,
-      "explanation": "3÷8 = 0.375."
+      "explanation": "3÷8 = 0.375.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "A car covers 150 km in 3 hours. Its speed is:",
@@ -858,7 +1175,8 @@ const QUESTION_BANK = {
         "60 km/h"
       ],
       "answer": 2,
-      "explanation": "Speed = distance/time = 50."
+      "explanation": "Speed = distance/time = 50.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "If Y = C + I and C = 0.8Y, the multiplier is:",
@@ -869,7 +1187,8 @@ const QUESTION_BANK = {
         "5"
       ],
       "answer": 3,
-      "explanation": "1/(1-0.8)=5."
+      "explanation": "1/(1-0.8)=5.",
+      "sourceSubject": "mathematics"
     },
     {
       "question": "The gradient of a horizontal line is:",
@@ -880,7 +1199,130 @@ const QUESTION_BANK = {
         "undefined"
       ],
       "answer": 1,
-      "explanation": "Horizontal lines have zero slope."
+      "explanation": "Horizontal lines have zero slope.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "The diagram shows a line graph of y against x. What is the gradient between the points (1, 2) and (4, 8)?",
+      "diagram": "<svg viewBox=\"0 0 320 200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"40\" y1=\"170\" x2=\"290\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><polyline points=\"60,145 110,115 160,125 210,80 260,60\" fill=\"none\" stroke=\"#155eef\" stroke-width=\"3\"/><circle cx=\"60\" cy=\"145\" r=\"4\" fill=\"#155eef\"/><circle cx=\"110\" cy=\"115\" r=\"4\" fill=\"#155eef\"/><circle cx=\"160\" cy=\"125\" r=\"4\" fill=\"#155eef\"/><circle cx=\"210\" cy=\"80\" r=\"4\" fill=\"#155eef\"/><circle cx=\"260\" cy=\"60\" r=\"4\" fill=\"#155eef\"/><text x=\"11\" y=\"28\" font-size=\"12\">y</text><text x=\"282\" y=\"190\" font-size=\"12\">x</text></svg>",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "answer": 1,
+      "explanation": "Gradient = (8 - 2) / (4 - 1) = 6/3 = 2.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "Using the histogram shown, the modal class is",
+      "diagram": "<svg viewBox=\"0 0 320 200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"40\" y1=\"170\" x2=\"290\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><rect x=\"55\" y=\"120\" width=\"40\" height=\"50\" fill=\"#cfe1ff\" stroke=\"#155eef\"/><rect x=\"95\" y=\"90\" width=\"40\" height=\"80\" fill=\"#cfe1ff\" stroke=\"#155eef\"/><rect x=\"135\" y=\"60\" width=\"40\" height=\"110\" fill=\"#cfe1ff\" stroke=\"#155eef\"/><rect x=\"175\" y=\"100\" width=\"40\" height=\"70\" fill=\"#cfe1ff\" stroke=\"#155eef\"/><rect x=\"215\" y=\"130\" width=\"40\" height=\"40\" fill=\"#cfe1ff\" stroke=\"#155eef\"/><text x=\"8\" y=\"28\" font-size=\"12\">f</text><text x=\"250\" y=\"190\" font-size=\"12\">Class</text></svg>",
+      "options": [
+        "first class",
+        "second class",
+        "third class",
+        "fifth class"
+      ],
+      "answer": 2,
+      "explanation": "The modal class is the class with the highest bar, which is the third.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "If log₁₀2 = 0.3010, evaluate log₁₀200.",
+      "options": [
+        "1.3010",
+        "2.3010",
+        "2.6020",
+        "3.3010"
+      ],
+      "answer": 1,
+      "explanation": "200 = 2 × 100, so log 200 = log 2 + log 100 = 0.3010 + 2 = 2.3010.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "A chord of a circle subtends 120° at the centre. The angle it subtends at the circumference is",
+      "options": [
+        "30°",
+        "60°",
+        "90°",
+        "120°"
+      ],
+      "answer": 1,
+      "explanation": "The angle at the centre is twice the angle at the circumference.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "Solve for x: 3x - 7 > 11",
+      "options": [
+        "x > 4",
+        "x < 4",
+        "x > 6",
+        "x < 6"
+      ],
+      "answer": 2,
+      "explanation": "3x > 18, so x > 6.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "The sum of the first 20 terms of an arithmetic progression is 610. If the first term is 2, the common difference is",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": 1,
+      "explanation": "Using Sₙ = n/2 [2a + (n-1)d], 610 = 10[4 + 19d], so 61 = 4 + 19d, hence d = 3.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "If sin θ = 3/5 and θ is acute, then cos θ =",
+      "options": [
+        "3/4",
+        "4/5",
+        "5/4",
+        "2/5"
+      ],
+      "answer": 1,
+      "explanation": "Using the 3-4-5 triangle, cos θ = 4/5.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "A bag contains 4 red, 3 blue and 3 green balls. The probability of drawing a blue ball is",
+      "options": [
+        "1/10",
+        "3/10",
+        "1/3",
+        "3/7"
+      ],
+      "answer": 1,
+      "explanation": "There are 3 blue balls out of 10 total balls.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "Find the equation of a line with gradient 3 passing through (2, 5).",
+      "options": [
+        "y = 3x - 1",
+        "y = 3x + 1",
+        "y = 2x + 1",
+        "y = 5x - 3"
+      ],
+      "answer": 0,
+      "explanation": "Using y - 5 = 3(x - 2), we get y = 3x - 1.",
+      "sourceSubject": "mathematics"
+    },
+    {
+      "question": "If x + 1/x = 5, find x² + 1/x².",
+      "options": [
+        "21",
+        "23",
+        "25",
+        "27"
+      ],
+      "answer": 1,
+      "explanation": "Square both sides: (x + 1/x)² = x² + 2 + 1/x² = 25, so x² + 1/x² = 23.",
+      "sourceSubject": "mathematics"
     }
   ],
   "biology": [
@@ -893,7 +1335,8 @@ const QUESTION_BANK = {
         "system"
       ],
       "answer": 1,
-      "explanation": "The cell is the basic unit of life."
+      "explanation": "The cell is the basic unit of life.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Photosynthesis takes place mainly in the:",
@@ -904,7 +1347,8 @@ const QUESTION_BANK = {
         "vacuole"
       ],
       "answer": 1,
-      "explanation": "Chloroplast contains chlorophyll."
+      "explanation": "Chloroplast contains chlorophyll.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Which of the following is a mammal?",
@@ -915,7 +1359,8 @@ const QUESTION_BANK = {
         "Toad"
       ],
       "answer": 2,
-      "explanation": "Bat is a mammal."
+      "explanation": "Bat is a mammal.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Water moves across a semi-permeable membrane by:",
@@ -926,7 +1371,8 @@ const QUESTION_BANK = {
         "excretion"
       ],
       "answer": 1,
-      "explanation": "That movement is osmosis."
+      "explanation": "That movement is osmosis.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The organ that pumps blood is the:",
@@ -937,7 +1383,8 @@ const QUESTION_BANK = {
         "lung"
       ],
       "answer": 1,
-      "explanation": "The heart pumps blood."
+      "explanation": "The heart pumps blood.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Green plants manufacture food through:",
@@ -948,7 +1395,8 @@ const QUESTION_BANK = {
         "germination"
       ],
       "answer": 2,
-      "explanation": "Photosynthesis makes food."
+      "explanation": "Photosynthesis makes food.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Blood vessels carrying blood away from the heart are:",
@@ -959,7 +1407,8 @@ const QUESTION_BANK = {
         "venules"
       ],
       "answer": 1,
-      "explanation": "Arteries carry blood away."
+      "explanation": "Arteries carry blood away.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The functional unit of the kidney is the:",
@@ -970,7 +1419,8 @@ const QUESTION_BANK = {
         "villus"
       ],
       "answer": 1,
-      "explanation": "The nephron filters blood."
+      "explanation": "The nephron filters blood.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Which organism is a decomposer?",
@@ -981,7 +1431,8 @@ const QUESTION_BANK = {
         "Eagle"
       ],
       "answer": 2,
-      "explanation": "Mushrooms decompose dead matter."
+      "explanation": "Mushrooms decompose dead matter.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The male reproductive cell in humans is the:",
@@ -992,7 +1443,8 @@ const QUESTION_BANK = {
         "embryo"
       ],
       "answer": 2,
-      "explanation": "The sperm is the male gamete."
+      "explanation": "The sperm is the male gamete.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Inheritance units are called:",
@@ -1003,7 +1455,8 @@ const QUESTION_BANK = {
         "enzymes"
       ],
       "answer": 0,
-      "explanation": "Genes carry hereditary information."
+      "explanation": "Genes carry hereditary information.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Which process releases energy from food in cells?",
@@ -1014,7 +1467,8 @@ const QUESTION_BANK = {
         "excretion"
       ],
       "answer": 0,
-      "explanation": "Cellular respiration releases energy."
+      "explanation": "Cellular respiration releases energy.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The site of gaseous exchange in the lungs is the:",
@@ -1025,7 +1479,8 @@ const QUESTION_BANK = {
         "pleura"
       ],
       "answer": 2,
-      "explanation": "Alveoli allow gas exchange."
+      "explanation": "Alveoli allow gas exchange.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Plants absorb water mainly through the:",
@@ -1036,7 +1491,8 @@ const QUESTION_BANK = {
         "stems"
       ],
       "answer": 2,
-      "explanation": "Root hairs absorb water."
+      "explanation": "Root hairs absorb water.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The backbone is made of:",
@@ -1047,7 +1503,8 @@ const QUESTION_BANK = {
         "tendons"
       ],
       "answer": 1,
-      "explanation": "The vertebral column consists of vertebrae."
+      "explanation": "The vertebral column consists of vertebrae.",
+      "sourceSubject": "biology"
     },
     {
       "question": "A sudden heritable change is called:",
@@ -1058,7 +1515,8 @@ const QUESTION_BANK = {
         "selection"
       ],
       "answer": 0,
-      "explanation": "A mutation is a sudden heritable change."
+      "explanation": "A mutation is a sudden heritable change.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The process by which seedlings emerge from seeds is:",
@@ -1069,7 +1527,8 @@ const QUESTION_BANK = {
         "budding"
       ],
       "answer": 2,
-      "explanation": "Seeds sprout by germination."
+      "explanation": "Seeds sprout by germination.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The pigment responsible for the green color of plants is:",
@@ -1080,7 +1539,8 @@ const QUESTION_BANK = {
         "haemoglobin"
       ],
       "answer": 1,
-      "explanation": "Chlorophyll gives the green color."
+      "explanation": "Chlorophyll gives the green color.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Which of the following is not a function of the skeleton?",
@@ -1091,7 +1551,8 @@ const QUESTION_BANK = {
         "protection"
       ],
       "answer": 2,
-      "explanation": "The skeleton does not digest food."
+      "explanation": "The skeleton does not digest food.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Animals that feed on both plants and animals are:",
@@ -1102,7 +1563,8 @@ const QUESTION_BANK = {
         "parasites"
       ],
       "answer": 1,
-      "explanation": "Omnivores eat both."
+      "explanation": "Omnivores eat both.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The human eye focuses light on the:",
@@ -1113,7 +1575,8 @@ const QUESTION_BANK = {
         "pupil"
       ],
       "answer": 0,
-      "explanation": "Images are formed on the retina."
+      "explanation": "Images are formed on the retina.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The smallest blood vessels are:",
@@ -1124,7 +1587,8 @@ const QUESTION_BANK = {
         "aortae"
       ],
       "answer": 2,
-      "explanation": "Capillaries are microscopic."
+      "explanation": "Capillaries are microscopic.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The transfer of pollen from anther to stigma is:",
@@ -1135,7 +1599,8 @@ const QUESTION_BANK = {
         "germination"
       ],
       "answer": 1,
-      "explanation": "That is pollination."
+      "explanation": "That is pollination.",
+      "sourceSubject": "biology"
     },
     {
       "question": "An example of an excretory product in humans is:",
@@ -1146,7 +1611,8 @@ const QUESTION_BANK = {
         "starch"
       ],
       "answer": 1,
-      "explanation": "Urea is excreted in urine."
+      "explanation": "Urea is excreted in urine.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The part of the brain controlling balance is the:",
@@ -1157,7 +1623,8 @@ const QUESTION_BANK = {
         "spinal cord"
       ],
       "answer": 1,
-      "explanation": "Cerebellum coordinates balance."
+      "explanation": "Cerebellum coordinates balance.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Which of the following is a producer?",
@@ -1168,7 +1635,8 @@ const QUESTION_BANK = {
         "Hawk"
       ],
       "answer": 0,
-      "explanation": "Green plants are producers."
+      "explanation": "Green plants are producers.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The union of male and female gametes forms a:",
@@ -1179,7 +1647,8 @@ const QUESTION_BANK = {
         "bud"
       ],
       "answer": 0,
-      "explanation": "Fusion forms a zygote."
+      "explanation": "Fusion forms a zygote.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Respiration in yeast without oxygen is called:",
@@ -1190,7 +1659,8 @@ const QUESTION_BANK = {
         "diffusion"
       ],
       "answer": 1,
-      "explanation": "Yeast ferments sugar anaerobically."
+      "explanation": "Yeast ferments sugar anaerobically.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The opening and closing of stomata help regulate:",
@@ -1201,7 +1671,8 @@ const QUESTION_BANK = {
         "reproduction"
       ],
       "answer": 1,
-      "explanation": "Stomata control water loss."
+      "explanation": "Stomata control water loss.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The longest bone in the human body is the:",
@@ -1212,7 +1683,8 @@ const QUESTION_BANK = {
         "ulna"
       ],
       "answer": 1,
-      "explanation": "The femur is the longest."
+      "explanation": "The femur is the longest.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The process of removing undigested food is:",
@@ -1223,7 +1695,8 @@ const QUESTION_BANK = {
         "digestion"
       ],
       "answer": 1,
-      "explanation": "Egestion removes undigested food."
+      "explanation": "Egestion removes undigested food.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Which nutrient is mainly for body building?",
@@ -1234,7 +1707,8 @@ const QUESTION_BANK = {
         "water"
       ],
       "answer": 1,
-      "explanation": "Proteins build body tissues."
+      "explanation": "Proteins build body tissues.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Variation among organisms of the same species may arise from:",
@@ -1245,7 +1719,8 @@ const QUESTION_BANK = {
         "only shelter"
       ],
       "answer": 0,
-      "explanation": "Both genes and environment contribute."
+      "explanation": "Both genes and environment contribute.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The protective outer covering of a plant cell is the:",
@@ -1256,7 +1731,8 @@ const QUESTION_BANK = {
         "nucleus"
       ],
       "answer": 1,
-      "explanation": "Plant cells have cell walls."
+      "explanation": "Plant cells have cell walls.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The heartbeat is initiated by the:",
@@ -1267,7 +1743,8 @@ const QUESTION_BANK = {
         "valve"
       ],
       "answer": 1,
-      "explanation": "The sinoatrial node is the natural pacemaker."
+      "explanation": "The sinoatrial node is the natural pacemaker.",
+      "sourceSubject": "biology"
     },
     {
       "question": "A food chain begins with a:",
@@ -1278,7 +1755,8 @@ const QUESTION_BANK = {
         "parasite"
       ],
       "answer": 0,
-      "explanation": "Producers occupy the first level."
+      "explanation": "Producers occupy the first level.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The process by which plants lose water vapour is:",
@@ -1289,7 +1767,8 @@ const QUESTION_BANK = {
         "evaporation"
       ],
       "answer": 2,
-      "explanation": "Plants lose water vapour by transpiration."
+      "explanation": "Plants lose water vapour by transpiration.",
+      "sourceSubject": "biology"
     },
     {
       "question": "Which vitamin helps blood clotting?",
@@ -1300,7 +1779,8 @@ const QUESTION_BANK = {
         "Vitamin K"
       ],
       "answer": 3,
-      "explanation": "Vitamin K aids clotting."
+      "explanation": "Vitamin K aids clotting.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The female part of a flower is the:",
@@ -1311,7 +1791,8 @@ const QUESTION_BANK = {
         "sepal"
       ],
       "answer": 2,
-      "explanation": "Pistil/carpel is the female part."
+      "explanation": "Pistil/carpel is the female part.",
+      "sourceSubject": "biology"
     },
     {
       "question": "The movement response of plant roots towards water is:",
@@ -1322,7 +1803,129 @@ const QUESTION_BANK = {
         "thigmotropism"
       ],
       "answer": 1,
-      "explanation": "Roots respond to water by hydrotropism."
+      "explanation": "Roots respond to water by hydrotropism.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "In the food web shown, the secondary consumer is the",
+      "diagram": "<svg viewBox=\"0 0 360 200\" xmlns=\"http://www.w3.org/2000/svg\"><text x=\"20\" y=\"100\" font-size=\"14\">Grass</text><text x=\"120\" y=\"60\" font-size=\"14\">Grasshopper</text><text x=\"120\" y=\"140\" font-size=\"14\">Rabbit</text><text x=\"245\" y=\"100\" font-size=\"14\">Snake</text><text x=\"305\" y=\"55\" font-size=\"14\">Hawk</text><line x1=\"70\" y1=\"95\" x2=\"135\" y2=\"65\" stroke=\"#182230\" marker-end=\"url(#a)\"/><line x1=\"70\" y1=\"100\" x2=\"135\" y2=\"135\" stroke=\"#182230\" marker-end=\"url(#a)\"/><line x1=\"205\" y1=\"65\" x2=\"250\" y2=\"92\" stroke=\"#182230\" marker-end=\"url(#a)\"/><line x1=\"180\" y1=\"135\" x2=\"250\" y2=\"108\" stroke=\"#182230\" marker-end=\"url(#a)\"/><line x1=\"285\" y1=\"92\" x2=\"320\" y2=\"60\" stroke=\"#182230\" marker-end=\"url(#a)\"/><defs><marker id=\"a\" markerWidth=\"8\" markerHeight=\"8\" refX=\"7\" refY=\"4\" orient=\"auto\"><polygon points=\"0 0, 8 4, 0 8\" fill=\"#182230\"/></marker></defs></svg>",
+      "options": [
+        "grass",
+        "rabbit",
+        "snake",
+        "hawk"
+      ],
+      "answer": 2,
+      "explanation": "The snake feeds on primary consumers such as the rabbit and grasshopper, so it is a secondary consumer.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "Which organelle is mainly responsible for aerobic respiration in a cell?",
+      "options": [
+        "Ribosome",
+        "Golgi body",
+        "Mitochondrion",
+        "Lysosome"
+      ],
+      "answer": 2,
+      "explanation": "Most aerobic respiration takes place in the mitochondrion.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "Transpiration is important to plants because it helps in",
+      "options": [
+        "storing starch",
+        "cooling the plant and moving water upward",
+        "producing seeds only",
+        "preventing respiration"
+      ],
+      "answer": 1,
+      "explanation": "Transpiration produces a pull that helps water movement and also cools the plant.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "A cross between two heterozygous tall pea plants (Tt × Tt) will produce dwarf offspring in the ratio",
+      "options": [
+        "1/4",
+        "1/2",
+        "3/4",
+        "1"
+      ],
+      "answer": 0,
+      "explanation": "The genotype ratio is 1 TT : 2 Tt : 1 tt, so dwarf offspring (tt) make up 1/4.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "Which blood vessel carries oxygenated blood from the lungs to the heart?",
+      "options": [
+        "Pulmonary artery",
+        "Pulmonary vein",
+        "Aorta",
+        "Vena cava"
+      ],
+      "answer": 1,
+      "explanation": "The pulmonary vein returns oxygenated blood to the left atrium.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "The process by which green plants manufacture food is called",
+      "options": [
+        "respiration",
+        "diffusion",
+        "photosynthesis",
+        "translocation"
+      ],
+      "answer": 2,
+      "explanation": "Photosynthesis uses light energy to make glucose.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "Which of the following is a characteristic feature of mammals?",
+      "options": [
+        "Scales",
+        "Gills",
+        "Mammary glands",
+        "External fertilization"
+      ],
+      "answer": 2,
+      "explanation": "Mammals possess mammary glands for feeding their young.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "When a red blood cell is placed in distilled water, it is likely to",
+      "options": [
+        "shrink",
+        "remain unchanged",
+        "burst due to osmosis",
+        "lose haemoglobin by diffusion only"
+      ],
+      "answer": 2,
+      "explanation": "Water enters the cell by osmosis, causing it to swell and possibly burst.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "The major function of the xylem in flowering plants is to transport",
+      "options": [
+        "manufactured food",
+        "water and mineral salts",
+        "oxygen only",
+        "pollen grains"
+      ],
+      "answer": 1,
+      "explanation": "Xylem mainly carries water and dissolved minerals from the roots.",
+      "sourceSubject": "biology"
+    },
+    {
+      "question": "Which of the following relationships is parasitic?",
+      "options": [
+        "Lichen on tree bark",
+        "Tapeworm in the intestine of man",
+        "Bee visiting flower",
+        "Remora fish with shark"
+      ],
+      "answer": 1,
+      "explanation": "The tapeworm benefits while the host is harmed.",
+      "sourceSubject": "biology"
     }
   ],
   "government": [
@@ -1335,7 +1938,8 @@ const QUESTION_BANK = {
         "Marx"
       ],
       "answer": 1,
-      "explanation": "This popular definition is credited to Abraham Lincoln."
+      "explanation": "This popular definition is credited to Abraham Lincoln.",
+      "sourceSubject": "government"
     },
     {
       "question": "The main function of the legislature is to:",
@@ -1346,7 +1950,8 @@ const QUESTION_BANK = {
         "conduct census"
       ],
       "answer": 2,
-      "explanation": "The legislature makes laws."
+      "explanation": "The legislature makes laws.",
+      "sourceSubject": "government"
     },
     {
       "question": "A rigid constitution is one that is:",
@@ -1357,7 +1962,8 @@ const QUESTION_BANK = {
         "military"
       ],
       "answer": 1,
-      "explanation": "It requires special amendment procedures."
+      "explanation": "It requires special amendment procedures.",
+      "sourceSubject": "government"
     },
     {
       "question": "The doctrine of separation of powers is associated with:",
@@ -1368,7 +1974,8 @@ const QUESTION_BANK = {
         "Lenin"
       ],
       "answer": 0,
-      "explanation": "Montesquieu popularized it."
+      "explanation": "Montesquieu popularized it.",
+      "sourceSubject": "government"
     },
     {
       "question": "Rule of law means that:",
@@ -1379,7 +1986,8 @@ const QUESTION_BANK = {
         "police make laws"
       ],
       "answer": 1,
-      "explanation": "Equality before the law is central."
+      "explanation": "Equality before the law is central.",
+      "sourceSubject": "government"
     },
     {
       "question": "Federalism shares powers between:",
@@ -1390,7 +1998,8 @@ const QUESTION_BANK = {
         "cabinet and parliament"
       ],
       "answer": 2,
-      "explanation": "Powers are divided between levels of government."
+      "explanation": "Powers are divided between levels of government.",
+      "sourceSubject": "government"
     },
     {
       "question": "Universal adult suffrage means:",
@@ -1401,7 +2010,8 @@ const QUESTION_BANK = {
         "only taxpayers vote"
       ],
       "answer": 0,
-      "explanation": "It grants voting rights to qualified adults."
+      "explanation": "It grants voting rights to qualified adults.",
+      "sourceSubject": "government"
     },
     {
       "question": "The executive is mainly responsible for:",
@@ -1412,7 +2022,8 @@ const QUESTION_BANK = {
         "constitutional drafting"
       ],
       "answer": 1,
-      "explanation": "The executive carries out laws and policies."
+      "explanation": "The executive carries out laws and policies.",
+      "sourceSubject": "government"
     },
     {
       "question": "An electoral commission conducts:",
@@ -1423,7 +2034,8 @@ const QUESTION_BANK = {
         "military drills"
       ],
       "answer": 1,
-      "explanation": "It organizes elections."
+      "explanation": "It organizes elections.",
+      "sourceSubject": "government"
     },
     {
       "question": "A cabinet in a presidential system consists mainly of:",
@@ -1434,7 +2046,8 @@ const QUESTION_BANK = {
         "senators only"
       ],
       "answer": 1,
-      "explanation": "Cabinet members are ministers/commissioners."
+      "explanation": "Cabinet members are ministers/commissioners.",
+      "sourceSubject": "government"
     },
     {
       "question": "The highest law of a state is the:",
@@ -1445,7 +2058,8 @@ const QUESTION_BANK = {
         "budget"
       ],
       "answer": 1,
-      "explanation": "The constitution is supreme."
+      "explanation": "The constitution is supreme.",
+      "sourceSubject": "government"
     },
     {
       "question": "A one-party state is criticized because it may encourage:",
@@ -1456,7 +2070,8 @@ const QUESTION_BANK = {
         "neutrality"
       ],
       "answer": 1,
-      "explanation": "It can suppress opposition."
+      "explanation": "It can suppress opposition.",
+      "sourceSubject": "government"
     },
     {
       "question": "The judiciary interprets:",
@@ -1467,7 +2082,8 @@ const QUESTION_BANK = {
         "manifestoes"
       ],
       "answer": 1,
-      "explanation": "Interpreting laws is its core role."
+      "explanation": "Interpreting laws is its core role.",
+      "sourceSubject": "government"
     },
     {
       "question": "A referendum is a:",
@@ -1478,7 +2094,8 @@ const QUESTION_BANK = {
         "party convention"
       ],
       "answer": 1,
-      "explanation": "Citizens vote directly on a major issue."
+      "explanation": "Citizens vote directly on a major issue.",
+      "sourceSubject": "government"
     },
     {
       "question": "The term bicameral legislature means:",
@@ -1489,7 +2106,8 @@ const QUESTION_BANK = {
         "two constitutions"
       ],
       "answer": 1,
-      "explanation": "Bicameral means two legislative houses."
+      "explanation": "Bicameral means two legislative houses.",
+      "sourceSubject": "government"
     },
     {
       "question": "The upper chamber of Nigeria's National Assembly is the:",
@@ -1500,7 +2118,8 @@ const QUESTION_BANK = {
         "Council of State"
       ],
       "answer": 1,
-      "explanation": "The upper house is the Senate."
+      "explanation": "The upper house is the Senate.",
+      "sourceSubject": "government"
     },
     {
       "question": "Pressure groups aim mainly to:",
@@ -1511,7 +2130,8 @@ const QUESTION_BANK = {
         "appoint judges"
       ],
       "answer": 1,
-      "explanation": "They influence policy."
+      "explanation": "They influence policy.",
+      "sourceSubject": "government"
     },
     {
       "question": "A written constitution is one that is:",
@@ -1522,7 +2142,8 @@ const QUESTION_BANK = {
         "temporary"
       ],
       "answer": 1,
-      "explanation": "Its provisions are contained in written documents."
+      "explanation": "Its provisions are contained in written documents.",
+      "sourceSubject": "government"
     },
     {
       "question": "Delegated legislation is law made by:",
@@ -1533,7 +2154,8 @@ const QUESTION_BANK = {
         "foreign governments"
       ],
       "answer": 1,
-      "explanation": "It is made by bodies empowered by parliament."
+      "explanation": "It is made by bodies empowered by parliament.",
+      "sourceSubject": "government"
     },
     {
       "question": "The principle of checks and balances prevents:",
@@ -1544,7 +2166,8 @@ const QUESTION_BANK = {
         "cabinet formation"
       ],
       "answer": 1,
-      "explanation": "It helps prevent excesses."
+      "explanation": "It helps prevent excesses.",
+      "sourceSubject": "government"
     },
     {
       "question": "In a parliamentary system, the head of government is the:",
@@ -1555,7 +2178,8 @@ const QUESTION_BANK = {
         "speaker"
       ],
       "answer": 1,
-      "explanation": "The prime minister heads government."
+      "explanation": "The prime minister heads government.",
+      "sourceSubject": "government"
     },
     {
       "question": "Political socialization refers to:",
@@ -1566,7 +2190,8 @@ const QUESTION_BANK = {
         "party registration"
       ],
       "answer": 1,
-      "explanation": "Citizens learn political culture."
+      "explanation": "Citizens learn political culture.",
+      "sourceSubject": "government"
     },
     {
       "question": "A state is distinguished from a nation because a state must have:",
@@ -1577,7 +2202,8 @@ const QUESTION_BANK = {
         "one ethnic group"
       ],
       "answer": 1,
-      "explanation": "Sovereignty and territory are essential."
+      "explanation": "Sovereignty and territory are essential.",
+      "sourceSubject": "government"
     },
     {
       "question": "Sovereignty means:",
@@ -1588,7 +2214,8 @@ const QUESTION_BANK = {
         "judicial power"
       ],
       "answer": 1,
-      "explanation": "It is supreme power."
+      "explanation": "It is supreme power.",
+      "sourceSubject": "government"
     },
     {
       "question": "An unwritten constitution is best described as:",
@@ -1599,7 +2226,8 @@ const QUESTION_BANK = {
         "military"
       ],
       "answer": 1,
-      "explanation": "It exists in conventions, statutes, decisions."
+      "explanation": "It exists in conventions, statutes, decisions.",
+      "sourceSubject": "government"
     },
     {
       "question": "Public opinion is important in democracy because it:",
@@ -1610,7 +2238,8 @@ const QUESTION_BANK = {
         "stops legislation"
       ],
       "answer": 1,
-      "explanation": "Governments often respond to public opinion."
+      "explanation": "Governments often respond to public opinion.",
+      "sourceSubject": "government"
     },
     {
       "question": "A coup d'etat is the:",
@@ -1621,7 +2250,8 @@ const QUESTION_BANK = {
         "court judgment"
       ],
       "answer": 1,
-      "explanation": "It is an unconstitutional takeover."
+      "explanation": "It is an unconstitutional takeover.",
+      "sourceSubject": "government"
     },
     {
       "question": "The manifesto of a political party outlines its:",
@@ -1632,7 +2262,8 @@ const QUESTION_BANK = {
         "tax receipts"
       ],
       "answer": 1,
-      "explanation": "A manifesto states proposed policies."
+      "explanation": "A manifesto states proposed policies.",
+      "sourceSubject": "government"
     },
     {
       "question": "Local government is created mainly to:",
@@ -1643,7 +2274,8 @@ const QUESTION_BANK = {
         "appoint governors"
       ],
       "answer": 1,
-      "explanation": "It decentralizes administration."
+      "explanation": "It decentralizes administration.",
+      "sourceSubject": "government"
     },
     {
       "question": "The civil service is expected to be:",
@@ -1654,7 +2286,8 @@ const QUESTION_BANK = {
         "temporary"
       ],
       "answer": 1,
-      "explanation": "Neutrality and anonymity are key features."
+      "explanation": "Neutrality and anonymity are key features.",
+      "sourceSubject": "government"
     },
     {
       "question": "Franchise means:",
@@ -1665,7 +2298,8 @@ const QUESTION_BANK = {
         "court appeal"
       ],
       "answer": 1,
-      "explanation": "Franchise is the voting right."
+      "explanation": "Franchise is the voting right.",
+      "sourceSubject": "government"
     },
     {
       "question": "An ombudsman investigates:",
@@ -1676,7 +2310,8 @@ const QUESTION_BANK = {
         "budget speeches"
       ],
       "answer": 1,
-      "explanation": "The ombudsman handles administrative complaints."
+      "explanation": "The ombudsman handles administrative complaints.",
+      "sourceSubject": "government"
     },
     {
       "question": "The term 'quorum' means:",
@@ -1687,7 +2322,8 @@ const QUESTION_BANK = {
         "judicial panel"
       ],
       "answer": 1,
-      "explanation": "Quorum is the required minimum attendance."
+      "explanation": "Quorum is the required minimum attendance.",
+      "sourceSubject": "government"
     },
     {
       "question": "The body that interprets the constitution in many states is the:",
@@ -1698,7 +2334,8 @@ const QUESTION_BANK = {
         "cabinet"
       ],
       "answer": 1,
-      "explanation": "Courts interpret the constitution."
+      "explanation": "Courts interpret the constitution.",
+      "sourceSubject": "government"
     },
     {
       "question": "A confederation is a union of:",
@@ -1709,7 +2346,8 @@ const QUESTION_BANK = {
         "villages"
       ],
       "answer": 1,
-      "explanation": "Member states retain much sovereignty."
+      "explanation": "Member states retain much sovereignty.",
+      "sourceSubject": "government"
     },
     {
       "question": "The secret ballot helps to ensure:",
@@ -1720,7 +2358,8 @@ const QUESTION_BANK = {
         "direct democracy"
       ],
       "answer": 1,
-      "explanation": "It protects the voter from intimidation."
+      "explanation": "It protects the voter from intimidation.",
+      "sourceSubject": "government"
     },
     {
       "question": "A legislature with one chamber is called:",
@@ -1731,7 +2370,8 @@ const QUESTION_BANK = {
         "unitary"
       ],
       "answer": 1,
-      "explanation": "One chamber is unicameral."
+      "explanation": "One chamber is unicameral.",
+      "sourceSubject": "government"
     },
     {
       "question": "Citizenship may be acquired by birth, registration and:",
@@ -1742,7 +2382,8 @@ const QUESTION_BANK = {
         "appointment"
       ],
       "answer": 1,
-      "explanation": "Naturalization is a route to citizenship."
+      "explanation": "Naturalization is a route to citizenship.",
+      "sourceSubject": "government"
     },
     {
       "question": "The main aim of opposition parties in parliament is to:",
@@ -1753,7 +2394,8 @@ const QUESTION_BANK = {
         "run ministries"
       ],
       "answer": 1,
-      "explanation": "Opposition checks the government."
+      "explanation": "Opposition checks the government.",
+      "sourceSubject": "government"
     },
     {
       "question": "Public corporations are established mainly to:",
@@ -1764,7 +2406,128 @@ const QUESTION_BANK = {
         "try criminal cases"
       ],
       "answer": 1,
-      "explanation": "They deliver public services."
+      "explanation": "They deliver public services.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "A constitution is said to be rigid when it",
+      "options": [
+        "is written in difficult language",
+        "cannot be amended at all",
+        "requires a special procedure for amendment",
+        "is practiced only in federal states"
+      ],
+      "answer": 2,
+      "explanation": "A rigid constitution is amended through a process stricter than ordinary law-making.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "The doctrine of separation of powers is associated with",
+      "options": [
+        "A. V. Dicey",
+        "Montesquieu",
+        "Jean Bodin",
+        "Harold Laski"
+      ],
+      "answer": 1,
+      "explanation": "Montesquieu strongly developed the doctrine of separation of powers.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "In a parliamentary system, the head of government is the",
+      "options": [
+        "President",
+        "Prime Minister",
+        "Chief Justice",
+        "Speaker"
+      ],
+      "answer": 1,
+      "explanation": "The prime minister leads the government in a parliamentary system.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "An electoral system in which the candidate with the highest votes wins is called",
+      "options": [
+        "proportional representation",
+        "referendum",
+        "first-past-the-post",
+        "recall"
+      ],
+      "answer": 2,
+      "explanation": "First-past-the-post awards victory to the candidate with the most votes.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "One major feature of a federal state is the",
+      "options": [
+        "concentration of power at the centre",
+        "division of powers between levels of government",
+        "absence of a constitution",
+        "non-existence of local government"
+      ],
+      "answer": 1,
+      "explanation": "Federalism divides powers constitutionally between central and regional governments.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "The primary responsibility of the judiciary is to",
+      "options": [
+        "execute laws",
+        "interpret laws",
+        "make laws",
+        "conduct elections"
+      ],
+      "answer": 1,
+      "explanation": "Courts interpret laws and settle disputes.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "Public opinion can best be described as the",
+      "options": [
+        "decision of judges only",
+        "view of pressure groups alone",
+        "aggregate views held by the people on public issues",
+        "policy of the ruling party"
+      ],
+      "answer": 2,
+      "explanation": "Public opinion refers to the broad views of citizens on issues of concern.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "A bicameral legislature consists of",
+      "options": [
+        "two political parties",
+        "two chambers",
+        "two constitutions",
+        "two heads of state"
+      ],
+      "answer": 1,
+      "explanation": "Bicameral means having two legislative houses.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "Rule of law implies that",
+      "options": [
+        "government officials are above the law",
+        "only judges make law",
+        "everyone is subject to the law",
+        "military decrees override all rights"
+      ],
+      "answer": 2,
+      "explanation": "Under the rule of law, no one is above the law.",
+      "sourceSubject": "government"
+    },
+    {
+      "question": "The main purpose of checks and balances in government is to",
+      "options": [
+        "increase taxation",
+        "prevent abuse of power",
+        "abolish opposition parties",
+        "strengthen military rule"
+      ],
+      "answer": 1,
+      "explanation": "Checks and balances help stop any branch from becoming too powerful.",
+      "sourceSubject": "government"
     }
   ],
   "physics": [
@@ -1777,7 +2540,8 @@ const QUESTION_BANK = {
         "pascal"
       ],
       "answer": 1,
-      "explanation": "Force is measured in newtons."
+      "explanation": "Force is measured in newtons.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Speed is distance divided by:",
@@ -1788,7 +2552,8 @@ const QUESTION_BANK = {
         "temperature"
       ],
       "answer": 1,
-      "explanation": "Speed = distance/time."
+      "explanation": "Speed = distance/time.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The instrument used to measure temperature is a:",
@@ -1799,7 +2564,8 @@ const QUESTION_BANK = {
         "voltmeter"
       ],
       "answer": 1,
-      "explanation": "A thermometer measures temperature."
+      "explanation": "A thermometer measures temperature.",
+      "sourceSubject": "physics"
     },
     {
       "question": "A body remains at rest or in uniform motion unless acted upon by a force. This is:",
@@ -1810,7 +2576,8 @@ const QUESTION_BANK = {
         "Archimedes' principle"
       ],
       "answer": 0,
-      "explanation": "That statement is Newton's first law."
+      "explanation": "That statement is Newton's first law.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The unit of electrical current is:",
@@ -1821,7 +2588,8 @@ const QUESTION_BANK = {
         "coulomb"
       ],
       "answer": 1,
-      "explanation": "Current is measured in amperes."
+      "explanation": "Current is measured in amperes.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Energy possessed by a body due to motion is:",
@@ -1832,7 +2600,8 @@ const QUESTION_BANK = {
         "nuclear"
       ],
       "answer": 2,
-      "explanation": "Moving bodies have kinetic energy."
+      "explanation": "Moving bodies have kinetic energy.",
+      "sourceSubject": "physics"
     },
     {
       "question": "A mirror that converges light is a:",
@@ -1843,7 +2612,8 @@ const QUESTION_BANK = {
         "rough mirror"
       ],
       "answer": 2,
-      "explanation": "A concave mirror converges parallel rays."
+      "explanation": "A concave mirror converges parallel rays.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The acceleration due to gravity near Earth's surface is about:",
@@ -1854,7 +2624,8 @@ const QUESTION_BANK = {
         "98 m/s²"
       ],
       "answer": 2,
-      "explanation": "Standard g is approximately 9.8 m/s²."
+      "explanation": "Standard g is approximately 9.8 m/s².",
+      "sourceSubject": "physics"
     },
     {
       "question": "The pressure in a liquid increases with:",
@@ -1865,7 +2636,8 @@ const QUESTION_BANK = {
         "surface area only"
       ],
       "answer": 0,
-      "explanation": "Pressure rises with depth."
+      "explanation": "Pressure rises with depth.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The unit of power is:",
@@ -1876,7 +2648,8 @@ const QUESTION_BANK = {
         "tesla"
       ],
       "answer": 0,
-      "explanation": "Power is measured in watts."
+      "explanation": "Power is measured in watts.",
+      "sourceSubject": "physics"
     },
     {
       "question": "When white light passes through a prism it is:",
@@ -1887,7 +2660,8 @@ const QUESTION_BANK = {
         "polarized"
       ],
       "answer": 1,
-      "explanation": "A prism disperses white light."
+      "explanation": "A prism disperses white light.",
+      "sourceSubject": "physics"
     },
     {
       "question": "A device used to detect electric current is the:",
@@ -1898,7 +2672,8 @@ const QUESTION_BANK = {
         "manometer"
       ],
       "answer": 0,
-      "explanation": "Galvanometers detect small currents."
+      "explanation": "Galvanometers detect small currents.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The image formed by a plane mirror is:",
@@ -1909,7 +2684,8 @@ const QUESTION_BANK = {
         "virtual and inverted"
       ],
       "answer": 1,
-      "explanation": "Plane mirrors form virtual upright images."
+      "explanation": "Plane mirrors form virtual upright images.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Density is mass divided by:",
@@ -1920,7 +2696,8 @@ const QUESTION_BANK = {
         "time"
       ],
       "answer": 0,
-      "explanation": "Density = mass/volume."
+      "explanation": "Density = mass/volume.",
+      "sourceSubject": "physics"
     },
     {
       "question": "A substance that allows heat to pass through easily is a:",
@@ -1931,7 +2708,8 @@ const QUESTION_BANK = {
         "magnet"
       ],
       "answer": 0,
-      "explanation": "Conductors transmit heat readily."
+      "explanation": "Conductors transmit heat readily.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The frequency of a wave is measured in:",
@@ -1942,7 +2720,8 @@ const QUESTION_BANK = {
         "metre"
       ],
       "answer": 1,
-      "explanation": "Frequency unit is hertz."
+      "explanation": "Frequency unit is hertz.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The force that opposes motion between surfaces is:",
@@ -1953,7 +2732,8 @@ const QUESTION_BANK = {
         "thrust"
       ],
       "answer": 1,
-      "explanation": "Friction resists motion."
+      "explanation": "Friction resists motion.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The unit of resistance is:",
@@ -1964,7 +2744,8 @@ const QUESTION_BANK = {
         "farad"
       ],
       "answer": 2,
-      "explanation": "Resistance is measured in ohms."
+      "explanation": "Resistance is measured in ohms.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Heat transfer by direct contact is called:",
@@ -1975,7 +2756,8 @@ const QUESTION_BANK = {
         "diffusion"
       ],
       "answer": 1,
-      "explanation": "Conduction is direct contact transfer."
+      "explanation": "Conduction is direct contact transfer.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The lever has a mechanical advantage of 4 if:",
@@ -1986,7 +2768,8 @@ const QUESTION_BANK = {
         "work output is greater than input"
       ],
       "answer": 0,
-      "explanation": "Mechanical advantage = load/effort."
+      "explanation": "Mechanical advantage = load/effort.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Sound cannot travel through:",
@@ -1997,7 +2780,8 @@ const QUESTION_BANK = {
         "steel"
       ],
       "answer": 2,
-      "explanation": "Sound needs a material medium."
+      "explanation": "Sound needs a material medium.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The center of mass of a uniform metre rule is at:",
@@ -2008,7 +2792,8 @@ const QUESTION_BANK = {
         "100 cm mark"
       ],
       "answer": 1,
-      "explanation": "Uniform rule balances at the midpoint."
+      "explanation": "Uniform rule balances at the midpoint.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Current in a metallic conductor is due to movement of:",
@@ -2019,7 +2804,8 @@ const QUESTION_BANK = {
         "photons"
       ],
       "answer": 1,
-      "explanation": "Free electrons carry current."
+      "explanation": "Free electrons carry current.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The turning effect of a force is called:",
@@ -2030,7 +2816,8 @@ const QUESTION_BANK = {
         "impulse"
       ],
       "answer": 1,
-      "explanation": "Moment = force × perpendicular distance."
+      "explanation": "Moment = force × perpendicular distance.",
+      "sourceSubject": "physics"
     },
     {
       "question": "An object floats in water when its:",
@@ -2041,7 +2828,8 @@ const QUESTION_BANK = {
         "mass is zero"
       ],
       "answer": 2,
-      "explanation": "Floating occurs when upthrust balances weight."
+      "explanation": "Floating occurs when upthrust balances weight.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The slope of a distance-time graph gives:",
@@ -2052,7 +2840,8 @@ const QUESTION_BANK = {
         "pressure"
       ],
       "answer": 1,
-      "explanation": "Distance-time slope gives speed/velocity."
+      "explanation": "Distance-time slope gives speed/velocity.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The eye defect corrected with a concave lens is:",
@@ -2063,7 +2852,8 @@ const QUESTION_BANK = {
         "presbyopia only"
       ],
       "answer": 1,
-      "explanation": "Short-sightedness uses a concave lens."
+      "explanation": "Short-sightedness uses a concave lens.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Ohm's law states that current is proportional to voltage at constant:",
@@ -2074,7 +2864,8 @@ const QUESTION_BANK = {
         "volume"
       ],
       "answer": 2,
-      "explanation": "Ohm's law holds at constant temperature."
+      "explanation": "Ohm's law holds at constant temperature.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The rate of doing work is:",
@@ -2085,7 +2876,8 @@ const QUESTION_BANK = {
         "impulse"
       ],
       "answer": 1,
-      "explanation": "Power is the rate of doing work."
+      "explanation": "Power is the rate of doing work.",
+      "sourceSubject": "physics"
     },
     {
       "question": "A wave in which particles vibrate parallel to direction of travel is:",
@@ -2096,7 +2888,8 @@ const QUESTION_BANK = {
         "electromagnetic"
       ],
       "answer": 1,
-      "explanation": "That describes a longitudinal wave."
+      "explanation": "That describes a longitudinal wave.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The quantity of matter in a body is its:",
@@ -2107,7 +2900,8 @@ const QUESTION_BANK = {
         "volume"
       ],
       "answer": 1,
-      "explanation": "Mass is the amount of matter."
+      "explanation": "Mass is the amount of matter.",
+      "sourceSubject": "physics"
     },
     {
       "question": "A transformer works with:",
@@ -2118,7 +2912,8 @@ const QUESTION_BANK = {
         "static charge"
       ],
       "answer": 1,
-      "explanation": "Transformers require alternating current."
+      "explanation": "Transformers require alternating current.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The SI unit of pressure is:",
@@ -2129,7 +2924,8 @@ const QUESTION_BANK = {
         "watt"
       ],
       "answer": 2,
-      "explanation": "Pressure is measured in pascals."
+      "explanation": "Pressure is measured in pascals.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The rainbow is formed mainly due to:",
@@ -2140,7 +2936,8 @@ const QUESTION_BANK = {
         "magnetism"
       ],
       "answer": 1,
-      "explanation": "Water droplets disperse and reflect light."
+      "explanation": "Water droplets disperse and reflect light.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The boiling point of pure water at standard pressure is:",
@@ -2151,7 +2948,8 @@ const QUESTION_BANK = {
         "2120°C"
       ],
       "answer": 2,
-      "explanation": "Pure water boils at 100°C."
+      "explanation": "Pure water boils at 100°C.",
+      "sourceSubject": "physics"
     },
     {
       "question": "A positively charged rod attracts a neutral object mainly because of:",
@@ -2162,7 +2960,8 @@ const QUESTION_BANK = {
         "magnetization"
       ],
       "answer": 0,
-      "explanation": "Charges are redistributed by induction."
+      "explanation": "Charges are redistributed by induction.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The fuse in an electric circuit is used to:",
@@ -2173,7 +2972,8 @@ const QUESTION_BANK = {
         "store charge"
       ],
       "answer": 2,
-      "explanation": "A fuse melts when current is too high."
+      "explanation": "A fuse melts when current is too high.",
+      "sourceSubject": "physics"
     },
     {
       "question": "Work done is force multiplied by:",
@@ -2184,7 +2984,8 @@ const QUESTION_BANK = {
         "mass"
       ],
       "answer": 1,
-      "explanation": "W = F × distance in force direction."
+      "explanation": "W = F × distance in force direction.",
+      "sourceSubject": "physics"
     },
     {
       "question": "The atmosphere exerts pressure because air has:",
@@ -2195,7 +2996,8 @@ const QUESTION_BANK = {
         "light only"
       ],
       "answer": 1,
-      "explanation": "Air has mass, so it exerts pressure."
+      "explanation": "Air has mass, so it exerts pressure.",
+      "sourceSubject": "physics"
     },
     {
       "question": "When a stone is thrown upward, its velocity at the highest point is:",
@@ -2206,7 +3008,130 @@ const QUESTION_BANK = {
         "negative infinity"
       ],
       "answer": 2,
-      "explanation": "Instantaneous velocity becomes zero at the top."
+      "explanation": "Instantaneous velocity becomes zero at the top.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "The velocity-time graph shown has a horizontal section between t = 4 s and t = 7 s. During that interval, the body is",
+      "diagram": "<svg viewBox=\"0 0 320 200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"40\" y1=\"170\" x2=\"290\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><polyline points=\"40,170 90,140 150,90 220,90 270,50\" fill=\"none\" stroke=\"#155eef\" stroke-width=\"3\"/><line x1=\"150\" y1=\"90\" x2=\"150\" y2=\"170\" stroke=\"#98a2b3\" stroke-dasharray=\"5 5\"/><line x1=\"220\" y1=\"90\" x2=\"220\" y2=\"170\" stroke=\"#98a2b3\" stroke-dasharray=\"5 5\"/><text x=\"12\" y=\"28\" font-size=\"12\">v(m/s)</text><text x=\"255\" y=\"190\" font-size=\"12\">t(s)</text></svg>",
+      "options": [
+        "accelerating uniformly",
+        "retarding uniformly",
+        "moving with constant velocity",
+        "at rest"
+      ],
+      "answer": 2,
+      "explanation": "A horizontal line on a velocity-time graph means constant velocity.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "In the circuit shown, if the battery has emf 12 V and the resistor is 3 Ω, the current in the circuit is",
+      "diagram": "<svg viewBox=\"0 0 360 170\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M30 85 H90 M130 85 H210 M250 85 H330 V135 H30 Z\" fill=\"none\" stroke=\"#182230\" stroke-width=\"3\"/><line x1=\"90\" y1=\"65\" x2=\"90\" y2=\"105\" stroke=\"#182230\" stroke-width=\"3\"/><line x1=\"110\" y1=\"55\" x2=\"110\" y2=\"115\" stroke=\"#182230\" stroke-width=\"3\"/><line x1=\"130\" y1=\"65\" x2=\"130\" y2=\"105\" stroke=\"#182230\" stroke-width=\"3\"/><rect x=\"210\" y=\"68\" width=\"40\" height=\"34\" fill=\"none\" stroke=\"#155eef\" stroke-width=\"3\" rx=\"4\"/><text x=\"219\" y=\"88\" font-size=\"13\">R</text><text x=\"96\" y=\"46\" font-size=\"12\">Battery</text></svg>",
+      "options": [
+        "2 A",
+        "3 A",
+        "4 A",
+        "5 A"
+      ],
+      "answer": 2,
+      "explanation": "By Ohm's law, I = V/R = 12/3 = 4 A.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "A body of mass 2 kg is acted upon by a constant force of 10 N. Its acceleration is",
+      "options": [
+        "0.2 m/s²",
+        "2 m/s²",
+        "5 m/s²",
+        "20 m/s²"
+      ],
+      "answer": 2,
+      "explanation": "Using F = ma, a = 10/2 = 5 m/s².",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "The image formed by a plane mirror is",
+      "options": [
+        "real and inverted",
+        "virtual and upright",
+        "real and magnified",
+        "virtual and inverted"
+      ],
+      "answer": 1,
+      "explanation": "A plane mirror produces a virtual, upright image.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "The unit of power is",
+      "options": [
+        "joule",
+        "newton",
+        "watt",
+        "pascal"
+      ],
+      "answer": 2,
+      "explanation": "Power is measured in watts.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "A transformer will not operate with",
+      "options": [
+        "alternating current",
+        "changing magnetic flux",
+        "mutual induction",
+        "direct current only"
+      ],
+      "answer": 3,
+      "explanation": "A transformer requires changing current and flux; steady direct current will not induce emf in the secondary.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "The momentum of a body is the product of its",
+      "options": [
+        "mass and velocity",
+        "mass and acceleration",
+        "weight and velocity",
+        "force and time"
+      ],
+      "answer": 0,
+      "explanation": "Momentum p = mv.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "A sound wave cannot travel through",
+      "options": [
+        "air",
+        "water",
+        "steel",
+        "vacuum"
+      ],
+      "answer": 3,
+      "explanation": "Sound requires a material medium to travel.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "When a ray of light passes from air into glass, it bends towards the normal because its",
+      "options": [
+        "speed increases",
+        "frequency increases",
+        "speed decreases",
+        "wavelength remains the same"
+      ],
+      "answer": 2,
+      "explanation": "Light slows down in the denser medium, so it bends towards the normal.",
+      "sourceSubject": "physics"
+    },
+    {
+      "question": "If the frequency of a wave is doubled while the wave speed remains constant, the wavelength becomes",
+      "options": [
+        "doubled",
+        "halved",
+        "quadrupled",
+        "unchanged"
+      ],
+      "answer": 1,
+      "explanation": "Since v = fλ, if v is constant and f doubles, λ is halved.",
+      "sourceSubject": "physics"
     }
   ],
   "chemistry": [
@@ -2219,7 +3144,8 @@ const QUESTION_BANK = {
         "compound"
       ],
       "answer": 0,
-      "explanation": "Atoms are the basic particles of elements."
+      "explanation": "Atoms are the basic particles of elements.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "Water is a:",
@@ -2230,7 +3156,8 @@ const QUESTION_BANK = {
         "radical"
       ],
       "answer": 1,
-      "explanation": "Water is a compound of hydrogen and oxygen."
+      "explanation": "Water is a compound of hydrogen and oxygen.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The chemical symbol for sodium is:",
@@ -2241,7 +3168,8 @@ const QUESTION_BANK = {
         "N"
       ],
       "answer": 2,
-      "explanation": "Sodium is represented by Na."
+      "explanation": "Sodium is represented by Na.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "An acid turns blue litmus paper:",
@@ -2252,7 +3180,8 @@ const QUESTION_BANK = {
         "black"
       ],
       "answer": 1,
-      "explanation": "Acids turn blue litmus red."
+      "explanation": "Acids turn blue litmus red.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The pH of a neutral solution is:",
@@ -2263,7 +3192,8 @@ const QUESTION_BANK = {
         "14"
       ],
       "answer": 2,
-      "explanation": "Neutral solutions have pH 7."
+      "explanation": "Neutral solutions have pH 7.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The gas evolved when dilute acid reacts with a metal is:",
@@ -2274,7 +3204,8 @@ const QUESTION_BANK = {
         "nitrogen"
       ],
       "answer": 1,
-      "explanation": "Many metals liberate hydrogen with dilute acids."
+      "explanation": "Many metals liberate hydrogen with dilute acids.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The atomic number of an element equals the number of:",
@@ -2285,7 +3216,8 @@ const QUESTION_BANK = {
         "shells"
       ],
       "answer": 1,
-      "explanation": "Atomic number is the proton number and equals electrons in neutral atoms."
+      "explanation": "Atomic number is the proton number and equals electrons in neutral atoms.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "A substance that speeds up a reaction without being used up is a:",
@@ -2296,7 +3228,8 @@ const QUESTION_BANK = {
         "precipitate"
       ],
       "answer": 1,
-      "explanation": "Catalysts increase reaction rate."
+      "explanation": "Catalysts increase reaction rate.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "Evaporation can be used to separate:",
@@ -2307,7 +3240,8 @@ const QUESTION_BANK = {
         "oil from water"
       ],
       "answer": 2,
-      "explanation": "Evaporation leaves dissolved salt behind."
+      "explanation": "Evaporation leaves dissolved salt behind.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The valency of oxygen is:",
@@ -2318,7 +3252,8 @@ const QUESTION_BANK = {
         "4"
       ],
       "answer": 1,
-      "explanation": "Oxygen commonly has valency 2."
+      "explanation": "Oxygen commonly has valency 2.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The formula of carbon(IV) oxide is:",
@@ -2329,7 +3264,8 @@ const QUESTION_BANK = {
         "CaO"
       ],
       "answer": 1,
-      "explanation": "Carbon dioxide is CO2."
+      "explanation": "Carbon dioxide is CO2.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "Which of these is an alkali?",
@@ -2340,7 +3276,8 @@ const QUESTION_BANK = {
         "NH4Cl"
       ],
       "answer": 1,
-      "explanation": "Sodium hydroxide is an alkali."
+      "explanation": "Sodium hydroxide is an alkali.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "Rusting of iron requires water and:",
@@ -2351,7 +3288,8 @@ const QUESTION_BANK = {
         "chlorine"
       ],
       "answer": 1,
-      "explanation": "Rusting needs oxygen and moisture."
+      "explanation": "Rusting needs oxygen and moisture.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The process by which a liquid changes to gas at all temperatures is:",
@@ -2362,7 +3300,8 @@ const QUESTION_BANK = {
         "freezing"
       ],
       "answer": 1,
-      "explanation": "Evaporation occurs below boiling point."
+      "explanation": "Evaporation occurs below boiling point.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The periodic table is arranged in order of increasing:",
@@ -2373,7 +3312,8 @@ const QUESTION_BANK = {
         "valency only"
       ],
       "answer": 1,
-      "explanation": "Modern periodic table uses atomic number."
+      "explanation": "Modern periodic table uses atomic number.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "A mixture can be separated by physical means because:",
@@ -2384,7 +3324,8 @@ const QUESTION_BANK = {
         "it has one formula"
       ],
       "answer": 1,
-      "explanation": "Mixture components are not chemically bonded."
+      "explanation": "Mixture components are not chemically bonded.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The gas used in filling balloons to make them rise is:",
@@ -2395,7 +3336,8 @@ const QUESTION_BANK = {
         "carbon dioxide"
       ],
       "answer": 2,
-      "explanation": "Helium is light and nonflammable."
+      "explanation": "Helium is light and nonflammable.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "A base reacts with an acid to form salt and:",
@@ -2406,7 +3348,8 @@ const QUESTION_BANK = {
         "chlorine"
       ],
       "answer": 2,
-      "explanation": "Neutralization produces salt and water."
+      "explanation": "Neutralization produces salt and water.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The common name for calcium carbonate is:",
@@ -2417,7 +3360,8 @@ const QUESTION_BANK = {
         "limewater"
       ],
       "answer": 0,
-      "explanation": "Chalk contains calcium carbonate."
+      "explanation": "Chalk contains calcium carbonate.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The particle with a negative charge is the:",
@@ -2428,7 +3372,8 @@ const QUESTION_BANK = {
         "nucleus"
       ],
       "answer": 1,
-      "explanation": "Electrons are negatively charged."
+      "explanation": "Electrons are negatively charged.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The nucleus of an atom contains:",
@@ -2439,7 +3384,8 @@ const QUESTION_BANK = {
         "neutrons only"
       ],
       "answer": 1,
-      "explanation": "The nucleus holds protons and neutrons."
+      "explanation": "The nucleus holds protons and neutrons.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The process of coating iron with zinc is called:",
@@ -2450,7 +3396,8 @@ const QUESTION_BANK = {
         "distillation"
       ],
       "answer": 1,
-      "explanation": "Galvanizing protects iron from rust."
+      "explanation": "Galvanizing protects iron from rust.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "Which of these is a noble gas?",
@@ -2461,7 +3408,8 @@ const QUESTION_BANK = {
         "Chlorine"
       ],
       "answer": 2,
-      "explanation": "Argon is a noble gas."
+      "explanation": "Argon is a noble gas.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "When an indicator turns red in acid and blue in base, it is likely:",
@@ -2472,7 +3420,8 @@ const QUESTION_BANK = {
         "bromine"
       ],
       "answer": 1,
-      "explanation": "Litmus behaves that way."
+      "explanation": "Litmus behaves that way.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The formula mass of H2O is:",
@@ -2483,7 +3432,8 @@ const QUESTION_BANK = {
         "19"
       ],
       "answer": 2,
-      "explanation": "2(1) + 16 = 18."
+      "explanation": "2(1) + 16 = 18.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "A saturated solution is one that:",
@@ -2494,7 +3444,8 @@ const QUESTION_BANK = {
         "is always hot"
       ],
       "answer": 2,
-      "explanation": "That is the definition of saturation."
+      "explanation": "That is the definition of saturation.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The bond formed by transfer of electrons is:",
@@ -2505,7 +3456,8 @@ const QUESTION_BANK = {
         "hydrogen"
       ],
       "answer": 1,
-      "explanation": "Transfer leads to ionic bonding."
+      "explanation": "Transfer leads to ionic bonding.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "Air is a:",
@@ -2516,7 +3468,8 @@ const QUESTION_BANK = {
         "salt"
       ],
       "answer": 1,
-      "explanation": "Air is a mixture of gases."
+      "explanation": "Air is a mixture of gases.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The process of breaking down a compound by electricity is:",
@@ -2527,7 +3480,8 @@ const QUESTION_BANK = {
         "sublimation"
       ],
       "answer": 1,
-      "explanation": "Electrolysis decomposes compounds electrically."
+      "explanation": "Electrolysis decomposes compounds electrically.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The first member of the alkane series is:",
@@ -2538,7 +3492,8 @@ const QUESTION_BANK = {
         "propane"
       ],
       "answer": 0,
-      "explanation": "Methane is the first alkane."
+      "explanation": "Methane is the first alkane.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The gas that turns limewater milky is:",
@@ -2549,7 +3504,8 @@ const QUESTION_BANK = {
         "ammonia"
       ],
       "answer": 2,
-      "explanation": "CO2 forms calcium carbonate in limewater."
+      "explanation": "CO2 forms calcium carbonate in limewater.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The color of copper(II) sulphate crystals is:",
@@ -2560,7 +3516,8 @@ const QUESTION_BANK = {
         "brown"
       ],
       "answer": 2,
-      "explanation": "Hydrated copper(II) sulphate is blue."
+      "explanation": "Hydrated copper(II) sulphate is blue.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "An example of a physical change is:",
@@ -2571,7 +3528,8 @@ const QUESTION_BANK = {
         "cooking food"
       ],
       "answer": 2,
-      "explanation": "Melting ice does not form a new substance."
+      "explanation": "Melting ice does not form a new substance.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The anode is the electrode where:",
@@ -2582,7 +3540,8 @@ const QUESTION_BANK = {
         "cooling occurs"
       ],
       "answer": 1,
-      "explanation": "Oxidation occurs at the anode."
+      "explanation": "Oxidation occurs at the anode.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "A homologous series has members with the same:",
@@ -2593,7 +3552,8 @@ const QUESTION_BANK = {
         "state only"
       ],
       "answer": 1,
-      "explanation": "Homologous series share general formula."
+      "explanation": "Homologous series share general formula.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The test for hydrogen gas is that it:",
@@ -2604,7 +3564,8 @@ const QUESTION_BANK = {
         "bleaches litmus"
       ],
       "answer": 2,
-      "explanation": "Hydrogen gives a pop sound."
+      "explanation": "Hydrogen gives a pop sound.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "Alloys are mixtures of:",
@@ -2615,7 +3576,8 @@ const QUESTION_BANK = {
         "water and salt"
       ],
       "answer": 0,
-      "explanation": "Alloys combine metals or metals with other elements."
+      "explanation": "Alloys combine metals or metals with other elements.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The substance used for drying gases in the laboratory is called a:",
@@ -2626,7 +3588,8 @@ const QUESTION_BANK = {
         "solvent"
       ],
       "answer": 0,
-      "explanation": "A desiccant removes moisture."
+      "explanation": "A desiccant removes moisture.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "The oxidation number of elements in their free state is:",
@@ -2637,7 +3600,8 @@ const QUESTION_BANK = {
         "+1"
       ],
       "answer": 2,
-      "explanation": "Free elements have oxidation number zero."
+      "explanation": "Free elements have oxidation number zero.",
+      "sourceSubject": "chemistry"
     },
     {
       "question": "A reducing agent causes another substance to be:",
@@ -2648,7 +3612,130 @@ const QUESTION_BANK = {
         "boiled"
       ],
       "answer": 1,
-      "explanation": "It brings about reduction of another substance."
+      "explanation": "It brings about reduction of another substance.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "The heating curve shown has flat portions PQ and RS. These portions represent",
+      "diagram": "<svg viewBox=\"0 0 320 200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"40\" y1=\"170\" x2=\"290\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><polyline points=\"40,150 90,110 150,110 210,70 260,70\" fill=\"none\" stroke=\"#155eef\" stroke-width=\"3\"/><text x=\"10\" y=\"28\" font-size=\"12\">Temp</text><text x=\"250\" y=\"190\" font-size=\"12\">Time</text><text x=\"102\" y=\"104\" font-size=\"12\">PQ</text><text x=\"220\" y=\"64\" font-size=\"12\">RS</text></svg>",
+      "options": [
+        "increase in kinetic energy only",
+        "change of state at constant temperature",
+        "decrease in temperature",
+        "formation of ions only"
+      ],
+      "answer": 1,
+      "explanation": "Flat portions of a heating curve show phase change while temperature remains constant.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "In the particle diagrams, container X is most likely a",
+      "diagram": "<svg viewBox=\"0 0 320 170\" xmlns=\"http://www.w3.org/2000/svg\"><rect x=\"30\" y=\"25\" width=\"100\" height=\"120\" rx=\"8\" fill=\"none\" stroke=\"#182230\"/><rect x=\"190\" y=\"25\" width=\"100\" height=\"120\" rx=\"8\" fill=\"none\" stroke=\"#182230\"/><circle cx=\"55\" cy=\"55\" r=\"10\" fill=\"#155eef\"/><circle cx=\"95\" cy=\"85\" r=\"10\" fill=\"#155eef\"/><circle cx=\"75\" cy=\"120\" r=\"10\" fill=\"#155eef\"/><circle cx=\"215\" cy=\"55\" r=\"10\" fill=\"#155eef\"/><circle cx=\"255\" cy=\"55\" r=\"10\" fill=\"#155eef\"/><circle cx=\"215\" cy=\"95\" r=\"10\" fill=\"#155eef\"/><circle cx=\"255\" cy=\"95\" r=\"10\" fill=\"#155eef\"/><circle cx=\"235\" cy=\"125\" r=\"10\" fill=\"#155eef\"/><text x=\"64\" y=\"155\" font-size=\"12\">X</text><text x=\"224\" y=\"155\" font-size=\"12\">Y</text></svg>",
+      "options": [
+        "solid",
+        "liquid",
+        "gas",
+        "mixture of compounds"
+      ],
+      "answer": 2,
+      "explanation": "The particles in X are far apart and randomly arranged, which is typical of a gas.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "The pH of a neutral solution at 25°C is",
+      "options": [
+        "0",
+        "1",
+        "7",
+        "14"
+      ],
+      "answer": 2,
+      "explanation": "A neutral aqueous solution has pH 7 at 25°C.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "Which gas is evolved when a dilute acid reacts with a carbonate?",
+      "options": [
+        "oxygen",
+        "hydrogen",
+        "carbon dioxide",
+        "chlorine"
+      ],
+      "answer": 2,
+      "explanation": "Acid + carbonate gives salt, water and carbon dioxide.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "The oxidation number of sulfur in H₂SO₄ is",
+      "options": [
+        "+2",
+        "+4",
+        "+6",
+        "-2"
+      ],
+      "answer": 2,
+      "explanation": "Let sulfur be x: 2(+1) + x + 4(-2) = 0, so x = +6.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "An alkali is best described as",
+      "options": [
+        "any acid in water",
+        "an insoluble base",
+        "a soluble base",
+        "a salt that turns litmus red"
+      ],
+      "answer": 2,
+      "explanation": "An alkali is a base that dissolves in water.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "The bond in sodium chloride is",
+      "options": [
+        "covalent",
+        "dative",
+        "ionic",
+        "metallic"
+      ],
+      "answer": 2,
+      "explanation": "Sodium transfers an electron to chlorine, forming an ionic bond.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "The process by which a solid changes directly to vapour is",
+      "options": [
+        "condensation",
+        "sublimation",
+        "evaporation",
+        "precipitation"
+      ],
+      "answer": 1,
+      "explanation": "Sublimation is the direct change from solid to gas.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "Which of the following metals will react most readily with cold water?",
+      "options": [
+        "copper",
+        "zinc",
+        "sodium",
+        "lead"
+      ],
+      "answer": 2,
+      "explanation": "Sodium is highly reactive and reacts vigorously with cold water.",
+      "sourceSubject": "chemistry"
+    },
+    {
+      "question": "A catalyst increases the rate of a reaction by",
+      "options": [
+        "raising the enthalpy change",
+        "lowering the activation energy",
+        "changing the equilibrium constant",
+        "adding to the mass of products"
+      ],
+      "answer": 1,
+      "explanation": "Catalysts provide an alternative path with lower activation energy.",
+      "sourceSubject": "chemistry"
     }
   ],
   "geography": [
@@ -2661,7 +3748,8 @@ const QUESTION_BANK = {
         "meridian"
       ],
       "answer": 1,
-      "explanation": "The Earth rotates on its axis."
+      "explanation": "The Earth rotates on its axis.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The line of latitude at 0° is the:",
@@ -2672,7 +3760,8 @@ const QUESTION_BANK = {
         "Arctic Circle"
       ],
       "answer": 2,
-      "explanation": "0° latitude is the Equator."
+      "explanation": "0° latitude is the Equator.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The Prime Meridian passes through:",
@@ -2683,7 +3772,8 @@ const QUESTION_BANK = {
         "Lagos"
       ],
       "answer": 1,
-      "explanation": "The Prime Meridian is at Greenwich."
+      "explanation": "The Prime Meridian is at Greenwich.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The imaginary lines running east-west on maps are:",
@@ -2694,7 +3784,8 @@ const QUESTION_BANK = {
         "bearings"
       ],
       "answer": 1,
-      "explanation": "Latitudes run east-west."
+      "explanation": "Latitudes run east-west.",
+      "sourceSubject": "geography"
     },
     {
       "question": "A map scale shows:",
@@ -2705,7 +3796,8 @@ const QUESTION_BANK = {
         "height only"
       ],
       "answer": 1,
-      "explanation": "Scale relates map distance to ground distance."
+      "explanation": "Scale relates map distance to ground distance.",
+      "sourceSubject": "geography"
     },
     {
       "question": "Rainfall caused by relief barriers is called:",
@@ -2716,7 +3808,8 @@ const QUESTION_BANK = {
         "acid rainfall"
       ],
       "answer": 1,
-      "explanation": "Mountains cause orographic rainfall."
+      "explanation": "Mountains cause orographic rainfall.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The instrument used to measure rainfall is:",
@@ -2727,7 +3820,8 @@ const QUESTION_BANK = {
         "anemometer"
       ],
       "answer": 1,
-      "explanation": "Rainfall is measured with a rain gauge."
+      "explanation": "Rainfall is measured with a rain gauge.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The hottest layer of the atmosphere is the:",
@@ -2738,7 +3832,8 @@ const QUESTION_BANK = {
         "mesosphere"
       ],
       "answer": 2,
-      "explanation": "The thermosphere becomes extremely hot."
+      "explanation": "The thermosphere becomes extremely hot.",
+      "sourceSubject": "geography"
     },
     {
       "question": "Contour lines join places of equal:",
@@ -2749,7 +3844,8 @@ const QUESTION_BANK = {
         "pressure"
       ],
       "answer": 2,
-      "explanation": "Contours connect equal heights."
+      "explanation": "Contours connect equal heights.",
+      "sourceSubject": "geography"
     },
     {
       "question": "An isobar joins places of equal:",
@@ -2760,7 +3856,8 @@ const QUESTION_BANK = {
         "rainfall"
       ],
       "answer": 1,
-      "explanation": "Isobars connect equal pressure."
+      "explanation": "Isobars connect equal pressure.",
+      "sourceSubject": "geography"
     },
     {
       "question": "A V-shaped valley is associated with:",
@@ -2771,7 +3868,8 @@ const QUESTION_BANK = {
         "volcanism"
       ],
       "answer": 0,
-      "explanation": "Rivers carve V-shaped valleys."
+      "explanation": "Rivers carve V-shaped valleys.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The process by which rock breaks down in situ is:",
@@ -2782,7 +3880,8 @@ const QUESTION_BANK = {
         "deposition"
       ],
       "answer": 1,
-      "explanation": "Weathering breaks rocks in place."
+      "explanation": "Weathering breaks rocks in place.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The movement of people from rural to urban areas is:",
@@ -2793,7 +3892,8 @@ const QUESTION_BANK = {
         "commuting"
       ],
       "answer": 2,
-      "explanation": "That is rural-urban migration."
+      "explanation": "That is rural-urban migration.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The main source of energy for the Earth is the:",
@@ -2804,7 +3904,8 @@ const QUESTION_BANK = {
         "stars"
       ],
       "answer": 1,
-      "explanation": "Solar energy drives many earth processes."
+      "explanation": "Solar energy drives many earth processes.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The natural vegetation of the equatorial region is:",
@@ -2815,7 +3916,8 @@ const QUESTION_BANK = {
         "desert scrub"
       ],
       "answer": 2,
-      "explanation": "Equatorial climate supports rainforest."
+      "explanation": "Equatorial climate supports rainforest.",
+      "sourceSubject": "geography"
     },
     {
       "question": "A delta is formed at the:",
@@ -2826,7 +3928,8 @@ const QUESTION_BANK = {
         "tributary"
       ],
       "answer": 1,
-      "explanation": "Deltas form at river mouths."
+      "explanation": "Deltas form at river mouths.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The daily rise and fall of ocean water is called:",
@@ -2837,7 +3940,8 @@ const QUESTION_BANK = {
         "tsunami"
       ],
       "answer": 2,
-      "explanation": "Tides are periodic sea-level changes."
+      "explanation": "Tides are periodic sea-level changes.",
+      "sourceSubject": "geography"
     },
     {
       "question": "An anemometer measures:",
@@ -2848,7 +3952,8 @@ const QUESTION_BANK = {
         "pressure"
       ],
       "answer": 1,
-      "explanation": "Wind speed is measured by an anemometer."
+      "explanation": "Wind speed is measured by an anemometer.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The process by which water changes from liquid to vapour is:",
@@ -2859,7 +3964,8 @@ const QUESTION_BANK = {
         "infiltration"
       ],
       "answer": 1,
-      "explanation": "Liquid water evaporates."
+      "explanation": "Liquid water evaporates.",
+      "sourceSubject": "geography"
     },
     {
       "question": "A country with many ports and active sea trade may benefit from:",
@@ -2870,7 +3976,8 @@ const QUESTION_BANK = {
         "glaciation"
       ],
       "answer": 1,
-      "explanation": "Maritime location favors sea trade."
+      "explanation": "Maritime location favors sea trade.",
+      "sourceSubject": "geography"
     },
     {
       "question": "Igneous rocks are formed by:",
@@ -2881,7 +3988,8 @@ const QUESTION_BANK = {
         "weathering"
       ],
       "answer": 1,
-      "explanation": "Igneous rocks solidify from magma."
+      "explanation": "Igneous rocks solidify from magma.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The longest river in Africa is the:",
@@ -2892,7 +4000,8 @@ const QUESTION_BANK = {
         "Nile"
       ],
       "answer": 3,
-      "explanation": "The Nile is generally regarded as Africa's longest river."
+      "explanation": "The Nile is generally regarded as Africa's longest river.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The local time difference between two places depends mainly on:",
@@ -2903,7 +4012,8 @@ const QUESTION_BANK = {
         "rainfall"
       ],
       "answer": 1,
-      "explanation": "Longitude determines time differences."
+      "explanation": "Longitude determines time differences.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The zone nearest to the Equator receives high insolation because:",
@@ -2914,7 +4024,8 @@ const QUESTION_BANK = {
         "winds are weak"
       ],
       "answer": 0,
-      "explanation": "Sun's rays are more direct."
+      "explanation": "Sun's rays are more direct.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The type of farming involving movement from one plot to another is:",
@@ -2925,7 +4036,8 @@ const QUESTION_BANK = {
         "mechanized farming"
       ],
       "answer": 1,
-      "explanation": "That is shifting cultivation."
+      "explanation": "That is shifting cultivation.",
+      "sourceSubject": "geography"
     },
     {
       "question": "Population density is population divided by:",
@@ -2936,7 +4048,8 @@ const QUESTION_BANK = {
         "distance"
       ],
       "answer": 1,
-      "explanation": "Density = population/area."
+      "explanation": "Density = population/area.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The wearing away of the coast by sea waves is called:",
@@ -2947,7 +4060,8 @@ const QUESTION_BANK = {
         "transpiration"
       ],
       "answer": 1,
-      "explanation": "Sea action erodes coasts."
+      "explanation": "Sea action erodes coasts.",
+      "sourceSubject": "geography"
     },
     {
       "question": "A meander is a feature commonly found in the:",
@@ -2958,7 +4072,8 @@ const QUESTION_BANK = {
         "glacial valley"
       ],
       "answer": 1,
-      "explanation": "Meanders develop on gentler gradients."
+      "explanation": "Meanders develop on gentler gradients.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The Sahara is an example of a:",
@@ -2969,7 +4084,8 @@ const QUESTION_BANK = {
         "rainforest"
       ],
       "answer": 1,
-      "explanation": "The Sahara is a hot desert."
+      "explanation": "The Sahara is a hot desert.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The instrument for measuring atmospheric pressure is:",
@@ -2980,7 +4096,8 @@ const QUESTION_BANK = {
         "odometer"
       ],
       "answer": 0,
-      "explanation": "Pressure is measured by a barometer."
+      "explanation": "Pressure is measured by a barometer.",
+      "sourceSubject": "geography"
     },
     {
       "question": "Settlement developed along roads is called:",
@@ -2991,7 +4108,8 @@ const QUESTION_BANK = {
         "isolated settlement"
       ],
       "answer": 2,
-      "explanation": "Linear settlements follow routes."
+      "explanation": "Linear settlements follow routes.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The percentage of a country's working population engaged in farming is highest in many:",
@@ -3002,7 +4120,8 @@ const QUESTION_BANK = {
         "island states only"
       ],
       "answer": 1,
-      "explanation": "Agriculture dominates employment in many developing countries."
+      "explanation": "Agriculture dominates employment in many developing countries.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The lower layer of the atmosphere where weather occurs is the:",
@@ -3013,7 +4132,8 @@ const QUESTION_BANK = {
         "exosphere"
       ],
       "answer": 1,
-      "explanation": "Most weather occurs in the troposphere."
+      "explanation": "Most weather occurs in the troposphere.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The process of turning forest into farmland may lead to:",
@@ -3024,7 +4144,8 @@ const QUESTION_BANK = {
         "urban renewal"
       ],
       "answer": 1,
-      "explanation": "Cutting forests down is deforestation."
+      "explanation": "Cutting forests down is deforestation.",
+      "sourceSubject": "geography"
     },
     {
       "question": "A plateau is an area of:",
@@ -3035,7 +4156,8 @@ const QUESTION_BANK = {
         "steep isolated hill only"
       ],
       "answer": 1,
-      "explanation": "Plateaus are elevated flat lands."
+      "explanation": "Plateaus are elevated flat lands.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The rotational movement of the Earth causes:",
@@ -3046,7 +4168,8 @@ const QUESTION_BANK = {
         "earthquakes"
       ],
       "answer": 1,
-      "explanation": "Rotation causes day and night."
+      "explanation": "Rotation causes day and night.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The meeting point of warm and cold air masses is called a:",
@@ -3057,7 +4180,8 @@ const QUESTION_BANK = {
         "hurricane"
       ],
       "answer": 1,
-      "explanation": "That boundary is a front."
+      "explanation": "That boundary is a front.",
+      "sourceSubject": "geography"
     },
     {
       "question": "The term 'tributary' refers to a:",
@@ -3068,7 +4192,8 @@ const QUESTION_BANK = {
         "artificial canal"
       ],
       "answer": 1,
-      "explanation": "A tributary feeds a larger river."
+      "explanation": "A tributary feeds a larger river.",
+      "sourceSubject": "geography"
     },
     {
       "question": "A hygrometer is used to measure:",
@@ -3079,7 +4204,8 @@ const QUESTION_BANK = {
         "evaporation"
       ],
       "answer": 0,
-      "explanation": "Humidity is measured with a hygrometer."
+      "explanation": "Humidity is measured with a hygrometer.",
+      "sourceSubject": "geography"
     },
     {
       "question": "Commercial farming is mainly for:",
@@ -3090,7 +4216,68 @@ const QUESTION_BANK = {
         "migration"
       ],
       "answer": 1,
-      "explanation": "Commercial farming is market-oriented."
+      "explanation": "Commercial farming is market-oriented.",
+      "sourceSubject": "geography"
+    },
+    {
+      "question": "The latitude that divides the earth into northern and southern hemispheres is the",
+      "options": [
+        "Tropic of Cancer",
+        "Equator",
+        "Prime Meridian",
+        "Arctic Circle"
+      ],
+      "answer": 1,
+      "explanation": "The Equator is 0° latitude and divides the earth into two hemispheres.",
+      "sourceSubject": "geography"
+    },
+    {
+      "question": "A river is most likely to form a delta where it",
+      "options": [
+        "flows rapidly through a gorge",
+        "enters the sea and deposits materials",
+        "cuts vertically through hard rock",
+        "passes over a waterfall"
+      ],
+      "answer": 1,
+      "explanation": "Deltas form where a river slows down and deposits sediment at its mouth.",
+      "sourceSubject": "geography"
+    },
+    {
+      "question": "The instrument used for measuring atmospheric pressure is",
+      "options": [
+        "thermometer",
+        "barometer",
+        "rain gauge",
+        "wind vane"
+      ],
+      "answer": 1,
+      "explanation": "Atmospheric pressure is measured with a barometer.",
+      "sourceSubject": "geography"
+    },
+    {
+      "question": "Population density refers to the",
+      "options": [
+        "birth rate of an area",
+        "number of people per unit area",
+        "movement of people across borders",
+        "proportion of old people only"
+      ],
+      "answer": 1,
+      "explanation": "Population density is population divided by land area.",
+      "sourceSubject": "geography"
+    },
+    {
+      "question": "Fold mountains are commonly formed by",
+      "options": [
+        "deposition by rivers",
+        "compression of the earth's crust",
+        "weathering by wind",
+        "earthquake waves alone"
+      ],
+      "answer": 1,
+      "explanation": "Fold mountains develop when crustal rocks are compressed.",
+      "sourceSubject": "geography"
     }
   ],
   "economics": [
@@ -3103,7 +4290,8 @@ const QUESTION_BANK = {
         "money only"
       ],
       "answer": 1,
-      "explanation": "Economics studies how scarce resources are allocated."
+      "explanation": "Economics studies how scarce resources are allocated.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Human wants are said to be unlimited because:",
@@ -3114,7 +4302,8 @@ const QUESTION_BANK = {
         "resources are infinite"
       ],
       "answer": 0,
-      "explanation": "Wants keep arising."
+      "explanation": "Wants keep arising.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The reward for labour is:",
@@ -3125,7 +4314,8 @@ const QUESTION_BANK = {
         "profit"
       ],
       "answer": 2,
-      "explanation": "Labour earns wages."
+      "explanation": "Labour earns wages.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Opportunity cost is the:",
@@ -3136,7 +4326,8 @@ const QUESTION_BANK = {
         "cash paid"
       ],
       "answer": 1,
-      "explanation": "It measures the sacrificed alternative."
+      "explanation": "It measures the sacrificed alternative.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Demand is effective when it is backed by:",
@@ -3147,7 +4338,8 @@ const QUESTION_BANK = {
         "production"
       ],
       "answer": 1,
-      "explanation": "Effective demand includes purchasing power."
+      "explanation": "Effective demand includes purchasing power.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A rise in price generally leads to:",
@@ -3158,7 +4350,8 @@ const QUESTION_BANK = {
         "no change"
       ],
       "answer": 1,
-      "explanation": "This is the law of demand."
+      "explanation": "This is the law of demand.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The basic economic problems include what to produce, how to produce and:",
@@ -3169,7 +4362,8 @@ const QUESTION_BANK = {
         "where to live"
       ],
       "answer": 1,
-      "explanation": "These are central allocation questions."
+      "explanation": "These are central allocation questions.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Money performs all except:",
@@ -3180,7 +4374,8 @@ const QUESTION_BANK = {
         "means of weather forecast"
       ],
       "answer": 3,
-      "explanation": "Money does not forecast weather."
+      "explanation": "Money does not forecast weather.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The branch of economics dealing with individual units is:",
@@ -3191,7 +4386,8 @@ const QUESTION_BANK = {
         "econometrics only"
       ],
       "answer": 1,
-      "explanation": "Microeconomics studies households and firms."
+      "explanation": "Microeconomics studies households and firms.",
+      "sourceSubject": "economics"
     },
     {
       "question": "When supply exceeds demand, price tends to:",
@@ -3202,7 +4398,8 @@ const QUESTION_BANK = {
         "disappear"
       ],
       "answer": 1,
-      "explanation": "Excess supply puts downward pressure on price."
+      "explanation": "Excess supply puts downward pressure on price.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Inflation is a persistent rise in the general:",
@@ -3213,7 +4410,8 @@ const QUESTION_BANK = {
         "wage law"
       ],
       "answer": 1,
-      "explanation": "Inflation refers to general price increases."
+      "explanation": "Inflation refers to general price increases.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A market where there are many buyers and sellers is:",
@@ -3224,7 +4422,8 @@ const QUESTION_BANK = {
         "monopsony"
       ],
       "answer": 1,
-      "explanation": "Perfect competition has many buyers and sellers."
+      "explanation": "Perfect competition has many buyers and sellers.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The reward for capital is:",
@@ -3235,7 +4434,8 @@ const QUESTION_BANK = {
         "profit"
       ],
       "answer": 1,
-      "explanation": "Capital earns interest."
+      "explanation": "Capital earns interest.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Consumer sovereignty means consumers:",
@@ -3246,7 +4446,8 @@ const QUESTION_BANK = {
         "control the courts"
       ],
       "answer": 1,
-      "explanation": "Consumer demand influences production."
+      "explanation": "Consumer demand influences production.",
+      "sourceSubject": "economics"
     },
     {
       "question": "National income is the:",
@@ -3257,7 +4458,8 @@ const QUESTION_BANK = {
         "tax revenue"
       ],
       "answer": 1,
-      "explanation": "It measures aggregate output/income."
+      "explanation": "It measures aggregate output/income.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A budget surplus occurs when government revenue is:",
@@ -3268,7 +4470,8 @@ const QUESTION_BANK = {
         "zero"
       ],
       "answer": 2,
-      "explanation": "Revenue exceeds spending."
+      "explanation": "Revenue exceeds spending.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The central bank mainly:",
@@ -3279,7 +4482,8 @@ const QUESTION_BANK = {
         "fixes school fees"
       ],
       "answer": 1,
-      "explanation": "Central banks manage money and credit."
+      "explanation": "Central banks manage money and credit.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The law of diminishing returns applies mainly in the:",
@@ -3290,7 +4494,8 @@ const QUESTION_BANK = {
         "public sector only"
       ],
       "answer": 0,
-      "explanation": "It is a short-run production concept."
+      "explanation": "It is a short-run production concept.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Price elasticity of demand measures responsiveness of demand to changes in:",
@@ -3301,7 +4506,8 @@ const QUESTION_BANK = {
         "weather"
       ],
       "answer": 1,
-      "explanation": "It measures sensitivity to price changes."
+      "explanation": "It measures sensitivity to price changes.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A direct tax is imposed directly on:",
@@ -3312,7 +4518,8 @@ const QUESTION_BANK = {
         "exports only"
       ],
       "answer": 1,
-      "explanation": "Examples include income tax."
+      "explanation": "Examples include income tax.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Division of labour can increase:",
@@ -3323,7 +4530,8 @@ const QUESTION_BANK = {
         "scarcity"
       ],
       "answer": 1,
-      "explanation": "Specialization improves efficiency."
+      "explanation": "Specialization improves efficiency.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The quantity of money in circulation affects:",
@@ -3334,7 +4542,8 @@ const QUESTION_BANK = {
         "topography"
       ],
       "answer": 0,
-      "explanation": "Money supply is central to monetary policy."
+      "explanation": "Money supply is central to monetary policy.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A fall in the value of money is shown by:",
@@ -3345,7 +4554,8 @@ const QUESTION_BANK = {
         "capital formation"
       ],
       "answer": 1,
-      "explanation": "Inflation erodes purchasing power."
+      "explanation": "Inflation erodes purchasing power.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The factor payment to entrepreneurship is:",
@@ -3356,7 +4566,8 @@ const QUESTION_BANK = {
         "wage"
       ],
       "answer": 1,
-      "explanation": "Entrepreneurs earn profit."
+      "explanation": "Entrepreneurs earn profit.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Public expenditure means expenditure by:",
@@ -3367,7 +4578,8 @@ const QUESTION_BANK = {
         "foreigners only"
       ],
       "answer": 1,
-      "explanation": "Public means government spending."
+      "explanation": "Public means government spending.",
+      "sourceSubject": "economics"
     },
     {
       "question": "When average revenue equals marginal revenue, the market may be:",
@@ -3378,7 +4590,8 @@ const QUESTION_BANK = {
         "black market"
       ],
       "answer": 0,
-      "explanation": "In perfect competition AR = MR = price."
+      "explanation": "In perfect competition AR = MR = price.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A cheque is an example of:",
@@ -3389,7 +4602,8 @@ const QUESTION_BANK = {
         "legal tender coin"
       ],
       "answer": 2,
-      "explanation": "A cheque is a credit instrument."
+      "explanation": "A cheque is a credit instrument.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The desire to hold money for day-to-day transactions is the:",
@@ -3400,7 +4614,8 @@ const QUESTION_BANK = {
         "investment motive"
       ],
       "answer": 1,
-      "explanation": "Transactions motive covers routine spending."
+      "explanation": "Transactions motive covers routine spending.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Capital formation means:",
@@ -3411,7 +4626,8 @@ const QUESTION_BANK = {
         "raising salaries"
       ],
       "answer": 1,
-      "explanation": "It is the growth of productive assets."
+      "explanation": "It is the growth of productive assets.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A monopolist is a:",
@@ -3422,7 +4638,8 @@ const QUESTION_BANK = {
         "government clerk"
       ],
       "answer": 1,
-      "explanation": "Monopoly involves one seller."
+      "explanation": "Monopoly involves one seller.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The difference between total revenue and total cost is:",
@@ -3433,7 +4650,8 @@ const QUESTION_BANK = {
         "savings"
       ],
       "answer": 2,
-      "explanation": "Profit = TR - TC."
+      "explanation": "Profit = TR - TC.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The term 'utility' in economics means:",
@@ -3444,7 +4662,8 @@ const QUESTION_BANK = {
         "durability"
       ],
       "answer": 1,
-      "explanation": "Utility is want-satisfying power."
+      "explanation": "Utility is want-satisfying power.",
+      "sourceSubject": "economics"
     },
     {
       "question": "An increase in demand with supply unchanged tends to:",
@@ -3455,7 +4674,8 @@ const QUESTION_BANK = {
         "reduce utility"
       ],
       "answer": 1,
-      "explanation": "Higher demand tends to raise price."
+      "explanation": "Higher demand tends to raise price.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The age group of dependants usually excludes:",
@@ -3466,7 +4686,8 @@ const QUESTION_BANK = {
         "infants"
       ],
       "answer": 2,
-      "explanation": "Working-age adults are generally productive."
+      "explanation": "Working-age adults are generally productive.",
+      "sourceSubject": "economics"
     },
     {
       "question": "Balance of trade is the difference between:",
@@ -3477,7 +4698,8 @@ const QUESTION_BANK = {
         "taxes and subsidies"
       ],
       "answer": 0,
-      "explanation": "It compares merchandise exports and imports."
+      "explanation": "It compares merchandise exports and imports.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The sum of consumption and saving equals:",
@@ -3488,7 +4710,8 @@ const QUESTION_BANK = {
         "capital"
       ],
       "answer": 1,
-      "explanation": "Y = C + S in a simple model."
+      "explanation": "Y = C + S in a simple model.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A subsidy is a payment by government to:",
@@ -3499,7 +4722,8 @@ const QUESTION_BANK = {
         "judges"
       ],
       "answer": 1,
-      "explanation": "Subsidies support economic activity."
+      "explanation": "Subsidies support economic activity.",
+      "sourceSubject": "economics"
     },
     {
       "question": "The stock exchange deals mainly in:",
@@ -3510,7 +4734,8 @@ const QUESTION_BANK = {
         "coins only"
       ],
       "answer": 1,
-      "explanation": "It trades shares and securities."
+      "explanation": "It trades shares and securities.",
+      "sourceSubject": "economics"
     },
     {
       "question": "If MPC = 0.8, the multiplier is:",
@@ -3521,7 +4746,8 @@ const QUESTION_BANK = {
         "5"
       ],
       "answer": 3,
-      "explanation": "Multiplier = 1/(1-MPC)=5."
+      "explanation": "Multiplier = 1/(1-MPC)=5.",
+      "sourceSubject": "economics"
     },
     {
       "question": "A regressive tax takes:",
@@ -3532,7 +4758,130 @@ const QUESTION_BANK = {
         "no revenue"
       ],
       "answer": 0,
-      "explanation": "Regressive taxes burden lower incomes relatively more."
+      "explanation": "Regressive taxes burden lower incomes relatively more.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "In the demand and supply diagram shown, point E represents",
+      "diagram": "<svg viewBox=\"0 0 320 200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"40\" y1=\"170\" x2=\"290\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"75\" y1=\"45\" x2=\"250\" y2=\"150\" stroke=\"#155eef\" stroke-width=\"3\"/><line x1=\"75\" y1=\"150\" x2=\"250\" y2=\"45\" stroke=\"#d92d20\" stroke-width=\"3\"/><circle cx=\"162\" cy=\"98\" r=\"4\" fill=\"#182230\"/><text x=\"255\" y=\"154\" font-size=\"13\">D</text><text x=\"255\" y=\"50\" font-size=\"13\">S</text><text x=\"166\" y=\"90\" font-size=\"12\">E</text><text x=\"8\" y=\"28\" font-size=\"12\">Price</text><text x=\"248\" y=\"190\" font-size=\"12\">Quantity</text></svg>",
+      "options": [
+        "shortage",
+        "equilibrium",
+        "surplus",
+        "price control"
+      ],
+      "answer": 1,
+      "explanation": "The intersection of demand and supply curves shows market equilibrium.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "In the diagram, supply shifts from S₁ to S₂. This indicates",
+      "diagram": "<svg viewBox=\"0 0 320 200\" xmlns=\"http://www.w3.org/2000/svg\"><line x1=\"40\" y1=\"20\" x2=\"40\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"40\" y1=\"170\" x2=\"290\" y2=\"170\" stroke=\"#182230\" stroke-width=\"2\"/><line x1=\"70\" y1=\"150\" x2=\"250\" y2=\"55\" stroke=\"#155eef\" stroke-width=\"3\"/><line x1=\"70\" y1=\"120\" x2=\"250\" y2=\"25\" stroke=\"#17b26a\" stroke-width=\"3\" stroke-dasharray=\"6 4\"/><text x=\"255\" y=\"58\" font-size=\"13\">S₁</text><text x=\"255\" y=\"28\" font-size=\"13\">S₂</text><text x=\"12\" y=\"28\" font-size=\"12\">Price</text><text x=\"248\" y=\"190\" font-size=\"12\">Quantity</text></svg>",
+      "options": [
+        "a decrease in supply",
+        "an increase in supply",
+        "a contraction in demand",
+        "a fall in quantity supplied only"
+      ],
+      "answer": 1,
+      "explanation": "A rightward shift of the supply curve indicates an increase in supply.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "Opportunity cost is the",
+      "options": [
+        "money spent on a commodity",
+        "next best alternative forgone",
+        "profit from a transaction",
+        "total cost of production"
+      ],
+      "answer": 1,
+      "explanation": "Opportunity cost is the value of the next best choice given up.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "A rise in the price of a normal good will, other things being equal, lead to",
+      "options": [
+        "an increase in quantity demanded",
+        "a decrease in quantity demanded",
+        "an increase in demand",
+        "a decrease in supply"
+      ],
+      "answer": 1,
+      "explanation": "A rise in price causes movement along the demand curve, reducing quantity demanded.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "The reward for entrepreneurship is",
+      "options": [
+        "rent",
+        "interest",
+        "profit",
+        "wages"
+      ],
+      "answer": 2,
+      "explanation": "Entrepreneurs earn profit for bearing risk and organizing production.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "Inflation refers to a persistent",
+      "options": [
+        "fall in output",
+        "rise in the general price level",
+        "increase in imports only",
+        "decline in bank lending"
+      ],
+      "answer": 1,
+      "explanation": "Inflation is a sustained increase in general prices.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "The central bank controls commercial banks mainly through",
+      "options": [
+        "fertilizer subsidy",
+        "monetary policy instruments",
+        "weather forecasts",
+        "customs duties only"
+      ],
+      "answer": 1,
+      "explanation": "The central bank uses tools such as reserve requirements and interest rates.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "A commodity whose demand rises as income rises is",
+      "options": [
+        "an inferior good",
+        "a normal good",
+        "a public good",
+        "a free good"
+      ],
+      "answer": 1,
+      "explanation": "Demand for a normal good increases when income rises.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "Average cost is obtained by dividing",
+      "options": [
+        "total cost by output",
+        "total revenue by output",
+        "fixed cost by output",
+        "profit by output"
+      ],
+      "answer": 0,
+      "explanation": "Average cost = total cost / quantity of output.",
+      "sourceSubject": "economics"
+    },
+    {
+      "question": "The population engaged in the production of goods and services is the",
+      "options": [
+        "dependency ratio",
+        "labour force",
+        "census unit",
+        "income class"
+      ],
+      "answer": 1,
+      "explanation": "The labour force consists of those available and willing to work.",
+      "sourceSubject": "economics"
     }
   ],
   "accounting": [
@@ -3545,7 +4894,8 @@ const QUESTION_BANK = {
         "trial balance"
       ],
       "answer": 1,
-      "explanation": "Cash transactions are first recorded in the cash book."
+      "explanation": "Cash transactions are first recorded in the cash book.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Assets minus liabilities equals:",
@@ -3556,7 +4906,8 @@ const QUESTION_BANK = {
         "drawings"
       ],
       "answer": 0,
-      "explanation": "Owner's equity/capital equals assets less liabilities."
+      "explanation": "Owner's equity/capital equals assets less liabilities.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The accounting equation is:",
@@ -3567,7 +4918,8 @@ const QUESTION_BANK = {
         "Profit = Assets - Sales"
       ],
       "answer": 1,
-      "explanation": "This is the basic accounting equation."
+      "explanation": "This is the basic accounting equation.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "A trial balance is prepared to check the:",
@@ -3578,7 +4930,8 @@ const QUESTION_BANK = {
         "value of stock"
       ],
       "answer": 1,
-      "explanation": "It helps test arithmetic accuracy."
+      "explanation": "It helps test arithmetic accuracy.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Entries on the left side of an account are:",
@@ -3589,7 +4942,8 @@ const QUESTION_BANK = {
         "returns"
       ],
       "answer": 1,
-      "explanation": "The left side is debit."
+      "explanation": "The left side is debit.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The person to whom a business owes money is a:",
@@ -3600,7 +4954,8 @@ const QUESTION_BANK = {
         "drawer"
       ],
       "answer": 1,
-      "explanation": "A creditor is owed by the business."
+      "explanation": "A creditor is owed by the business.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Goods returned by customers are entered in the:",
@@ -3611,7 +4966,8 @@ const QUESTION_BANK = {
         "journal proper"
       ],
       "answer": 0,
-      "explanation": "Returns inward is sales returns."
+      "explanation": "Returns inward is sales returns.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Depreciation accounts for the:",
@@ -3622,7 +4978,8 @@ const QUESTION_BANK = {
         "purchase of stock"
       ],
       "answer": 1,
-      "explanation": "Depreciation spreads asset cost over useful life."
+      "explanation": "Depreciation spreads asset cost over useful life.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The final accounts of a sole trader include the:",
@@ -3633,7 +4990,8 @@ const QUESTION_BANK = {
         "cash book only"
       ],
       "answer": 0,
-      "explanation": "These are the final accounts."
+      "explanation": "These are the final accounts.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The source document for goods bought on credit is the:",
@@ -3644,7 +5002,8 @@ const QUESTION_BANK = {
         "credit note"
       ],
       "answer": 1,
-      "explanation": "Suppliers issue invoices."
+      "explanation": "Suppliers issue invoices.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "A debtor is a person who:",
@@ -3655,7 +5014,8 @@ const QUESTION_BANK = {
         "owns the business"
       ],
       "answer": 0,
-      "explanation": "Debtors owe the business."
+      "explanation": "Debtors owe the business.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The excess of sales over cost of goods sold is:",
@@ -3666,7 +5026,8 @@ const QUESTION_BANK = {
         "discount"
       ],
       "answer": 1,
-      "explanation": "Gross profit = sales - cost of goods sold."
+      "explanation": "Gross profit = sales - cost of goods sold.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Drawings reduce the owner's:",
@@ -3677,7 +5038,8 @@ const QUESTION_BANK = {
         "purchases"
       ],
       "answer": 1,
-      "explanation": "Drawings decrease capital."
+      "explanation": "Drawings decrease capital.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The balance on the bank statement but not in the cash book may be due to:",
@@ -3688,7 +5050,8 @@ const QUESTION_BANK = {
         "bad debts"
       ],
       "answer": 1,
-      "explanation": "Timing differences cause this."
+      "explanation": "Timing differences cause this.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Double entry means every transaction affects at least:",
@@ -3699,7 +5062,8 @@ const QUESTION_BANK = {
         "four books"
       ],
       "answer": 1,
-      "explanation": "Every transaction has dual effect."
+      "explanation": "Every transaction has dual effect.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Discount allowed is:",
@@ -3710,7 +5074,8 @@ const QUESTION_BANK = {
         "a liability"
       ],
       "answer": 0,
-      "explanation": "It is a cost to the business."
+      "explanation": "It is a cost to the business.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Discount received is:",
@@ -3721,7 +5086,8 @@ const QUESTION_BANK = {
         "drawings"
       ],
       "answer": 1,
-      "explanation": "It is a gain to the business."
+      "explanation": "It is a gain to the business.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Stock at the beginning of a period is called:",
@@ -3732,7 +5098,8 @@ const QUESTION_BANK = {
         "capital stock"
       ],
       "answer": 1,
-      "explanation": "Beginning inventory is opening stock."
+      "explanation": "Beginning inventory is opening stock.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The ledger that contains personal accounts is the:",
@@ -3743,7 +5110,8 @@ const QUESTION_BANK = {
         "cash book"
       ],
       "answer": 1,
-      "explanation": "Personal accounts are kept in ledgers."
+      "explanation": "Personal accounts are kept in ledgers.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "A balance sheet is now more properly called:",
@@ -3754,7 +5122,8 @@ const QUESTION_BANK = {
         "trial balance"
       ],
       "answer": 1,
-      "explanation": "This is the modern term."
+      "explanation": "This is the modern term.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Purchases returns are also known as:",
@@ -3765,7 +5134,8 @@ const QUESTION_BANK = {
         "contra entries"
       ],
       "answer": 1,
-      "explanation": "Goods returned to suppliers are returns outward."
+      "explanation": "Goods returned to suppliers are returns outward.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Bad debt written off is debited to:",
@@ -3776,7 +5146,8 @@ const QUESTION_BANK = {
         "capital account"
       ],
       "answer": 1,
-      "explanation": "The expense account is debited."
+      "explanation": "The expense account is debited.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The purpose of depreciation is to:",
@@ -3787,7 +5158,8 @@ const QUESTION_BANK = {
         "record drawings"
       ],
       "answer": 1,
-      "explanation": "It applies the matching concept."
+      "explanation": "It applies the matching concept.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The accounting concept that business and owner are separate is:",
@@ -3798,7 +5170,8 @@ const QUESTION_BANK = {
         "realization"
       ],
       "answer": 1,
-      "explanation": "Entity concept separates owner from business."
+      "explanation": "Entity concept separates owner from business.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "A cheque paid into bank and recorded on both cash and bank side is a:",
@@ -3809,7 +5182,8 @@ const QUESTION_BANK = {
         "adjustment"
       ],
       "answer": 1,
-      "explanation": "Transfers within cash book are contra entries."
+      "explanation": "Transfers within cash book are contra entries.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Rent received in advance is a:",
@@ -3820,7 +5194,8 @@ const QUESTION_BANK = {
         "drawings"
       ],
       "answer": 1,
-      "explanation": "It represents an obligation."
+      "explanation": "It represents an obligation.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The wages account is normally:",
@@ -3831,7 +5206,8 @@ const QUESTION_BANK = {
         "an asset"
       ],
       "answer": 1,
-      "explanation": "Wages are business expenses."
+      "explanation": "Wages are business expenses.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "A journal proper is used to record:",
@@ -3842,7 +5218,8 @@ const QUESTION_BANK = {
         "bank withdrawals only"
       ],
       "answer": 1,
-      "explanation": "It handles unusual entries."
+      "explanation": "It handles unusual entries.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The suspense account is opened when:",
@@ -3853,7 +5230,8 @@ const QUESTION_BANK = {
         "stock is valued"
       ],
       "answer": 1,
-      "explanation": "It temporarily holds differences."
+      "explanation": "It temporarily holds differences.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "An increase in expenses will:",
@@ -3864,7 +5242,8 @@ const QUESTION_BANK = {
         "not affect profit"
       ],
       "answer": 1,
-      "explanation": "Higher expenses lower profit."
+      "explanation": "Higher expenses lower profit.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The book that records credit sales is the:",
@@ -3875,7 +5254,8 @@ const QUESTION_BANK = {
         "returns book"
       ],
       "answer": 1,
-      "explanation": "Credit sales go to the sales day book."
+      "explanation": "Credit sales go to the sales day book.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The source document for money received is a:",
@@ -3886,7 +5266,8 @@ const QUESTION_BANK = {
         "debit note"
       ],
       "answer": 1,
-      "explanation": "Receipts evidence cash received."
+      "explanation": "Receipts evidence cash received.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The excess of current assets over current liabilities is:",
@@ -3897,7 +5278,8 @@ const QUESTION_BANK = {
         "turnover"
       ],
       "answer": 0,
-      "explanation": "That is working capital."
+      "explanation": "That is working capital.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Capital introduced by the owner is credited to:",
@@ -3908,7 +5290,8 @@ const QUESTION_BANK = {
         "wages"
       ],
       "answer": 2,
-      "explanation": "Capital account receives the credit."
+      "explanation": "Capital account receives the credit.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "An asset expected to last many years is a:",
@@ -3919,7 +5302,8 @@ const QUESTION_BANK = {
         "expense"
       ],
       "answer": 1,
-      "explanation": "Long-term business property is fixed asset."
+      "explanation": "Long-term business property is fixed asset.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The principle of prudence requires accountants to:",
@@ -3930,7 +5314,8 @@ const QUESTION_BANK = {
         "overstate assets"
       ],
       "answer": 1,
-      "explanation": "Prudence avoids overstating profit/assets."
+      "explanation": "Prudence avoids overstating profit/assets.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Salaries outstanding at year end are treated as:",
@@ -3941,7 +5326,8 @@ const QUESTION_BANK = {
         "capital"
       ],
       "answer": 1,
-      "explanation": "They are accrued expenses."
+      "explanation": "They are accrued expenses.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The debit note is issued by a buyer to:",
@@ -3952,7 +5338,8 @@ const QUESTION_BANK = {
         "confirm cash sale"
       ],
       "answer": 1,
-      "explanation": "It notifies the supplier of returns."
+      "explanation": "It notifies the supplier of returns.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "The trial balance is extracted from the:",
@@ -3963,7 +5350,8 @@ const QUESTION_BANK = {
         "bank statement"
       ],
       "answer": 1,
-      "explanation": "Balances are taken from ledger accounts."
+      "explanation": "Balances are taken from ledger accounts.",
+      "sourceSubject": "accounting"
     },
     {
       "question": "Net profit is added to:",
@@ -3974,7 +5362,68 @@ const QUESTION_BANK = {
         "sales returns"
       ],
       "answer": 1,
-      "explanation": "Profit increases owner's capital."
+      "explanation": "Profit increases owner's capital.",
+      "sourceSubject": "accounting"
+    },
+    {
+      "question": "The accounting equation is",
+      "options": [
+        "Assets = Liabilities - Capital",
+        "Assets = Capital + Liabilities",
+        "Capital = Assets + Liabilities",
+        "Assets - Liabilities = Expenses"
+      ],
+      "answer": 1,
+      "explanation": "The fundamental equation is Assets = Capital + Liabilities.",
+      "sourceSubject": "accounting"
+    },
+    {
+      "question": "An increase in an asset account is recorded on the",
+      "options": [
+        "credit side",
+        "debit side",
+        "contra side",
+        "narration side"
+      ],
+      "answer": 1,
+      "explanation": "Assets normally have debit balances.",
+      "sourceSubject": "accounting"
+    },
+    {
+      "question": "The book of original entry used to record credit purchases is the",
+      "options": [
+        "sales day book",
+        "cash book",
+        "purchases day book",
+        "journal proper"
+      ],
+      "answer": 2,
+      "explanation": "Credit purchases are entered first in the purchases day book.",
+      "sourceSubject": "accounting"
+    },
+    {
+      "question": "Depreciation is charged to",
+      "options": [
+        "increase asset value",
+        "spread the cost of a fixed asset over its useful life",
+        "eliminate liabilities",
+        "create goodwill"
+      ],
+      "answer": 1,
+      "explanation": "Depreciation allocates the cost of a non-current asset over time.",
+      "sourceSubject": "accounting"
+    },
+    {
+      "question": "A trial balance is prepared mainly to test the",
+      "options": [
+        "profitability of the business",
+        "arithmetical accuracy of ledger postings",
+        "market value of the firm",
+        "cash position only"
+      ],
+      "answer": 1,
+      "explanation": "A trial balance checks whether total debits equal total credits.",
+      "sourceSubject": "accounting"
     }
   ],
   "literature in english": [
@@ -3987,7 +5436,8 @@ const QUESTION_BANK = {
         "ballad"
       ],
       "answer": 1,
-      "explanation": "A sonnet has fourteen lines."
+      "explanation": "A sonnet has fourteen lines.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A play meant to make the audience laugh is a:",
@@ -3998,7 +5448,8 @@ const QUESTION_BANK = {
         "epic"
       ],
       "answer": 1,
-      "explanation": "Comedy is humorous drama."
+      "explanation": "Comedy is humorous drama.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The main idea of a literary work is its:",
@@ -4009,7 +5460,8 @@ const QUESTION_BANK = {
         "setting"
       ],
       "answer": 1,
-      "explanation": "Theme is the central idea."
+      "explanation": "Theme is the central idea.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A character who opposes the hero is the:",
@@ -4020,7 +5472,8 @@ const QUESTION_BANK = {
         "chorus"
       ],
       "answer": 1,
-      "explanation": "The antagonist opposes the protagonist."
+      "explanation": "The antagonist opposes the protagonist.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The repeated consonant sound at the beginning of words is:",
@@ -4031,7 +5484,8 @@ const QUESTION_BANK = {
         "euphony"
       ],
       "answer": 1,
-      "explanation": "Alliteration repeats initial consonants."
+      "explanation": "Alliteration repeats initial consonants.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A comparison using 'like' or 'as' is a:",
@@ -4042,7 +5496,8 @@ const QUESTION_BANK = {
         "hyperbole"
       ],
       "answer": 1,
-      "explanation": "A simile uses like or as."
+      "explanation": "A simile uses like or as.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "An exaggerated statement for emphasis is:",
@@ -4053,7 +5508,8 @@ const QUESTION_BANK = {
         "climax"
       ],
       "answer": 0,
-      "explanation": "Hyperbole is deliberate exaggeration."
+      "explanation": "Hyperbole is deliberate exaggeration.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The arrangement of events in a story is the:",
@@ -4064,7 +5520,8 @@ const QUESTION_BANK = {
         "imagery"
       ],
       "answer": 0,
-      "explanation": "Plot is the sequence of events."
+      "explanation": "Plot is the sequence of events.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The place and time of a story form its:",
@@ -4075,7 +5532,8 @@ const QUESTION_BANK = {
         "conflict"
       ],
       "answer": 1,
-      "explanation": "Setting gives time and place."
+      "explanation": "Setting gives time and place.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "Words that appeal to the senses create:",
@@ -4086,7 +5544,8 @@ const QUESTION_BANK = {
         "allusion"
       ],
       "answer": 1,
-      "explanation": "Imagery paints sensory pictures."
+      "explanation": "Imagery paints sensory pictures.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A long narrative poem about heroic deeds is an:",
@@ -4097,7 +5556,8 @@ const QUESTION_BANK = {
         "lyric"
       ],
       "answer": 0,
-      "explanation": "Epics narrate heroic actions."
+      "explanation": "Epics narrate heroic actions.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The attitude of the writer to the subject is the:",
@@ -4108,7 +5568,8 @@ const QUESTION_BANK = {
         "conflict"
       ],
       "answer": 0,
-      "explanation": "Tone reflects attitude."
+      "explanation": "Tone reflects attitude.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A story told by a narrator using 'I' is in the:",
@@ -4119,7 +5580,8 @@ const QUESTION_BANK = {
         "dramatic"
       ],
       "answer": 2,
-      "explanation": "Use of 'I' indicates first person."
+      "explanation": "Use of 'I' indicates first person.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The pattern of stressed and unstressed syllables in poetry is:",
@@ -4130,7 +5592,8 @@ const QUESTION_BANK = {
         "point of view"
       ],
       "answer": 1,
-      "explanation": "Meter concerns rhythm."
+      "explanation": "Meter concerns rhythm.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The final outcome of a conflict in a story is the:",
@@ -4141,7 +5604,8 @@ const QUESTION_BANK = {
         "flashback"
       ],
       "answer": 2,
-      "explanation": "Resolution ends the conflict."
+      "explanation": "Resolution ends the conflict.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A funeral song is a:",
@@ -4152,7 +5616,8 @@ const QUESTION_BANK = {
         "farce"
       ],
       "answer": 1,
-      "explanation": "A dirge mourns the dead."
+      "explanation": "A dirge mourns the dead.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The actor's speech spoken alone on stage is a:",
@@ -4163,7 +5628,8 @@ const QUESTION_BANK = {
         "dialogue"
       ],
       "answer": 1,
-      "explanation": "A soliloquy reveals inner thoughts."
+      "explanation": "A soliloquy reveals inner thoughts.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The use of nonhuman things with human qualities is:",
@@ -4174,7 +5640,8 @@ const QUESTION_BANK = {
         "paradox"
       ],
       "answer": 1,
-      "explanation": "That is personification."
+      "explanation": "That is personification.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A literary work that ridicules human folly is:",
@@ -4185,7 +5652,8 @@ const QUESTION_BANK = {
         "pastoral"
       ],
       "answer": 0,
-      "explanation": "Satire mocks faults and vices."
+      "explanation": "Satire mocks faults and vices.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The pause within a line of poetry is called:",
@@ -4196,7 +5664,8 @@ const QUESTION_BANK = {
         "refrain"
       ],
       "answer": 0,
-      "explanation": "A caesura is an internal pause."
+      "explanation": "A caesura is an internal pause.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The hero of a literary work is usually the:",
@@ -4207,7 +5676,8 @@ const QUESTION_BANK = {
         "chorus"
       ],
       "answer": 1,
-      "explanation": "The protagonist is the main character."
+      "explanation": "The protagonist is the main character.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A regular repetition of similar vowel sounds is:",
@@ -4218,7 +5688,8 @@ const QUESTION_BANK = {
         "pun"
       ],
       "answer": 1,
-      "explanation": "Assonance repeats vowel sounds."
+      "explanation": "Assonance repeats vowel sounds.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A brief reference to a well-known person or event is:",
@@ -4229,7 +5700,8 @@ const QUESTION_BANK = {
         "irony"
       ],
       "answer": 0,
-      "explanation": "An allusion is an indirect reference."
+      "explanation": "An allusion is an indirect reference.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A sequence of lines forming a unit in a poem is a:",
@@ -4240,7 +5712,8 @@ const QUESTION_BANK = {
         "verse novel"
       ],
       "answer": 1,
-      "explanation": "Poems are divided into stanzas."
+      "explanation": "Poems are divided into stanzas.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "When the opposite of what is expected happens, it is:",
@@ -4251,7 +5724,8 @@ const QUESTION_BANK = {
         "blank verse"
       ],
       "answer": 1,
-      "explanation": "Irony involves contrast between expectation and reality."
+      "explanation": "Irony involves contrast between expectation and reality.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The conflict between a character and society is a type of:",
@@ -4262,7 +5736,8 @@ const QUESTION_BANK = {
         "epiphany"
       ],
       "answer": 1,
-      "explanation": "Society vs character is external conflict."
+      "explanation": "Society vs character is external conflict.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A narrative song with simple language is a:",
@@ -4273,7 +5748,8 @@ const QUESTION_BANK = {
         "farce"
       ],
       "answer": 0,
-      "explanation": "Ballads tell stories in song-like form."
+      "explanation": "Ballads tell stories in song-like form.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The underlying moral lesson in a work is closely related to:",
@@ -4284,7 +5760,8 @@ const QUESTION_BANK = {
         "diction"
       ],
       "answer": 0,
-      "explanation": "Theme often conveys the moral message."
+      "explanation": "Theme often conveys the moral message.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "Words spoken by characters to each other are:",
@@ -4295,7 +5772,8 @@ const QUESTION_BANK = {
         "chorus"
       ],
       "answer": 1,
-      "explanation": "Dialogue is conversation in drama."
+      "explanation": "Dialogue is conversation in drama.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The emotional atmosphere of a work is its:",
@@ -4306,7 +5784,8 @@ const QUESTION_BANK = {
         "plot"
       ],
       "answer": 0,
-      "explanation": "Mood is the feeling created."
+      "explanation": "Mood is the feeling created.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A figure of speech in which one thing stands for another related thing is:",
@@ -4317,7 +5796,8 @@ const QUESTION_BANK = {
         "apostrophe"
       ],
       "answer": 0,
-      "explanation": "Metonymy uses association."
+      "explanation": "Metonymy uses association.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "An impossible statement that seems true is a:",
@@ -4328,7 +5808,8 @@ const QUESTION_BANK = {
         "climax"
       ],
       "answer": 0,
-      "explanation": "A paradox appears contradictory yet meaningful."
+      "explanation": "A paradox appears contradictory yet meaningful.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The use of local color and customs in literature helps build:",
@@ -4339,7 +5820,8 @@ const QUESTION_BANK = {
         "rhyme"
       ],
       "answer": 1,
-      "explanation": "It enriches setting."
+      "explanation": "It enriches setting.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A tragic flaw in a hero is known as:",
@@ -4350,7 +5832,8 @@ const QUESTION_BANK = {
         "diction"
       ],
       "answer": 0,
-      "explanation": "A tragic flaw is often hubris."
+      "explanation": "A tragic flaw is often hubris.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "Foreshadowing is used to:",
@@ -4361,7 +5844,8 @@ const QUESTION_BANK = {
         "change the setting"
       ],
       "answer": 1,
-      "explanation": "It suggests later events."
+      "explanation": "It suggests later events.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "Comic relief in tragedy serves to:",
@@ -4372,7 +5856,8 @@ const QUESTION_BANK = {
         "replace the hero"
       ],
       "answer": 1,
-      "explanation": "It lightens tension briefly."
+      "explanation": "It lightens tension briefly.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The pattern of end sounds in poetry is the:",
@@ -4383,7 +5868,8 @@ const QUESTION_BANK = {
         "tone"
       ],
       "answer": 0,
-      "explanation": "Rhyme scheme tracks line-end rhymes."
+      "explanation": "Rhyme scheme tracks line-end rhymes.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "A statement addressed to an absent person or thing is:",
@@ -4394,7 +5880,8 @@ const QUESTION_BANK = {
         "elegy"
       ],
       "answer": 0,
-      "explanation": "Apostrophe addresses the absent or abstract."
+      "explanation": "Apostrophe addresses the absent or abstract.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "An elegy is a poem of:",
@@ -4405,7 +5892,8 @@ const QUESTION_BANK = {
         "humor"
       ],
       "answer": 1,
-      "explanation": "Elegies mourn or reflect sadly."
+      "explanation": "Elegies mourn or reflect sadly.",
+      "sourceSubject": "literature in english"
     },
     {
       "question": "The choice of words by an author is called:",
@@ -4416,7 +5904,68 @@ const QUESTION_BANK = {
         "vision"
       ],
       "answer": 0,
-      "explanation": "Diction means word choice."
+      "explanation": "Diction means word choice.",
+      "sourceSubject": "literature in english"
+    },
+    {
+      "question": "A narrative poem that celebrates the deeds of a hero is called an",
+      "options": [
+        "ode",
+        "epic",
+        "elegy",
+        "satire"
+      ],
+      "answer": 1,
+      "explanation": "An epic is a long narrative poem centered on heroic deeds.",
+      "sourceSubject": "literature in english"
+    },
+    {
+      "question": "The central message of a literary work is its",
+      "options": [
+        "setting",
+        "theme",
+        "plot twist",
+        "stanza"
+      ],
+      "answer": 1,
+      "explanation": "Theme is the main idea or underlying message of a text.",
+      "sourceSubject": "literature in english"
+    },
+    {
+      "question": "A character that does not change significantly in the course of a story is",
+      "options": [
+        "dynamic",
+        "round",
+        "flat/static",
+        "protagonist"
+      ],
+      "answer": 2,
+      "explanation": "A static or flat character shows little development.",
+      "sourceSubject": "literature in english"
+    },
+    {
+      "question": "The repetition of initial consonant sounds in nearby words is known as",
+      "options": [
+        "assonance",
+        "alliteration",
+        "irony",
+        "metaphor"
+      ],
+      "answer": 1,
+      "explanation": "Alliteration repeats initial consonant sounds.",
+      "sourceSubject": "literature in english"
+    },
+    {
+      "question": "A poem that mourns the dead is called an",
+      "options": [
+        "epigram",
+        "elegy",
+        "ode",
+        "ballad"
+      ],
+      "answer": 1,
+      "explanation": "An elegy is a mournful poem, often for the dead.",
+      "sourceSubject": "literature in english"
     }
   ],
   "christian religious studies": [
@@ -4429,7 +5978,8 @@ const QUESTION_BANK = {
         "shadow"
       ],
       "answer": 1,
-      "explanation": "Genesis says man was made in God's image."
+      "explanation": "Genesis says man was made in God's image.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Abraham demonstrated faith when he:",
@@ -4440,7 +5990,8 @@ const QUESTION_BANK = {
         "became king"
       ],
       "answer": 1,
-      "explanation": "Abraham obeyed God in the sacrifice test."
+      "explanation": "Abraham obeyed God in the sacrifice test.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Joseph was sold into Egypt by his:",
@@ -4451,7 +6002,8 @@ const QUESTION_BANK = {
         "neighbours"
       ],
       "answer": 1,
-      "explanation": "His brothers sold him."
+      "explanation": "His brothers sold him.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The leader who brought the Israelites out of Egypt was:",
@@ -4462,7 +6014,8 @@ const QUESTION_BANK = {
         "David"
       ],
       "answer": 2,
-      "explanation": "Moses led the Exodus."
+      "explanation": "Moses led the Exodus.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The Ten Commandments were given on Mount:",
@@ -4473,7 +6026,8 @@ const QUESTION_BANK = {
         "Ararat"
       ],
       "answer": 1,
-      "explanation": "God gave the law at Sinai."
+      "explanation": "God gave the law at Sinai.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The first king of Israel was:",
@@ -4484,7 +6038,8 @@ const QUESTION_BANK = {
         "Ahab"
       ],
       "answer": 1,
-      "explanation": "Saul was Israel's first king."
+      "explanation": "Saul was Israel's first king.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "David was anointed king by:",
@@ -4495,7 +6050,8 @@ const QUESTION_BANK = {
         "Moses"
       ],
       "answer": 2,
-      "explanation": "Samuel anointed David."
+      "explanation": "Samuel anointed David.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Solomon is noted in the Bible for his:",
@@ -4506,7 +6062,8 @@ const QUESTION_BANK = {
         "military power only"
       ],
       "answer": 1,
-      "explanation": "He is especially remembered for wisdom."
+      "explanation": "He is especially remembered for wisdom.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Ahab's wicked wife was:",
@@ -4517,7 +6074,8 @@ const QUESTION_BANK = {
         "Martha"
       ],
       "answer": 0,
-      "explanation": "Jezebel encouraged idolatry."
+      "explanation": "Jezebel encouraged idolatry.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Elijah confronted the prophets of Baal on Mount:",
@@ -4528,7 +6086,8 @@ const QUESTION_BANK = {
         "Hermon"
       ],
       "answer": 1,
-      "explanation": "The contest occurred on Mount Carmel."
+      "explanation": "The contest occurred on Mount Carmel.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The prophet sent to warn Nineveh was:",
@@ -4539,7 +6098,8 @@ const QUESTION_BANK = {
         "Hosea"
       ],
       "answer": 0,
-      "explanation": "Jonah was sent to Nineveh."
+      "explanation": "Jonah was sent to Nineveh.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The birth of Jesus was announced to Mary by:",
@@ -4550,7 +6110,8 @@ const QUESTION_BANK = {
         "John"
       ],
       "answer": 0,
-      "explanation": "The angel Gabriel announced it."
+      "explanation": "The angel Gabriel announced it.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Jesus was born in:",
@@ -4561,7 +6122,8 @@ const QUESTION_BANK = {
         "Capernaum"
       ],
       "answer": 2,
-      "explanation": "Jesus was born in Bethlehem."
+      "explanation": "Jesus was born in Bethlehem.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "John the Baptist prepared the way for:",
@@ -4572,7 +6134,8 @@ const QUESTION_BANK = {
         "Paul"
       ],
       "answer": 1,
-      "explanation": "He prepared for Jesus' ministry."
+      "explanation": "He prepared for Jesus' ministry.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "At Jesus' baptism, the Spirit descended like a:",
@@ -4583,7 +6146,8 @@ const QUESTION_BANK = {
         "cloud"
       ],
       "answer": 2,
-      "explanation": "The Spirit descended like a dove."
+      "explanation": "The Spirit descended like a dove.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Jesus turned water into wine at:",
@@ -4594,7 +6158,8 @@ const QUESTION_BANK = {
         "Jericho"
       ],
       "answer": 2,
-      "explanation": "The miracle was at Cana."
+      "explanation": "The miracle was at Cana.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The Sermon on the Mount is recorded prominently in:",
@@ -4605,7 +6170,8 @@ const QUESTION_BANK = {
         "Revelation"
       ],
       "answer": 0,
-      "explanation": "It appears especially in Matthew."
+      "explanation": "It appears especially in Matthew.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The parable of the sower teaches about:",
@@ -4616,7 +6182,8 @@ const QUESTION_BANK = {
         "taxation"
       ],
       "answer": 1,
-      "explanation": "The soils symbolize responses to the word."
+      "explanation": "The soils symbolize responses to the word.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The disciple who betrayed Jesus was:",
@@ -4627,7 +6194,8 @@ const QUESTION_BANK = {
         "Andrew"
       ],
       "answer": 1,
-      "explanation": "Judas betrayed Him."
+      "explanation": "Judas betrayed Him.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Jesus was crucified at:",
@@ -4638,7 +6206,8 @@ const QUESTION_BANK = {
         "Caesarea"
       ],
       "answer": 0,
-      "explanation": "He was crucified at Golgotha."
+      "explanation": "He was crucified at Golgotha.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The resurrection of Jesus took place on the:",
@@ -4649,7 +6218,8 @@ const QUESTION_BANK = {
         "Passover eve only"
       ],
       "answer": 0,
-      "explanation": "He rose on the first day of the week."
+      "explanation": "He rose on the first day of the week.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The Holy Spirit came upon the disciples on the day of:",
@@ -4660,7 +6230,8 @@ const QUESTION_BANK = {
         "Sabbath"
       ],
       "answer": 1,
-      "explanation": "The outpouring was at Pentecost."
+      "explanation": "The outpouring was at Pentecost.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The first Christian martyr was:",
@@ -4671,7 +6242,8 @@ const QUESTION_BANK = {
         "Silas"
       ],
       "answer": 1,
-      "explanation": "Stephen was stoned to death."
+      "explanation": "Stephen was stoned to death.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Paul was converted on the road to:",
@@ -4682,7 +6254,8 @@ const QUESTION_BANK = {
         "Joppa"
       ],
       "answer": 1,
-      "explanation": "His encounter happened on the Damascus road."
+      "explanation": "His encounter happened on the Damascus road.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The fruit of the Spirit includes:",
@@ -4693,7 +6266,8 @@ const QUESTION_BANK = {
         "strife"
       ],
       "answer": 1,
-      "explanation": "Love is listed among the fruit of the Spirit."
+      "explanation": "Love is listed among the fruit of the Spirit.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The greatest commandment is to love:",
@@ -4704,7 +6278,8 @@ const QUESTION_BANK = {
         "tradition only"
       ],
       "answer": 1,
-      "explanation": "Jesus taught love of God and neighbour."
+      "explanation": "Jesus taught love of God and neighbour.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The Lord's Prayer begins with:",
@@ -4715,7 +6290,8 @@ const QUESTION_BANK = {
         "Blessed are"
       ],
       "answer": 1,
-      "explanation": "It opens with 'Our Father'."
+      "explanation": "It opens with 'Our Father'.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The Good Samaritan parable teaches:",
@@ -4726,7 +6302,8 @@ const QUESTION_BANK = {
         "silence"
       ],
       "answer": 1,
-      "explanation": "It teaches compassion beyond boundaries."
+      "explanation": "It teaches compassion beyond boundaries.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Jesus fed five thousand with:",
@@ -4737,7 +6314,8 @@ const QUESTION_BANK = {
         "one basket"
       ],
       "answer": 0,
-      "explanation": "The miracle involved five loaves and two fish."
+      "explanation": "The miracle involved five loaves and two fish.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Zacchaeus was a:",
@@ -4748,7 +6326,8 @@ const QUESTION_BANK = {
         "soldier"
       ],
       "answer": 1,
-      "explanation": "He was a chief tax collector."
+      "explanation": "He was a chief tax collector.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The New Covenant was sealed through the:",
@@ -4759,7 +6338,8 @@ const QUESTION_BANK = {
         "law of Moses"
       ],
       "answer": 1,
-      "explanation": "Christ's sacrificial death established it."
+      "explanation": "Christ's sacrificial death established it.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "One lesson from Joseph's life is:",
@@ -4770,7 +6350,8 @@ const QUESTION_BANK = {
         "forgiveness is weakness"
       ],
       "answer": 1,
-      "explanation": "Joseph's story shows divine providence."
+      "explanation": "Joseph's story shows divine providence.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The command 'You shall not steal' is found in the:",
@@ -4781,7 +6362,8 @@ const QUESTION_BANK = {
         "Prophets only"
       ],
       "answer": 1,
-      "explanation": "It is one of the Ten Commandments."
+      "explanation": "It is one of the Ten Commandments.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Jesus called Himself the good:",
@@ -4792,7 +6374,8 @@ const QUESTION_BANK = {
         "judge"
       ],
       "answer": 1,
-      "explanation": "He said, 'I am the good shepherd.'"
+      "explanation": "He said, 'I am the good shepherd.'",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The miracle of raising Lazarus took place in:",
@@ -4803,7 +6386,8 @@ const QUESTION_BANK = {
         "Jerusalem temple"
       ],
       "answer": 0,
-      "explanation": "Lazarus was raised at Bethany."
+      "explanation": "Lazarus was raised at Bethany.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The church in Antioch was important because:",
@@ -4814,7 +6398,8 @@ const QUESTION_BANK = {
         "Moses ruled there"
       ],
       "answer": 0,
-      "explanation": "The name 'Christians' was first used there."
+      "explanation": "The name 'Christians' was first used there.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "Paul and Silas praised God while in prison at:",
@@ -4825,7 +6410,8 @@ const QUESTION_BANK = {
         "Corinth"
       ],
       "answer": 0,
-      "explanation": "They sang hymns in Philippi."
+      "explanation": "They sang hymns in Philippi.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The teaching 'Blessed are the peacemakers' shows the value of:",
@@ -4836,7 +6422,8 @@ const QUESTION_BANK = {
         "pride"
       ],
       "answer": 1,
-      "explanation": "Jesus commended peacemakers."
+      "explanation": "Jesus commended peacemakers.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The apostle known for doubting the resurrection initially was:",
@@ -4847,7 +6434,8 @@ const QUESTION_BANK = {
         "Philip"
       ],
       "answer": 0,
-      "explanation": "Thomas doubted before seeing Jesus."
+      "explanation": "Thomas doubted before seeing Jesus.",
+      "sourceSubject": "christian religious studies"
     },
     {
       "question": "The final book of the New Testament is:",
@@ -4858,7 +6446,128 @@ const QUESTION_BANK = {
         "Acts"
       ],
       "answer": 2,
-      "explanation": "Revelation is the final book."
+      "explanation": "Revelation is the final book.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "According to the Gospels, Jesus fed five thousand people with",
+      "options": [
+        "five loaves and two fish",
+        "two loaves and five fish",
+        "seven loaves and two fish",
+        "five loaves and five fish"
+      ],
+      "answer": 0,
+      "explanation": "The miracle involved five loaves and two fish.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "The fruit of the Spirit listed by Paul includes",
+      "options": [
+        "envy",
+        "love",
+        "strife",
+        "wrath"
+      ],
+      "answer": 1,
+      "explanation": "Love is one of the fruits of the Spirit in Galatians 5.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "David was able to defeat Goliath primarily because he",
+      "options": [
+        "had heavier armour",
+        "trusted in God",
+        "used a sword first",
+        "had an army behind him"
+      ],
+      "answer": 1,
+      "explanation": "The biblical account emphasizes David's faith in God.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "The parable of the Good Samaritan teaches mainly about",
+      "options": [
+        "revenge",
+        "neighbourliness and compassion",
+        "fasting",
+        "royal authority"
+      ],
+      "answer": 1,
+      "explanation": "The parable teaches love for one's neighbour beyond ethnic boundaries.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "At Pentecost, the disciples were empowered by the",
+      "options": [
+        "Roman governor",
+        "Holy Spirit",
+        "Jewish council",
+        "high priest"
+      ],
+      "answer": 1,
+      "explanation": "The Holy Spirit came upon the disciples at Pentecost.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "Paul and Silas were imprisoned in",
+      "options": [
+        "Jerusalem",
+        "Philippi",
+        "Athens",
+        "Corinth"
+      ],
+      "answer": 1,
+      "explanation": "Acts records that Paul and Silas were jailed in Philippi.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "The disciple who betrayed Jesus was",
+      "options": [
+        "Peter",
+        "John",
+        "Judas Iscariot",
+        "Thomas"
+      ],
+      "answer": 2,
+      "explanation": "Judas Iscariot betrayed Jesus.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "The first king of Israel was",
+      "options": [
+        "David",
+        "Saul",
+        "Solomon",
+        "Samuel"
+      ],
+      "answer": 1,
+      "explanation": "Saul was Israel's first king.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "The greatest commandment, according to Jesus, begins with",
+      "options": [
+        "love your neighbour as yourself",
+        "love the Lord your God",
+        "pray without ceasing",
+        "judge not"
+      ],
+      "answer": 1,
+      "explanation": "Jesus taught that the greatest commandment is to love God wholeheartedly.",
+      "sourceSubject": "christian religious studies"
+    },
+    {
+      "question": "When Jesus turned water into wine, the event took place at",
+      "options": [
+        "Bethany",
+        "Capernaum",
+        "Cana of Galilee",
+        "Jericho"
+      ],
+      "answer": 2,
+      "explanation": "The first sign in John's Gospel occurred at Cana of Galilee.",
+      "sourceSubject": "christian religious studies"
     }
   ]
 };

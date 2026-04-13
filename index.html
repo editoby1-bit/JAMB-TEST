@@ -26,7 +26,7 @@
             <span class="badge">CBT Practice</span>
             <h2>Practice UTME-style questions in a clean app.</h2>
             <p>
-              This version contains expanded original practice questions for each subject and supports named student profiles, saved history, custom question counts and custom exam duration.
+              This version now supports single-subject drills, full JAMB 4-subject sessions, named student login, saved history, custom exam duration, tougher questions and diagram-based items in selected subjects.
             </p>
           </div>
         </div>
@@ -46,8 +46,11 @@
             <h3 class="section-gap">Start Practice</h3>
             <div class="form-grid">
               <label>
-                Subject
-                <select id="subjectSelect"></select>
+                Session Type
+                <select id="sessionTypeSelect">
+                  <option value="single">Single Subject Drill</option>
+                  <option value="combo">Full JAMB Combination</option>
+                </select>
               </label>
               <label>
                 Mode
@@ -56,16 +59,52 @@
                   <option value="exam">Exam Mode</option>
                 </select>
               </label>
-              <label>
-                Number of Questions
-                <select id="questionCountSelect">
-                  <option value="10">10 Questions</option>
-                  <option value="20">20 Questions</option>
-                  <option value="30">30 Questions</option>
-                  <option value="40">40 Questions</option>
-                  <option value="all">All Available</option>
-                </select>
-              </label>
+            </div>
+
+            <div id="singleSubjectWrap">
+              <div class="form-grid compact-top">
+                <label>
+                  Subject
+                  <select id="subjectSelect"></select>
+                </label>
+                <label>
+                  Number of Questions
+                  <select id="questionCountSelect">
+                    <option value="10">10 Questions</option>
+                    <option value="20">20 Questions</option>
+                    <option value="30">30 Questions</option>
+                    <option value="40">40 Questions</option>
+                    <option value="all">All Available</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div id="comboConfig" class="combo-config hidden">
+              <div class="muted-box combo-note">
+                English is compulsory. Choose 3 additional subjects below. Standard JAMB mix uses 60 English questions and 40 questions from each selected subject.
+              </div>
+              <div class="form-grid compact-top">
+                <label>
+                  Subject 2
+                  <select id="comboSubject1"></select>
+                </label>
+                <label>
+                  Subject 3
+                  <select id="comboSubject2"></select>
+                </label>
+                <label>
+                  Subject 4
+                  <select id="comboSubject3"></select>
+                </label>
+                <label>
+                  Question Count
+                  <input value="Standard JAMB: 180" disabled />
+                </label>
+              </div>
+            </div>
+
+            <div class="form-grid compact-top">
               <label>
                 Exam Duration
                 <select id="durationSelect">
@@ -77,6 +116,8 @@
                   <option value="60">60 Minutes</option>
                   <option value="90">90 Minutes</option>
                   <option value="120">120 Minutes</option>
+                  <option value="150">150 Minutes</option>
+                  <option value="180">180 Minutes</option>
                 </select>
               </label>
             </div>
@@ -123,7 +164,7 @@
               <h3 id="sidebarStudent">-</h3>
             </div>
             <div>
-              <p class="muted">Subject</p>
+              <p class="muted">Session</p>
               <h3 id="sidebarSubject">-</h3>
             </div>
             <div>
@@ -147,11 +188,16 @@
 
           <section class="quiz-main card">
             <div class="question-head">
-              <span class="badge" id="questionNumberBadge">Question 1</span>
+              <div>
+                <span class="badge" id="questionNumberBadge">Question 1</span>
+                <div id="questionSubjectMeta" class="subject-meta"></div>
+              </div>
               <button id="backHomeBtn" class="ghost-btn">Exit</button>
             </div>
             <h2 id="questionText">Question text</h2>
+            <div id="diagramBox" class="diagram-box hidden"></div>
             <div id="optionsList" class="options-list"></div>
+            <button id="toggleExplanationBtn" class="ghost-btn hidden">Show Explanation</button>
             <div id="explanationBox" class="explanation-box hidden"></div>
             <div class="nav-row">
               <button id="prevBtn" class="ghost-btn">Previous</button>
