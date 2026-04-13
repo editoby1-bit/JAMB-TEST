@@ -1,7 +1,7 @@
 (() => {
   const storageKeys = {
-    users: 'jamb-practice-users',
-    currentUser: 'jamb-practice-current-user'
+    users: 'jamb-cbt-users-v3',
+    currentUser: 'jamb-cbt-current-user-v3'
   };
 
   const el = {
@@ -30,13 +30,18 @@
     statQuestions: document.getElementById('statQuestions'),
     historyTitle: document.getElementById('historyTitle'),
     historyList: document.getElementById('historyList'),
+    // Sidebar
     sidebarStudent: document.getElementById('sidebarStudent'),
-    sidebarSubject: document.getElementById('sidebarSubject'),
     sidebarMode: document.getElementById('sidebarMode'),
     timerDisplay: document.getElementById('timerDisplay'),
     progressText: document.getElementById('progressText'),
     progressBar: document.getElementById('progressBar'),
     questionPills: document.getElementById('questionPills'),
+    pillsLabel: document.getElementById('pillsLabel'),
+    subjectSwitcher: document.getElementById('subjectSwitcher'),
+    subjectTabs: document.getElementById('subjectTabs'),
+    submitBtn: document.getElementById('submitBtn'),
+    // Quiz main
     questionNumberBadge: document.getElementById('questionNumberBadge'),
     questionSubjectMeta: document.getElementById('questionSubjectMeta'),
     questionText: document.getElementById('questionText'),
@@ -46,11 +51,13 @@
     explanationBox: document.getElementById('explanationBox'),
     prevBtn: document.getElementById('prevBtn'),
     nextBtn: document.getElementById('nextBtn'),
-    submitBtn: document.getElementById('submitBtn'),
     backHomeBtn: document.getElementById('backHomeBtn'),
+    // Result
     resultScore: document.getElementById('resultScore'),
     resultSummary: document.getElementById('resultSummary'),
     resultBreakdown: document.getElementById('resultBreakdown'),
+    subjectBreakdown: document.getElementById('subjectBreakdown'),
+    subjectBreakdownList: document.getElementById('subjectBreakdownList'),
     reviewBtn: document.getElementById('reviewBtn'),
     restartBtn: document.getElementById('restartBtn')
   };
@@ -70,11 +77,14 @@
     timerId: null,
     timeLeft: 0,
     chosenDurationMinutes: null,
-    sessionType: 'single'
+    sessionType: 'single',
+    // Subject switching data
+    subjectRanges: {} // { subjectName: { start, end } }
   };
 
   init();
 
+  // ─────────────────────────────────────────────────
   function init() {
     populateSubjects();
     bindEvents();
@@ -82,35 +92,32 @@
     renderStats();
     renderHistory();
     syncSessionTypeUi();
+    syncStartButton();
     showScreen('home');
   }
 
   function populateSubjects() {
     const subjects = Object.keys(QUESTION_BANK);
     el.subjectSelect.innerHTML = subjects
-      .map(subject => `<option value="${escapeHtml(subject)}">${formatSubject(subject)}</option>`)
+      .map(s => `<option value="${escHtml(s)}">${fmt(s)}</option>`)
       .join('');
 
-    const comboSubjects = subjects.filter(subject => subject !== 'english');
-    const options = comboSubjects
-      .map(subject => `<option value="${escapeHtml(subject)}">${formatSubject(subject)}</option>`)
-      .join('');
+    const combo = subjects.filter(s => s !== 'english');
+    const opts = combo.map(s => `<option value="${escHtml(s)}">${fmt(s)}</option>`).join('');
+    [el.comboSubject1, el.comboSubject2, el.comboSubject3].forEach(sel => { sel.innerHTML = opts; });
 
-    [el.comboSubject1, el.comboSubject2, el.comboSubject3].forEach(select => {
-      select.innerHTML = options;
-    });
+    if (QUESTION_BANK['mathematics']) el.comboSubject1.value = 'mathematics';
+    if (QUESTION_BANK['physics'])     el.comboSubject2.value = 'physics';
+    if (QUESTION_BANK['chemistry'])   el.comboSubject3.value = 'chemistry';
 
-    el.comboSubject1.value = 'mathematics';
-    el.comboSubject2.value = 'physics';
-    el.comboSubject3.value = 'chemistry';
-
-    const totalQuestions = subjects.reduce((sum, subject) => sum + QUESTION_BANK[subject].length, 0);
-    el.statQuestions.textContent = String(totalQuestions);
+    const total = subjects.reduce((sum, s) => sum + QUESTION_BANK[s].length, 0);
+    el.statQuestions.textContent = String(total);
   }
 
   function bindEvents() {
     el.loginBtn.addEventListener('click', loginStudent);
-    el.startBtn.addEventListener('click', startPractice);
+    el.studentName.addEventListener('keydown', e => { if (e.key === 'Enter') loginStudent(); });
+    el.startBtn.addEventListener('click', startSession);
     el.prevBtn.addEventListener('click', () => moveQuestion(-1));
     el.nextBtn.addEventListener('click', () => moveQuestion(1));
     el.submitBtn.addEventListener('click', finishQuiz);
@@ -119,22 +126,16 @@
     el.restartBtn.addEventListener('click', () => showScreen('home'));
     el.resetProgressBtn.addEventListener('click', resetProgress);
     el.switchUserBtn.addEventListener('click', switchUser);
-    el.modeSelect.addEventListener('change', syncDurationUi);
+    el.modeSelect.addEventListener('change', () => { syncDurationUi(); syncStartButton(); });
     el.sessionTypeSelect.addEventListener('change', syncSessionTypeUi);
     el.toggleExplanationBtn.addEventListener('click', toggleReviewExplanation);
   }
 
+  // ─── SESSION START ────────────────────────────────
   function loginStudent() {
     const name = normalizeName(el.studentName.value);
-    if (!name) {
-      window.alert('Enter a student name to continue.');
-      return;
-    }
-
-    if (!state.users[name]) {
-      state.users[name] = { history: [] };
-    }
-
+    if (!name) { alert('Enter a student name to continue.'); return; }
+    if (!state.users[name]) state.users[name] = { history: [] };
     state.currentUser = name;
     saveUsers(state.users);
     saveCurrentUser(name);
@@ -143,7 +144,7 @@
     renderHistory();
   }
 
-  function startPractice() {
+  function startSession() {
     if (!state.currentUser) {
       loginStudent();
       if (!state.currentUser) return;
@@ -160,8 +161,8 @@
       ? buildComboSession()
       : buildSingleSession();
 
-    if (!selection.questions.length) {
-      window.alert('No questions available for the selected setup.');
+    if (!selection || !selection.questions.length) {
+      alert('No questions available for the selected setup.');
       return;
     }
 
@@ -169,23 +170,22 @@
     state.answers = new Array(state.currentQuestions.length).fill(null);
     state.subject = selection.sessionLabel;
     state.subjects = selection.subjects;
+    state.subjectRanges = selection.subjectRanges || {};
     state.chosenDurationMinutes = getChosenDurationMinutes(state.currentQuestions.length, state.mode);
     state.timeLeft = state.mode === 'exam' ? state.chosenDurationMinutes * 60 : 0;
 
-    if (state.timerId) {
-      clearInterval(state.timerId);
-      state.timerId = null;
-    }
-
-    if (state.mode === 'exam') {
-      startTimer();
-    } else {
-      el.timerDisplay.textContent = 'Practice';
-    }
+    if (state.timerId) { clearInterval(state.timerId); state.timerId = null; }
+    if (state.mode === 'exam') startTimer();
 
     el.sidebarStudent.textContent = state.student;
-    el.sidebarSubject.textContent = selection.sessionLabel;
-    el.sidebarMode.textContent = state.mode === 'exam' ? `Exam · ${state.chosenDurationMinutes} min` : 'Practice Mode';
+    el.sidebarMode.textContent = state.mode === 'exam'
+      ? `Exam · ${state.chosenDurationMinutes} min`
+      : 'Practice Mode';
+
+    // Show/hide subject switcher
+    const isCombo = state.sessionType === 'combo' && state.subjects.length > 1;
+    el.subjectSwitcher.classList.toggle('hidden', !isCombo);
+    if (isCombo) buildSubjectSwitcher();
 
     buildQuestionPills();
     renderQuestion();
@@ -196,11 +196,13 @@
     const subject = el.subjectSelect.value;
     const pool = shuffle([...QUESTION_BANK[subject]]);
     const countValue = el.questionCountSelect.value;
-    const selectedCount = countValue === 'all' ? pool.length : Math.min(Number(countValue), pool.length);
+    const count = countValue === 'all' ? pool.length : Math.min(Number(countValue), pool.length);
+    const questions = pool.slice(0, count).map(q => ({ ...q, sourceSubject: subject }));
     return {
-      questions: pool.slice(0, selectedCount).map(question => ({ ...question, sourceSubject: question.sourceSubject || subject })),
+      questions,
       subjects: [subject],
-      sessionLabel: formatSubject(subject)
+      sessionLabel: fmt(subject),
+      subjectRanges: { [subject]: { start: 0, end: questions.length - 1 } }
     };
   }
 
@@ -208,40 +210,96 @@
     const chosen = [el.comboSubject1.value, el.comboSubject2.value, el.comboSubject3.value].filter(Boolean);
     const unique = [...new Set(chosen)];
     if (unique.length !== 3) {
-      window.alert('Choose 3 different subjects for the full JAMB combination.');
-      return { questions: [], subjects: [], sessionLabel: '' };
+      alert('Choose 3 different subjects for the full JAMB combination.');
+      return null;
     }
 
-    const englishPool = shuffle([...QUESTION_BANK.english]);
-    const englishQuestions = englishPool.slice(0, Math.min(60, englishPool.length)).map(q => ({ ...q, sourceSubject: 'english' }));
-    const otherQuestions = unique.flatMap(subject => {
+    const allSubjects = ['english', ...unique];
+    const subjectRanges = {};
+    let offset = 0;
+    let allQuestions = [];
+
+    const enPool = shuffle([...QUESTION_BANK.english]);
+    const enQs = enPool.slice(0, Math.min(60, enPool.length)).map(q => ({ ...q, sourceSubject: 'english' }));
+    subjectRanges['english'] = { start: offset, end: offset + enQs.length - 1 };
+    offset += enQs.length;
+    allQuestions.push(...enQs);
+
+    unique.forEach(subject => {
       const pool = shuffle([...QUESTION_BANK[subject]]);
-      return pool.slice(0, Math.min(40, pool.length)).map(q => ({ ...q, sourceSubject: subject }));
+      const qs = pool.slice(0, Math.min(40, pool.length)).map(q => ({ ...q, sourceSubject: subject }));
+      subjectRanges[subject] = { start: offset, end: offset + qs.length - 1 };
+      offset += qs.length;
+      allQuestions.push(...qs);
     });
 
     return {
-      questions: [...englishQuestions, ...otherQuestions],
-      subjects: ['english', ...unique],
-      sessionLabel: ['english', ...unique].map(formatSubject).join(' + ')
+      questions: allQuestions,
+      subjects: allSubjects,
+      sessionLabel: allSubjects.map(fmt).join(' + '),
+      subjectRanges
     };
   }
 
-  function getChosenDurationMinutes(selectedCount, mode) {
+  // ─── SUBJECT SWITCHER ─────────────────────────────
+  function buildSubjectSwitcher() {
+    el.subjectTabs.innerHTML = '';
+    state.subjects.forEach(subject => {
+      const range = state.subjectRanges[subject];
+      const total = range ? (range.end - range.start + 1) : 0;
+      const answered = range
+        ? state.answers.slice(range.start, range.end + 1).filter(a => a !== null).length
+        : 0;
+
+      const btn = document.createElement('button');
+      btn.className = 'subject-tab-btn';
+      btn.dataset.subject = subject;
+      btn.innerHTML = `<span>${fmt(subject)}</span><span class="subject-tab-count">${answered}/${total}</span>`;
+      btn.addEventListener('click', () => jumpToSubject(subject));
+      el.subjectTabs.appendChild(btn);
+    });
+    syncSubjectTabs();
+  }
+
+  function updateSubjectSwitcherCounts() {
+    if (el.subjectSwitcher.classList.contains('hidden')) return;
+    const btns = el.subjectTabs.querySelectorAll('.subject-tab-btn');
+    btns.forEach(btn => {
+      const subject = btn.dataset.subject;
+      const range = state.subjectRanges[subject];
+      if (!range) return;
+      const total = range.end - range.start + 1;
+      const answered = state.answers.slice(range.start, range.end + 1).filter(a => a !== null).length;
+      const countEl = btn.querySelector('.subject-tab-count');
+      if (countEl) countEl.textContent = `${answered}/${total}`;
+    });
+    syncSubjectTabs();
+  }
+
+  function jumpToSubject(subject) {
+    const range = state.subjectRanges[subject];
+    if (!range) return;
+    state.currentIndex = range.start;
+    renderQuestion();
+    syncSubjectTabs();
+  }
+
+  function syncSubjectTabs() {
+    const current = state.currentQuestions[state.currentIndex];
+    if (!current) return;
+    const currentSubject = current.sourceSubject;
+    const btns = el.subjectTabs.querySelectorAll('.subject-tab-btn');
+    btns.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.subject === currentSubject);
+    });
+  }
+
+  // ─── TIMER ────────────────────────────────────────
+  function getChosenDurationMinutes(count, mode) {
     if (mode !== 'exam') return 0;
     const raw = el.durationSelect.value;
-    if (raw === 'auto') return selectedCount;
-    return Math.max(1, Number(raw) || selectedCount);
-  }
-
-  function syncDurationUi() {
-    el.durationSelect.disabled = el.modeSelect.value !== 'exam';
-  }
-
-  function syncSessionTypeUi() {
-    const isCombo = el.sessionTypeSelect.value === 'combo';
-    el.singleSubjectWrap.classList.toggle('hidden', isCombo);
-    el.comboConfig.classList.toggle('hidden', !isCombo);
-    syncDurationUi();
+    if (raw === 'auto') return count;
+    return Math.max(1, Number(raw) || count);
   }
 
   function startTimer() {
@@ -258,89 +316,106 @@
   }
 
   function updateTimerDisplay() {
-    const minutes = Math.floor(Math.max(state.timeLeft, 0) / 60);
-    const seconds = Math.max(state.timeLeft, 0) % 60;
-    el.timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    const t = Math.max(state.timeLeft, 0);
+    const m = Math.floor(t / 60);
+    const s = t % 60;
+    el.timerDisplay.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    el.timerDisplay.classList.toggle('urgent', state.mode === 'exam' && t < 300 && t > 0);
   }
 
+  // ─── PILLS ────────────────────────────────────────
   function buildQuestionPills() {
     el.questionPills.innerHTML = '';
-    state.currentQuestions.forEach((_, index) => {
-      const button = document.createElement('button');
-      button.className = 'pill';
-      button.textContent = String(index + 1);
-      button.addEventListener('click', () => {
-        state.currentIndex = index;
+    // If combo, show label; else show "Questions"
+    el.pillsLabel.textContent = state.sessionType === 'combo' ? 'All Questions' : 'Questions';
+
+    state.currentQuestions.forEach((_, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'pill';
+      btn.textContent = String(idx + 1);
+      btn.title = `Question ${idx + 1}${state.currentQuestions[idx].sourceSubject ? ' — ' + fmt(state.currentQuestions[idx].sourceSubject) : ''}`;
+      btn.addEventListener('click', () => {
+        state.currentIndex = idx;
         renderQuestion();
       });
-      el.questionPills.appendChild(button);
+      el.questionPills.appendChild(btn);
     });
     syncPills();
   }
 
+  function syncPills() {
+    [...el.questionPills.children].forEach((pill, idx) => {
+      pill.classList.toggle('current', idx === state.currentIndex);
+      pill.classList.toggle('answered', state.answers[idx] !== null);
+    });
+  }
+
+  // ─── RENDER QUESTION ─────────────────────────────
   function renderQuestion() {
-    const current = state.currentQuestions[state.currentIndex];
-    if (!current) return;
+    const q = state.currentQuestions[state.currentIndex];
+    if (!q) return;
 
-    el.questionNumberBadge.textContent = `Question ${state.currentIndex + 1}`;
-    el.questionSubjectMeta.textContent = formatSubject(current.sourceSubject || state.subject);
-    el.questionText.innerHTML = escapeHtml(current.question).replace(/\n/g, '<br>');
+    el.questionNumberBadge.textContent = `Question ${state.currentIndex + 1} of ${state.currentQuestions.length}`;
+    el.questionSubjectMeta.textContent = fmt(q.sourceSubject || state.subject);
+    el.questionText.innerHTML = escHtml(q.question).replace(/\n/g, '<br>');
 
-    const hasDiagram = Boolean(current.diagram);
+    const hasDiagram = Boolean(q.diagram);
     el.diagramBox.classList.toggle('hidden', !hasDiagram);
-    el.diagramBox.innerHTML = hasDiagram ? current.diagram : '';
+    el.diagramBox.innerHTML = hasDiagram ? q.diagram : '';
 
     el.optionsList.innerHTML = '';
-    current.options.forEach((option, index) => {
-      const button = document.createElement('button');
-      button.className = 'option-btn';
-      button.innerHTML = `<strong>${String.fromCharCode(65 + index)}.</strong> ${escapeHtml(option)}`;
+    const selectedAnswer = state.answers[state.currentIndex];
 
-      const selectedAnswer = state.answers[state.currentIndex];
-      if (selectedAnswer === index) button.classList.add('selected');
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.innerHTML = `<strong>${String.fromCharCode(65 + idx)}.</strong> ${escHtml(opt)}`;
+
+      if (selectedAnswer === idx) btn.classList.add('selected');
 
       if (state.reviewMode || state.mode === 'practice') {
         if (selectedAnswer !== null) {
-          if (index === current.answer) button.classList.add('correct');
-          if (index === selectedAnswer && selectedAnswer !== current.answer) button.classList.add('wrong');
+          if (idx === q.answer) btn.classList.add('correct');
+          if (idx === selectedAnswer && selectedAnswer !== q.answer) btn.classList.add('wrong');
         }
       }
 
-      button.addEventListener('click', () => selectAnswer(index));
-      button.disabled = state.reviewMode;
-      el.optionsList.appendChild(button);
+      btn.addEventListener('click', () => selectAnswer(idx));
+      btn.disabled = state.reviewMode;
+      el.optionsList.appendChild(btn);
     });
 
-    const selected = state.answers[state.currentIndex];
-    const shouldShowExplanation = (
-      (state.mode === 'practice' && selected !== null) ||
-      (state.reviewMode && (state.mode === 'practice' ? selected !== null : state.showReviewExplanation))
+    // Explanation logic
+    const shouldShowExpl = (
+      (state.mode === 'practice' && selectedAnswer !== null) ||
+      (state.reviewMode && (state.mode === 'practice' ? selectedAnswer !== null : state.showReviewExplanation))
     );
 
     const shouldShowToggle = state.reviewMode && state.mode === 'exam';
     el.toggleExplanationBtn.classList.toggle('hidden', !shouldShowToggle);
-    el.toggleExplanationBtn.textContent = state.showReviewExplanation ? 'Hide Explanation' : 'Show Explanation';
-    el.explanationBox.classList.toggle('hidden', !shouldShowExplanation);
-    el.explanationBox.textContent = shouldShowExplanation ? current.explanation : '';
+    el.toggleExplanationBtn.textContent = state.showReviewExplanation ? '🙈 Hide Explanation' : '💡 Show Explanation';
+    el.explanationBox.classList.toggle('hidden', !shouldShowExpl);
+    if (shouldShowExpl) el.explanationBox.textContent = q.explanation || '';
 
+    // Nav buttons
     el.prevBtn.disabled = state.currentIndex === 0;
-    el.nextBtn.textContent = state.currentIndex === state.currentQuestions.length - 1 ? 'Finish' : 'Next';
+    el.nextBtn.textContent = state.currentIndex === state.currentQuestions.length - 1
+      ? 'Finish ✓'
+      : 'Next →';
 
-    const answeredCount = state.answers.filter(answer => answer !== null).length;
-    el.progressText.textContent = `${answeredCount}/${state.currentQuestions.length}`;
-    el.progressBar.style.width = `${(answeredCount / state.currentQuestions.length) * 100}%`;
+    // Progress
+    const answered = state.answers.filter(a => a !== null).length;
+    el.progressText.textContent = `${answered} / ${state.currentQuestions.length}`;
+    el.progressBar.style.width = `${(answered / state.currentQuestions.length) * 100}%`;
+
     syncPills();
+    updateSubjectSwitcherCounts();
+    syncSubjectTabs();
   }
 
-  function toggleReviewExplanation() {
-    if (!(state.reviewMode && state.mode === 'exam')) return;
-    state.showReviewExplanation = !state.showReviewExplanation;
-    renderQuestion();
-  }
-
-  function selectAnswer(index) {
+  function selectAnswer(idx) {
     if (state.reviewMode) return;
-    state.answers[state.currentIndex] = index;
+    state.answers[state.currentIndex] = idx;
     renderQuestion();
   }
 
@@ -353,32 +428,25 @@
     renderQuestion();
   }
 
-  function syncPills() {
-    [...el.questionPills.children].forEach((pill, index) => {
-      pill.classList.toggle('current', index === state.currentIndex);
-      pill.classList.toggle('answered', state.answers[index] !== null);
-    });
+  function toggleReviewExplanation() {
+    if (!(state.reviewMode && state.mode === 'exam')) return;
+    state.showReviewExplanation = !state.showReviewExplanation;
+    renderQuestion();
   }
 
+  // ─── FINISH QUIZ ─────────────────────────────────
   function finishQuiz(fromTimeout = false) {
     if (!state.currentQuestions.length) return;
-    if (state.timerId) {
-      clearInterval(state.timerId);
-      state.timerId = null;
-    }
+    if (state.timerId) { clearInterval(state.timerId); state.timerId = null; }
 
-    const correct = state.currentQuestions.reduce((sum, item, index) => (
-      sum + (state.answers[index] === item.answer ? 1 : 0)
-    ), 0);
-
+    const correct = state.currentQuestions.reduce((sum, q, i) =>
+      sum + (state.answers[i] === q.answer ? 1 : 0), 0);
     const total = state.currentQuestions.length;
-    const wrong = state.answers.filter((ans, index) => ans !== null && ans !== state.currentQuestions[index].answer).length;
-    const skipped = state.answers.filter(ans => ans === null).length;
+    const wrong = state.answers.filter((a, i) => a !== null && a !== state.currentQuestions[i].answer).length;
+    const skipped = state.answers.filter(a => a === null).length;
     const percent = Math.round((correct / total) * 100);
 
-    if (!state.users[state.currentUser]) {
-      state.users[state.currentUser] = { history: [] };
-    }
+    if (!state.users[state.currentUser]) state.users[state.currentUser] = { history: [] };
 
     const result = {
       student: state.student,
@@ -386,11 +454,7 @@
       mode: state.mode,
       sessionType: state.sessionType,
       durationMinutes: state.chosenDurationMinutes,
-      total,
-      correct,
-      wrong,
-      skipped,
-      percent,
+      total, correct, wrong, skipped, percent,
       completedByTimeout: fromTimeout,
       date: new Date().toLocaleString()
     };
@@ -399,14 +463,42 @@
     state.users[state.currentUser].history = state.users[state.currentUser].history.slice(0, 50);
     saveUsers(state.users);
 
+    // Score display + color
     el.resultScore.textContent = `${percent}%`;
-    el.resultSummary.textContent = `${result.student} scored ${correct} out of ${total} in ${result.subject}${fromTimeout ? ' after time elapsed.' : '.'}`;
+    el.resultScore.style.color = percent >= 50
+      ? (percent >= 70 ? 'var(--green)' : 'var(--navy)')
+      : 'var(--red)';
+
+    el.resultSummary.textContent = `${result.student} scored ${correct} out of ${total} in ${result.subject}${fromTimeout ? ' (time elapsed).' : '.'}`;
     el.resultBreakdown.innerHTML = [
       statCard('Correct', correct),
       statCard('Wrong', wrong),
       statCard('Skipped', skipped),
-      statCard('Duration', result.mode === 'exam' ? `${result.durationMinutes} min` : 'Practice')
+      statCard('Duration', result.mode === 'exam' ? `${result.durationMinutes} min` : '—')
     ].join('');
+
+    // Per-subject breakdown for combo
+    if (state.sessionType === 'combo' && Object.keys(state.subjectRanges).length > 0) {
+      el.subjectBreakdown.classList.remove('hidden');
+      el.subjectBreakdownList.innerHTML = state.subjects.map(subject => {
+        const range = state.subjectRanges[subject];
+        if (!range) return '';
+        const qs = state.currentQuestions.slice(range.start, range.end + 1);
+        const c = qs.reduce((sum, q, i) =>
+          sum + (state.answers[range.start + i] === q.answer ? 1 : 0), 0);
+        const pct = Math.round((c / qs.length) * 100);
+        return `
+          <div class="sbdown-row">
+            <span class="sbdown-name">${fmt(subject)}</span>
+            <div class="sbdown-bar-wrap">
+              <div class="sbdown-bar" style="width:${pct}%"></div>
+            </div>
+            <span class="sbdown-score">${pct}%</span>
+          </div>`;
+      }).join('');
+    } else {
+      el.subjectBreakdown.classList.add('hidden');
+    }
 
     renderStats();
     renderHistory();
@@ -422,22 +514,17 @@
   }
 
   function confirmExit() {
-    const leave = window.confirm('Exit this practice session?');
+    const leave = confirm('Exit this session? Your progress will be lost.');
     if (leave) {
-      if (state.timerId) {
-        clearInterval(state.timerId);
-        state.timerId = null;
-      }
+      if (state.timerId) { clearInterval(state.timerId); state.timerId = null; }
       showScreen('home');
     }
   }
 
   function switchUser() {
     if (state.timerId) {
-      const ok = window.confirm('Switch student? Current running session will be closed.');
-      if (!ok) return;
-      clearInterval(state.timerId);
-      state.timerId = null;
+      if (!confirm('Switch student? Current session will close.')) return;
+      clearInterval(state.timerId); state.timerId = null;
       showScreen('home');
     }
     state.currentUser = '';
@@ -445,23 +532,42 @@
     renderCurrentUser();
     renderStats();
     renderHistory();
+    el.studentName.value = '';
     el.studentName.focus();
   }
 
+  // ─── SCREEN + SYNC ────────────────────────────────
   function showScreen(name) {
     el.homeScreen.classList.toggle('active', name === 'home');
     el.quizScreen.classList.toggle('active', name === 'quiz');
     el.resultScreen.classList.toggle('active', name === 'result');
   }
 
+  function syncDurationUi() {
+    el.durationSelect.disabled = el.modeSelect.value !== 'exam';
+  }
+
+  function syncStartButton() {
+    el.startBtn.textContent = el.modeSelect.value === 'exam' ? 'Start Exam' : 'Start Practice';
+  }
+
+  function syncSessionTypeUi() {
+    const isCombo = el.sessionTypeSelect.value === 'combo';
+    el.singleSubjectWrap.classList.toggle('hidden', isCombo);
+    el.comboConfig.classList.toggle('hidden', !isCombo);
+    syncDurationUi();
+  }
+
+  // ─── RENDER UI ────────────────────────────────────
   function renderCurrentUser() {
     if (state.currentUser) {
-      el.currentStudentBox.textContent = `Logged in as: ${state.currentUser}`;
+      el.currentStudentBox.textContent = `✓ Logged in as: ${state.currentUser}`;
+      el.currentStudentBox.className = 'student-pill logged-in';
       el.studentName.value = state.currentUser;
-      el.historyTitle.textContent = `Showing saved results for ${state.currentUser}`;
+      el.historyTitle.textContent = state.currentUser;
     } else {
-      el.currentStudentBox.textContent = 'No student logged in.';
-      el.studentName.value = '';
+      el.currentStudentBox.textContent = 'No student logged in';
+      el.currentStudentBox.className = 'student-pill';
       el.historyTitle.textContent = 'No student selected';
     }
     syncDurationUi();
@@ -470,11 +576,11 @@
   function renderStats() {
     const history = getCurrentHistory();
     const sessions = history.length;
-    const average = sessions ? Math.round(history.reduce((sum, item) => sum + item.percent, 0) / sessions) : 0;
-    const best = sessions ? Math.max(...history.map(item => item.percent)) : 0;
+    const avg = sessions ? Math.round(history.reduce((s, h) => s + h.percent, 0) / sessions) : null;
+    const best = sessions ? Math.max(...history.map(h => h.percent)) : null;
     el.statSessions.textContent = String(sessions);
-    el.statAverage.textContent = `${average}%`;
-    el.statBest.textContent = `${best}%`;
+    el.statAverage.textContent = avg !== null ? `${avg}%` : '—';
+    el.statBest.textContent = best !== null ? `${best}%` : '—';
   }
 
   function renderHistory() {
@@ -484,24 +590,22 @@
       el.historyList.textContent = 'Login with a student name to view history.';
       return;
     }
-
     if (!history.length) {
       el.historyList.className = 'history-list empty-state';
-      el.historyList.textContent = 'No practice history yet for this student.';
+      el.historyList.textContent = 'No practice history yet. Start your first session!';
       return;
     }
-
     el.historyList.className = 'history-list';
     el.historyList.innerHTML = history.map(item => `
       <div class="history-item">
         <div>
-          <strong>${escapeHtml(item.student)}</strong><br>
-          <span class="muted" style="text-transform:none">${escapeHtml(item.subject)} · ${escapeHtml(item.date)}</span>
+          <strong>${escHtml(item.subject)}</strong><br>
+          <span class="muted">${escHtml(item.date)}</span>
         </div>
-        <div><strong>${item.percent}%</strong><br><span class="muted" style="text-transform:none">Score</span></div>
-        <div><strong>${item.correct}/${item.total}</strong><br><span class="muted" style="text-transform:none">Correct</span></div>
-        <div><strong>${item.mode === 'exam' ? 'Exam' : 'Practice'}</strong><br><span class="muted" style="text-transform:none">Mode</span></div>
-        <div><strong>${item.mode === 'exam' ? `${item.durationMinutes || '-'} min` : '-'}</strong><br><span class="muted" style="text-transform:none">Time</span></div>
+        <div><strong>${item.percent}%</strong><br><span class="muted">Score</span></div>
+        <div><strong>${item.correct}/${item.total}</strong><br><span class="muted">Correct</span></div>
+        <div><strong>${item.mode === 'exam' ? 'Exam' : 'Practice'}</strong><br><span class="muted">Mode</span></div>
+        <div><strong>${item.mode === 'exam' ? (item.durationMinutes || '—') + ' min' : '—'}</strong><br><span class="muted">Time</span></div>
       </div>
     `).join('');
   }
@@ -512,65 +616,45 @@
   }
 
   function resetProgress() {
-    if (!state.currentUser) {
-      window.alert('Login with a student name first.');
-      return;
-    }
-    const ok = window.confirm(`This will erase saved results for ${state.currentUser} on this device. Continue?`);
-    if (!ok) return;
-    if (!state.users[state.currentUser]) {
-      state.users[state.currentUser] = { history: [] };
-    }
+    if (!state.currentUser) { alert('Login with a student name first.'); return; }
+    if (!confirm(`Erase all saved results for "${state.currentUser}" on this device?`)) return;
+    if (!state.users[state.currentUser]) state.users[state.currentUser] = { history: [] };
     state.users[state.currentUser].history = [];
     saveUsers(state.users);
     renderStats();
     renderHistory();
   }
 
+  // ─── STORAGE ─────────────────────────────────────
   function loadUsers() {
-    try {
-      return JSON.parse(localStorage.getItem(storageKeys.users) || '{}');
-    } catch (error) {
-      return {};
-    }
+    try { return JSON.parse(localStorage.getItem(storageKeys.users) || '{}'); }
+    catch { return {}; }
   }
 
-  function saveUsers(value) {
-    localStorage.setItem(storageKeys.users, JSON.stringify(value));
-  }
+  function saveUsers(v) { localStorage.setItem(storageKeys.users, JSON.stringify(v)); }
+  function loadCurrentUser() { return localStorage.getItem(storageKeys.currentUser) || ''; }
+  function saveCurrentUser(v) { localStorage.setItem(storageKeys.currentUser, v); }
 
-  function loadCurrentUser() {
-    return localStorage.getItem(storageKeys.currentUser) || '';
-  }
-
-  function saveCurrentUser(value) {
-    localStorage.setItem(storageKeys.currentUser, value);
-  }
-
+  // ─── UTILS ───────────────────────────────────────
   function statCard(label, value) {
-    return `<div class="stat-box"><span>${escapeHtml(label)}</span><strong>${escapeHtml(String(value))}</strong></div>`;
+    return `<div class="stat-box"><span>${escHtml(label)}</span><strong>${escHtml(String(value))}</strong></div>`;
   }
 
-  function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i -= 1) {
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
-    return array;
+    return arr;
   }
 
-  function formatSubject(value) {
-    return value
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
+  function fmt(val) {
+    return String(val).split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
   }
 
-  function normalizeName(value) {
-    return value.replace(/\s+/g, ' ').trim();
-  }
+  function normalizeName(val) { return String(val).replace(/\s+/g, ' ').trim(); }
 
-  function escapeHtml(text) {
+  function escHtml(text) {
     return String(text)
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
@@ -578,4 +662,5 @@
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
   }
+
 })();
