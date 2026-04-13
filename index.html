@@ -11,9 +11,12 @@
     <header class="topbar">
       <div>
         <h1>JAMB Practice</h1>
-        <p class="subtitle">Offline practice app for your students</p>
+        <p class="subtitle">Offline CBT practice app for your students</p>
       </div>
-      <button id="resetProgressBtn" class="ghost-btn">Reset Progress</button>
+      <div class="topbar-actions">
+        <button id="switchUserBtn" class="ghost-btn">Switch Student</button>
+        <button id="resetProgressBtn" class="ghost-btn">Reset History</button>
+      </div>
     </header>
 
     <main>
@@ -23,19 +26,25 @@
             <span class="badge">CBT Practice</span>
             <h2>Practice UTME-style questions in a clean app.</h2>
             <p>
-              This version is an original practice app inspired by common CBT flows. It is not a copy of any third-party product.
+              This version contains expanded original practice questions for each subject and supports named student profiles, saved history, custom question counts and custom exam duration.
             </p>
           </div>
         </div>
 
         <div class="grid two">
           <div class="card">
-            <h3>Start Practice</h3>
-            <div class="form-grid">
-              <label>
+            <h3>Student Login</h3>
+            <div class="login-row">
+              <label class="full-span">
                 Student Name
                 <input id="studentName" type="text" placeholder="Enter student name" maxlength="60" />
               </label>
+              <button id="loginBtn" class="primary-btn">Login / Continue</button>
+            </div>
+            <div id="currentStudentBox" class="current-student muted-box">No student logged in.</div>
+
+            <h3 class="section-gap">Start Practice</h3>
+            <div class="form-grid">
               <label>
                 Subject
                 <select id="subjectSelect"></select>
@@ -52,8 +61,22 @@
                 <select id="questionCountSelect">
                   <option value="10">10 Questions</option>
                   <option value="20">20 Questions</option>
-                  <option value="50">50 Questions</option>
+                  <option value="30">30 Questions</option>
+                  <option value="40">40 Questions</option>
                   <option value="all">All Available</option>
+                </select>
+              </label>
+              <label>
+                Exam Duration
+                <select id="durationSelect">
+                  <option value="auto">Auto (1 minute per question)</option>
+                  <option value="10">10 Minutes</option>
+                  <option value="20">20 Minutes</option>
+                  <option value="30">30 Minutes</option>
+                  <option value="40">40 Minutes</option>
+                  <option value="60">60 Minutes</option>
+                  <option value="90">90 Minutes</option>
+                  <option value="120">120 Minutes</option>
                 </select>
               </label>
             </div>
@@ -61,7 +84,7 @@
           </div>
 
           <div class="card">
-            <h3>Quick Stats</h3>
+            <h3>Current Student Stats</h3>
             <div class="stats-grid">
               <div class="stat-box">
                 <span>Total Sessions</span>
@@ -85,9 +108,10 @@
 
         <div class="card">
           <div class="section-head">
-            <h3>Recent Results</h3>
+            <h3>Student History</h3>
+            <span id="historyTitle" class="muted-inline">No student selected</span>
           </div>
-          <div id="historyList" class="history-list empty-state">No practice history yet.</div>
+          <div id="historyList" class="history-list empty-state">Login with a student name to view history.</div>
         </div>
       </section>
 

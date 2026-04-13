@@ -1,31 +1,20 @@
-JAMB PRACTICE APP
+JAMB Practice App
 
-This is an original offline CBT-style practice app.
-It is not a copy of TestDriller or any other proprietary app.
+What was added:
+- More subjects:
+  * Literature in English
+  * Christian Religious Studies
+  * Economics
+  * Accounting
+  * Physics
+  * Chemistry
+  * Geography
+- Expanded question banks to 40 questions per subject
+- Question count selector now includes 10 / 20 / 30 / 40 / all
+- Exam duration selector added
+- Simple student login using name
+- Saved student-specific history on the device
 
-FILES:
-- index.html
-- styles.css
-- app.js
-- questions.js
-
-HOW TO USE:
-1. Extract the ZIP.
-2. Open index.html in Chrome.
-3. Start practicing.
-
-HOW TO ADD MORE QUESTIONS:
-- Open questions.js
-- Follow the existing subject structure
-- Add more objects with:
-  question, options, answer, explanation
-
-CURRENT FEATURES:
-- Subject selection
-- Practice mode
-- Exam mode with timer
-- Result summary
-- Answer review
-- Saved local history on the device
-- Works offline
-
+Notes:
+- This app stores student history locally in the browser on the device being used.
+- Questions in this version are original practice questions written in a JAMB-style format for offline study use.

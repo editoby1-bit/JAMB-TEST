@@ -1,8 +1,7 @@
-(function () {
-  'use strict';
-
+(() => {
   const storageKeys = {
-    history: 'jamb_practice_history_v1'
+    users: 'jamb-practice-users',
+    currentUser: 'jamb-practice-current-user'
   };
 
   const el = {
@@ -10,16 +9,21 @@
     quizScreen: document.getElementById('quizScreen'),
     resultScreen: document.getElementById('resultScreen'),
     studentName: document.getElementById('studentName'),
+    loginBtn: document.getElementById('loginBtn'),
+    currentStudentBox: document.getElementById('currentStudentBox'),
     subjectSelect: document.getElementById('subjectSelect'),
     modeSelect: document.getElementById('modeSelect'),
     questionCountSelect: document.getElementById('questionCountSelect'),
+    durationSelect: document.getElementById('durationSelect'),
     startBtn: document.getElementById('startBtn'),
+    switchUserBtn: document.getElementById('switchUserBtn'),
+    resetProgressBtn: document.getElementById('resetProgressBtn'),
     statSessions: document.getElementById('statSessions'),
     statAverage: document.getElementById('statAverage'),
     statBest: document.getElementById('statBest'),
     statQuestions: document.getElementById('statQuestions'),
+    historyTitle: document.getElementById('historyTitle'),
     historyList: document.getElementById('historyList'),
-    resetProgressBtn: document.getElementById('resetProgressBtn'),
     sidebarStudent: document.getElementById('sidebarStudent'),
     sidebarSubject: document.getElementById('sidebarSubject'),
     sidebarMode: document.getElementById('sidebarMode'),
@@ -43,7 +47,8 @@
   };
 
   const state = {
-    history: loadHistory(),
+    users: loadUsers(),
+    currentUser: loadCurrentUser(),
     currentQuestions: [],
     answers: [],
     currentIndex: 0,
@@ -52,7 +57,8 @@
     student: '',
     reviewMode: false,
     timerId: null,
-    timeLeft: 0
+    timeLeft: 0,
+    chosenDurationMinutes: null
   };
 
   init();
@@ -60,6 +66,7 @@
   function init() {
     populateSubjects();
     bindEvents();
+    renderCurrentUser();
     renderStats();
     renderHistory();
     showScreen('home');
@@ -68,13 +75,14 @@
   function populateSubjects() {
     const subjects = Object.keys(QUESTION_BANK);
     el.subjectSelect.innerHTML = subjects
-      .map(subject => `<option value="${subject}">${capitalize(subject)}</option>`)
+      .map(subject => `<option value="${subject}">${formatSubject(subject)}</option>`)
       .join('');
     const totalQuestions = subjects.reduce((sum, subject) => sum + QUESTION_BANK[subject].length, 0);
     el.statQuestions.textContent = String(totalQuestions);
   }
 
   function bindEvents() {
+    el.loginBtn.addEventListener('click', loginStudent);
     el.startBtn.addEventListener('click', startPractice);
     el.prevBtn.addEventListener('click', () => moveQuestion(-1));
     el.nextBtn.addEventListener('click', () => moveQuestion(1));
@@ -83,10 +91,35 @@
     el.reviewBtn.addEventListener('click', enterReviewMode);
     el.restartBtn.addEventListener('click', () => showScreen('home'));
     el.resetProgressBtn.addEventListener('click', resetProgress);
+    el.switchUserBtn.addEventListener('click', switchUser);
+    el.modeSelect.addEventListener('change', syncDurationUi);
+  }
+
+  function loginStudent() {
+    const name = normalizeName(el.studentName.value);
+    if (!name) {
+      window.alert('Enter a student name to continue.');
+      return;
+    }
+
+    if (!state.users[name]) {
+      state.users[name] = { history: [] };
+    }
+
+    state.currentUser = name;
+    saveUsers(state.users);
+    saveCurrentUser(name);
+    renderCurrentUser();
+    renderStats();
+    renderHistory();
   }
 
   function startPractice() {
-    const student = el.studentName.value.trim() || 'Student';
+    if (!state.currentUser) {
+      loginStudent();
+      if (!state.currentUser) return;
+    }
+
     const subject = el.subjectSelect.value;
     const mode = el.modeSelect.value;
     const pool = shuffle([...QUESTION_BANK[subject]]);
@@ -98,9 +131,10 @@
     state.currentIndex = 0;
     state.mode = mode;
     state.subject = subject;
-    state.student = student;
+    state.student = state.currentUser;
     state.reviewMode = false;
-    state.timeLeft = mode === 'exam' ? selectedCount * 60 : 0;
+    state.chosenDurationMinutes = getChosenDurationMinutes(selectedCount, mode);
+    state.timeLeft = mode === 'exam' ? state.chosenDurationMinutes * 60 : 0;
 
     if (state.timerId) {
       clearInterval(state.timerId);
@@ -113,13 +147,24 @@
       el.timerDisplay.textContent = 'Practice';
     }
 
-    el.sidebarStudent.textContent = student;
-    el.sidebarSubject.textContent = capitalize(subject);
-    el.sidebarMode.textContent = mode === 'exam' ? 'Exam Mode' : 'Practice Mode';
+    el.sidebarStudent.textContent = state.student;
+    el.sidebarSubject.textContent = formatSubject(subject);
+    el.sidebarMode.textContent = mode === 'exam' ? `Exam · ${state.chosenDurationMinutes} min` : 'Practice Mode';
 
     buildQuestionPills();
     renderQuestion();
     showScreen('quiz');
+  }
+
+  function getChosenDurationMinutes(selectedCount, mode) {
+    if (mode !== 'exam') return 0;
+    const raw = el.durationSelect.value;
+    if (raw === 'auto') return selectedCount;
+    return Math.max(1, Number(raw) || selectedCount);
+  }
+
+  function syncDurationUi() {
+    el.durationSelect.disabled = el.modeSelect.value !== 'exam';
   }
 
   function startTimer() {
@@ -130,7 +175,7 @@
       if (state.timeLeft <= 0) {
         clearInterval(state.timerId);
         state.timerId = null;
-        finishQuiz();
+        finishQuiz(true);
       }
     }, 1000);
   }
@@ -167,7 +212,7 @@
     current.options.forEach((option, index) => {
       const button = document.createElement('button');
       button.className = 'option-btn';
-      button.innerHTML = `<strong>${String.fromCharCode(65 + index)}.</strong> ${option}`;
+      button.innerHTML = `<strong>${String.fromCharCode(65 + index)}.</strong> ${escapeHtml(option)}`;
 
       const selectedAnswer = state.answers[state.currentIndex];
       if (selectedAnswer === index) button.classList.add('selected');
@@ -206,7 +251,7 @@
 
   function moveQuestion(step) {
     if (step > 0 && state.currentIndex === state.currentQuestions.length - 1) {
-      finishQuiz();
+      finishQuiz(false);
       return;
     }
     state.currentIndex = Math.max(0, Math.min(state.currentQuestions.length - 1, state.currentIndex + step));
@@ -220,45 +265,51 @@
     });
   }
 
-  function finishQuiz() {
+  function finishQuiz(fromTimeout = false) {
     if (!state.currentQuestions.length) return;
     if (state.timerId) {
       clearInterval(state.timerId);
       state.timerId = null;
     }
 
-    const correct = state.currentQuestions.reduce((sum, item, index) => {
-      return sum + (state.answers[index] === item.answer ? 1 : 0);
-    }, 0);
+    const correct = state.currentQuestions.reduce((sum, item, index) => (
+      sum + (state.answers[index] === item.answer ? 1 : 0)
+    ), 0);
 
     const total = state.currentQuestions.length;
     const wrong = state.answers.filter((ans, index) => ans !== null && ans !== state.currentQuestions[index].answer).length;
     const skipped = state.answers.filter(ans => ans === null).length;
     const percent = Math.round((correct / total) * 100);
 
+    if (!state.users[state.currentUser]) {
+      state.users[state.currentUser] = { history: [] };
+    }
+
     const result = {
       student: state.student,
-      subject: capitalize(state.subject),
+      subject: formatSubject(state.subject),
       mode: state.mode,
+      durationMinutes: state.chosenDurationMinutes,
       total,
       correct,
       wrong,
       skipped,
       percent,
+      completedByTimeout: fromTimeout,
       date: new Date().toLocaleString()
     };
 
-    state.history.unshift(result);
-    state.history = state.history.slice(0, 20);
-    saveHistory(state.history);
+    state.users[state.currentUser].history.unshift(result);
+    state.users[state.currentUser].history = state.users[state.currentUser].history.slice(0, 50);
+    saveUsers(state.users);
 
     el.resultScore.textContent = `${percent}%`;
-    el.resultSummary.textContent = `${result.student} scored ${correct} out of ${total} in ${result.subject}.`;
+    el.resultSummary.textContent = `${result.student} scored ${correct} out of ${total} in ${result.subject}${fromTimeout ? ' after time elapsed.' : '.'}`;
     el.resultBreakdown.innerHTML = [
       statCard('Correct', correct),
       statCard('Wrong', wrong),
       statCard('Skipped', skipped),
-      statCard('Mode', result.mode === 'exam' ? 'Exam' : 'Practice')
+      statCard('Duration', result.mode === 'exam' ? `${result.durationMinutes} min` : 'Practice')
     ].join('');
 
     renderStats();
@@ -284,30 +335,67 @@
     }
   }
 
+  function switchUser() {
+    if (state.timerId) {
+      const ok = window.confirm('Switch student? Current running session will be closed.');
+      if (!ok) return;
+      clearInterval(state.timerId);
+      state.timerId = null;
+      showScreen('home');
+    }
+    state.currentUser = '';
+    saveCurrentUser('');
+    renderCurrentUser();
+    renderStats();
+    renderHistory();
+    el.studentName.focus();
+  }
+
   function showScreen(name) {
     el.homeScreen.classList.toggle('active', name === 'home');
     el.quizScreen.classList.toggle('active', name === 'quiz');
     el.resultScreen.classList.toggle('active', name === 'result');
   }
 
+  function renderCurrentUser() {
+    if (state.currentUser) {
+      el.currentStudentBox.textContent = `Logged in as: ${state.currentUser}`;
+      el.studentName.value = state.currentUser;
+      el.historyTitle.textContent = `Showing saved results for ${state.currentUser}`;
+    } else {
+      el.currentStudentBox.textContent = 'No student logged in.';
+      el.studentName.value = '';
+      el.historyTitle.textContent = 'No student selected';
+    }
+    syncDurationUi();
+  }
+
   function renderStats() {
-    const sessions = state.history.length;
-    const average = sessions ? Math.round(state.history.reduce((sum, item) => sum + item.percent, 0) / sessions) : 0;
-    const best = sessions ? Math.max(...state.history.map(item => item.percent)) : 0;
+    const history = getCurrentHistory();
+    const sessions = history.length;
+    const average = sessions ? Math.round(history.reduce((sum, item) => sum + item.percent, 0) / sessions) : 0;
+    const best = sessions ? Math.max(...history.map(item => item.percent)) : 0;
     el.statSessions.textContent = String(sessions);
     el.statAverage.textContent = `${average}%`;
     el.statBest.textContent = `${best}%`;
   }
 
   function renderHistory() {
-    if (!state.history.length) {
+    const history = getCurrentHistory();
+    if (!state.currentUser) {
       el.historyList.className = 'history-list empty-state';
-      el.historyList.textContent = 'No practice history yet.';
+      el.historyList.textContent = 'Login with a student name to view history.';
+      return;
+    }
+
+    if (!history.length) {
+      el.historyList.className = 'history-list empty-state';
+      el.historyList.textContent = 'No practice history yet for this student.';
       return;
     }
 
     el.historyList.className = 'history-list';
-    el.historyList.innerHTML = state.history.map(item => `
+    el.historyList.innerHTML = history.map(item => `
       <div class="history-item">
         <div>
           <strong>${escapeHtml(item.student)}</strong><br>
@@ -316,29 +404,50 @@
         <div><strong>${item.percent}%</strong><br><span class="muted" style="text-transform:none">Score</span></div>
         <div><strong>${item.correct}/${item.total}</strong><br><span class="muted" style="text-transform:none">Correct</span></div>
         <div><strong>${item.mode === 'exam' ? 'Exam' : 'Practice'}</strong><br><span class="muted" style="text-transform:none">Mode</span></div>
+        <div><strong>${item.mode === 'exam' ? `${item.durationMinutes || '-' } min` : '-'}</strong><br><span class="muted" style="text-transform:none">Time</span></div>
       </div>
     `).join('');
   }
 
+  function getCurrentHistory() {
+    if (!state.currentUser || !state.users[state.currentUser]) return [];
+    return state.users[state.currentUser].history || [];
+  }
+
   function resetProgress() {
-    const ok = window.confirm('This will erase saved results on this device. Continue?');
+    if (!state.currentUser) {
+      window.alert('Login with a student name first.');
+      return;
+    }
+    const ok = window.confirm(`This will erase saved results for ${state.currentUser} on this device. Continue?`);
     if (!ok) return;
-    state.history = [];
-    saveHistory(state.history);
+    if (!state.users[state.currentUser]) {
+      state.users[state.currentUser] = { history: [] };
+    }
+    state.users[state.currentUser].history = [];
+    saveUsers(state.users);
     renderStats();
     renderHistory();
   }
 
-  function loadHistory() {
+  function loadUsers() {
     try {
-      return JSON.parse(localStorage.getItem(storageKeys.history) || '[]');
+      return JSON.parse(localStorage.getItem(storageKeys.users) || '{}');
     } catch (error) {
-      return [];
+      return {};
     }
   }
 
-  function saveHistory(value) {
-    localStorage.setItem(storageKeys.history, JSON.stringify(value));
+  function saveUsers(value) {
+    localStorage.setItem(storageKeys.users, JSON.stringify(value));
+  }
+
+  function loadCurrentUser() {
+    return localStorage.getItem(storageKeys.currentUser) || '';
+  }
+
+  function saveCurrentUser(value) {
+    localStorage.setItem(storageKeys.currentUser, value);
   }
 
   function statCard(label, value) {
@@ -353,12 +462,19 @@
     return array;
   }
 
-  function capitalize(value) {
-    return value.charAt(0).toUpperCase() + value.slice(1);
+  function formatSubject(value) {
+    return value
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  function normalizeName(value) {
+    return value.replace(/\s+/g, ' ').trim();
   }
 
   function escapeHtml(text) {
-    return text
+    return String(text)
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
