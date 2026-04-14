@@ -3,264 +3,207 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAMB CBT Practice</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <title>My JAMB App</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div id="app">
 
-    <!-- TOP BAR -->
-    <header class="topbar">
-      <div class="topbar-brand">
-        <span class="brand-icon">◈</span>
-        <div>
-          <h1>JAMB<span class="brand-accent">CBT</span></h1>
-          <p class="brand-sub">UTME Practice Platform</p>
+    <!-- LOGIN SCREEN -->
+    <section id="loginScreen" class="screen active">
+      <div class="login-wrap">
+        <div class="login-logo">
+          <span class="logo-badge">UTME</span>
+          <h1>My JAMB App</h1>
+          <p>Nigeria's trusted CBT practice companion</p>
+        </div>
+        <div class="login-card card">
+          <h2>Welcome! Enter Your Name</h2>
+          <p class="muted-text">Your name is used to save and track your practice history on this device.</p>
+          <input id="loginNameInput" type="text" placeholder="e.g. Chukwuemeka Obi" maxlength="60" autocomplete="off" />
+          <button id="loginBtn" class="primary-btn full-btn">Continue to Practice</button>
+          <div id="loginError" class="login-error hidden">Please enter your name to continue.</div>
+        </div>
+        <p class="login-footer">Free offline CBT practice for JAMB UTME candidates</p>
+      </div>
+    </section>
+
+    <!-- HOME SCREEN -->
+    <section id="homeScreen" class="screen">
+      <header class="topbar">
+        <div class="topbar-left">
+          <h1>My JAMB App</h1>
+          <p class="subtitle">Welcome, <strong id="welcomeName">Student</strong></p>
+        </div>
+        <div class="topbar-right">
+          <button id="switchUserBtn" class="ghost-btn">Switch User</button>
+          <button id="resetProgressBtn" class="ghost-btn danger-ghost">Reset Progress</button>
+        </div>
+      </header>
+
+      <main>
+        <div class="hero card">
+          <div>
+            <span class="badge">CBT Practice</span>
+            <h2>Practise real JAMB-style questions in a timed environment.</h2>
+            <p>Questions sourced from publicly available JAMB UTME past question compilations (jambite.com, schoolngr.com, pastquestionsforum.com).</p>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3>Start Practice</h3>
+            <div class="form-grid">
+              <label>
+                Subject
+                <select id="subjectSelect"></select>
+              </label>
+              <label>
+                Mode
+                <select id="modeSelect">
+                  <option value="practice">Practice Mode (see answers)</option>
+                  <option value="exam">Exam Mode (timed)</option>
+                </select>
+              </label>
+              <label>
+                Number of Questions
+                <select id="questionCountSelect">
+                  <option value="5">5 Questions (Quick)</option>
+                  <option value="10">10 Questions</option>
+                  <option value="20">20 Questions</option>
+                  <option value="40" selected>40 Questions (Default)</option>
+                  <option value="all">All Available</option>
+                </select>
+              </label>
+              <label id="durationLabel">
+                Duration (Minutes)
+                <select id="durationSelect">
+                  <option value="15">15 Minutes</option>
+                  <option value="20">20 Minutes</option>
+                  <option value="30">30 Minutes</option>
+                  <option value="45">45 Minutes (Recommended)</option>
+                  <option value="60" selected>60 Minutes</option>
+                  <option value="90">90 Minutes</option>
+                  <option value="120">2 Hours</option>
+                </select>
+              </label>
+            </div>
+            <button id="startBtn" class="primary-btn full-btn">Start Practice</button>
+          </div>
+
+          <div class="card">
+            <h3>Quick Stats</h3>
+            <div class="stats-grid">
+              <div class="stat-box">
+                <span>Total Sessions</span>
+                <strong id="statSessions">0</strong>
+              </div>
+              <div class="stat-box">
+                <span>Average Score</span>
+                <strong id="statAverage">0%</strong>
+              </div>
+              <div class="stat-box">
+                <span>Best Score</span>
+                <strong id="statBest">0%</strong>
+              </div>
+              <div class="stat-box">
+                <span>Question Bank</span>
+                <strong id="statQuestions">0</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-head">
+            <h3>Recent Results — <span id="historyUserLabel">All Users</span></h3>
+            <button id="toggleHistoryBtn" class="ghost-btn small-btn">Show All</button>
+          </div>
+          <div id="historyList" class="history-list empty-state">No practice history yet.</div>
+        </div>
+      </main>
+    </section>
+
+    <!-- QUIZ SCREEN -->
+    <section id="quizScreen" class="screen">
+      <div class="quiz-shell">
+        <aside class="quiz-sidebar card">
+          <div class="sidebar-info">
+            <div>
+              <p class="muted">Student</p>
+              <h3 id="sidebarStudent">-</h3>
+            </div>
+            <div>
+              <p class="muted">Subject</p>
+              <h3 id="sidebarSubject">-</h3>
+            </div>
+            <div>
+              <p class="muted">Mode</p>
+              <h3 id="sidebarMode">-</h3>
+            </div>
+            <div id="timerWrap">
+              <p class="muted">Time Left</p>
+              <h3 id="timerDisplay" class="timer-display">--:--</h3>
+            </div>
+          </div>
+
+          <div class="progress-section">
+            <div class="progress-wrap">
+              <div class="progress-label">
+                <span>Answered</span>
+                <span id="progressText">0/0</span>
+              </div>
+              <div class="progress-bar"><div id="progressBar"></div></div>
+            </div>
+            <!-- SUBJECT POSITION INDICATOR (NEW) -->
+            <div class="subject-position-wrap">
+              <div class="progress-label">
+                <span>Question Position</span>
+                <span id="positionText" class="position-highlight">1 of 40</span>
+              </div>
+              <div class="progress-bar"><div id="positionBar" class="position-bar"></div></div>
+            </div>
+          </div>
+
+          <div id="questionPills" class="question-pills"></div>
+          <button id="submitBtn" class="danger-btn full-btn">Submit Test</button>
+        </aside>
+
+        <section class="quiz-main card">
+          <div class="question-head">
+            <div class="question-head-left">
+              <span class="badge" id="questionNumberBadge">Question 1</span>
+              <span class="subject-pos-badge" id="subjectPosBadge">1 / 40</span>
+            </div>
+            <button id="backHomeBtn" class="ghost-btn">Exit</button>
+          </div>
+          <div id="diagramBox" class="diagram-box hidden"></div>
+          <h2 id="questionText">Question text</h2>
+          <div id="optionsList" class="options-list"></div>
+          <div id="explanationBox" class="explanation-box hidden"></div>
+          <div class="nav-row">
+            <button id="prevBtn" class="ghost-btn">Previous</button>
+            <button id="nextBtn" class="primary-btn">Next</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- RESULT SCREEN -->
+    <section id="resultScreen" class="screen">
+      <div class="card result-card">
+        <span class="badge">Completed</span>
+        <h2>Your Result</h2>
+        <div class="result-score" id="resultScore">0%</div>
+        <p id="resultSummary">Summary</p>
+        <div id="resultBreakdown" class="result-breakdown"></div>
+        <div class="nav-row center">
+          <button id="reviewBtn" class="ghost-btn">Review Answers</button>
+          <button id="restartBtn" class="primary-btn">Back to Home</button>
         </div>
       </div>
-      <div class="topbar-actions">
-        <button id="switchUserBtn" class="ghost-btn">⇄ Switch Student</button>
-        <button id="resetProgressBtn" class="ghost-btn danger-ghost">↺ Reset History</button>
-      </div>
-    </header>
+    </section>
 
-    <main>
-
-      <!-- ─── HOME SCREEN ─── -->
-      <section id="homeScreen" class="screen active">
-
-        <div class="hero-banner">
-          <div class="hero-text">
-            <span class="chip">UTME CBT Simulator</span>
-            <h2>Prepare smarter.<br>Score higher.</h2>
-            <p>Practice with authentic JAMB-style past questions across all major UTME subjects. Single-subject drills or full 4-subject exam simulations.</p>
-          </div>
-          <div class="hero-stats">
-            <div class="hs-item">
-              <strong id="statSessions">0</strong>
-              <span>Sessions</span>
-            </div>
-            <div class="hs-divider"></div>
-            <div class="hs-item">
-              <strong id="statAverage">—</strong>
-              <span>Average</span>
-            </div>
-            <div class="hs-divider"></div>
-            <div class="hs-item">
-              <strong id="statBest">—</strong>
-              <span>Best Score</span>
-            </div>
-            <div class="hs-divider"></div>
-            <div class="hs-item">
-              <strong id="statQuestions">0</strong>
-              <span>Q Bank</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="home-grid">
-
-          <!-- LOGIN + SESSION CONFIG -->
-          <div class="card setup-card">
-            <div class="card-section">
-              <h3 class="section-label">Student Login</h3>
-              <div class="login-row">
-                <input id="studentName" type="text" placeholder="Enter your full name" maxlength="60" class="text-input" />
-                <button id="loginBtn" class="primary-btn">Login</button>
-              </div>
-              <div id="currentStudentBox" class="student-pill">No student logged in</div>
-            </div>
-
-            <div class="divider"></div>
-
-            <div class="card-section">
-              <h3 class="section-label">Configure Session</h3>
-              <div class="form-grid">
-                <label class="field-label">
-                  Session Type
-                  <select id="sessionTypeSelect" class="select-input">
-                    <option value="single">Single Subject Drill</option>
-                    <option value="combo">Full JAMB Combination</option>
-                  </select>
-                </label>
-                <label class="field-label">
-                  Mode
-                  <select id="modeSelect" class="select-input">
-                    <option value="practice">Practice Mode</option>
-                    <option value="exam">Exam Mode</option>
-                  </select>
-                </label>
-              </div>
-
-              <div id="singleSubjectWrap">
-                <div class="form-grid mt-sm">
-                  <label class="field-label">
-                    Subject
-                    <select id="subjectSelect" class="select-input"></select>
-                  </label>
-                  <label class="field-label">
-                    No. of Questions
-                    <select id="questionCountSelect" class="select-input">
-                      <option value="10">10 Questions</option>
-                      <option value="20">20 Questions</option>
-                      <option value="30">30 Questions</option>
-                      <option value="40">40 Questions</option>
-                      <option value="all">All Available</option>
-                    </select>
-                  </label>
-                </div>
-              </div>
-
-              <div id="comboConfig" class="hidden">
-                <div class="info-box mt-sm">
-                  <strong>English is compulsory.</strong> Choose 3 additional subjects. Standard JAMB format: 60 English + 40 per subject = 180 questions.
-                </div>
-                <div class="form-grid mt-sm">
-                  <label class="field-label">Subject 2 <select id="comboSubject1" class="select-input"></select></label>
-                  <label class="field-label">Subject 3 <select id="comboSubject2" class="select-input"></select></label>
-                  <label class="field-label">Subject 4 <select id="comboSubject3" class="select-input"></select></label>
-                  <label class="field-label">Questions <input class="text-input" value="Standard JAMB: 180" disabled /></label>
-                </div>
-              </div>
-
-              <div class="form-grid mt-sm">
-                <label class="field-label">
-                  Exam Duration
-                  <select id="durationSelect" class="select-input">
-                    <option value="auto">Auto (1 min / question)</option>
-                    <option value="10">10 Minutes</option>
-                    <option value="20">20 Minutes</option>
-                    <option value="30">30 Minutes</option>
-                    <option value="40">40 Minutes</option>
-                    <option value="60">60 Minutes</option>
-                    <option value="90">90 Minutes</option>
-                    <option value="120">120 Minutes</option>
-                    <option value="150">150 Minutes</option>
-                    <option value="180">180 Minutes (Full JAMB)</option>
-                  </select>
-                </label>
-              </div>
-
-              <button id="startBtn" class="start-btn">Start Practice</button>
-            </div>
-          </div>
-
-          <!-- HISTORY -->
-          <div class="card history-card">
-            <div class="card-section">
-              <div class="section-head">
-                <h3 class="section-label">Session History</h3>
-                <span id="historyTitle" class="muted-tag">No student selected</span>
-              </div>
-              <div id="historyList" class="history-list empty-state">Login with a student name to view history.</div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ─── QUIZ SCREEN ─── -->
-      <section id="quizScreen" class="screen">
-        <div class="quiz-shell">
-
-          <!-- SIDEBAR -->
-          <aside class="quiz-sidebar card">
-            <div class="sidebar-top">
-              <div class="sidebar-meta">
-                <span class="meta-label">Student</span>
-                <strong id="sidebarStudent">—</strong>
-              </div>
-              <div class="sidebar-meta">
-                <span class="meta-label">Mode</span>
-                <strong id="sidebarMode">—</strong>
-              </div>
-              <div class="timer-block" id="timerBlock">
-                <span class="timer-label">Time Left</span>
-                <div class="timer-digits" id="timerDisplay">--:--</div>
-              </div>
-              <div class="progress-wrap">
-                <div class="progress-label">
-                  <span>Answered</span>
-                  <span id="progressText">0/0</span>
-                </div>
-                <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
-              </div>
-            </div>
-
-            <!-- Subject switcher (shown in combo mode) -->
-            <div id="subjectSwitcher" class="subject-switcher hidden">
-              <span class="meta-label">Jump to Subject</span>
-              <div id="subjectTabs" class="subject-tabs"></div>
-            </div>
-
-            <div class="sidebar-pills-label">
-              <span class="meta-label" id="pillsLabel">Questions</span>
-            </div>
-            <div id="questionPills" class="question-pills"></div>
-
-            <button id="submitBtn" class="submit-btn">Submit Test</button>
-          </aside>
-
-          <!-- MAIN QUESTION AREA -->
-          <section class="quiz-main card">
-            <div class="question-head">
-              <div class="qhead-left">
-                <span class="q-badge" id="questionNumberBadge">Question 1</span>
-                <span class="q-subject-tag" id="questionSubjectMeta"></span>
-              </div>
-              <button id="backHomeBtn" class="exit-btn">✕ Exit</button>
-            </div>
-
-            <div class="question-body">
-              <h2 id="questionText" class="question-text">Question text</h2>
-              <div id="diagramBox" class="diagram-box hidden"></div>
-              <div id="optionsList" class="options-list"></div>
-            </div>
-
-            <div class="explanation-wrap">
-              <button id="toggleExplanationBtn" class="toggle-explain hidden">💡 Show Explanation</button>
-              <div id="explanationBox" class="explanation-box hidden"></div>
-            </div>
-
-            <div class="nav-row">
-              <button id="prevBtn" class="nav-btn ghost-btn">← Previous</button>
-              <button id="nextBtn" class="nav-btn primary-btn">Next →</button>
-            </div>
-          </section>
-
-        </div>
-      </section>
-
-      <!-- ─── RESULT SCREEN ─── -->
-      <section id="resultScreen" class="screen">
-        <div class="result-wrapper">
-          <div class="card result-card">
-            <span class="chip">Session Complete</span>
-            <div id="resultScore" class="result-score">0%</div>
-            <p id="resultSummary" class="result-summary">Summary</p>
-            <div id="resultBreakdown" class="result-breakdown"></div>
-            <div class="nav-row center mt-md">
-              <button id="reviewBtn" class="ghost-btn">Review Answers</button>
-              <button id="restartBtn" class="start-btn">Back to Home</button>
-            </div>
-          </div>
-
-          <div id="subjectBreakdown" class="subject-breakdown-card card hidden">
-            <h3 class="section-label">Subject Breakdown</h3>
-            <div id="subjectBreakdownList"></div>
-          </div>
-        </div>
-
-        <footer class="attribution">
-          Questions sourced from JAMB past examinations and publicly available UTME materials.
-          <span class="attr-logo">◈ JAMB CBT</span>
-        </footer>
-      </section>
-
-    </main>
   </div>
 
   <script src="questions.js"></script>
