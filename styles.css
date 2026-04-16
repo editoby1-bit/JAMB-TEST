@@ -608,6 +608,17 @@ main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
   border-radius: var(--radius-pill);
 }
 
+.q-subject-pos {
+  background: rgba(15,31,61,0.07);
+  color: var(--text-mid);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.28rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+}
+
 .q-subject-tag {
   background: var(--amber-glow);
   color: var(--amber-dark);

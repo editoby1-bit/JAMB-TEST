@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JAMB CBT Practice</title>
+  <title>My JAMB App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
       <div class="topbar-brand">
         <span class="brand-icon">◈</span>
         <div>
-          <h1>JAMB<span class="brand-accent">CBT</span></h1>
+          <h1>My <span class="brand-accent">JAMB</span></h1>
           <p class="brand-sub">UTME Practice Platform</p>
         </div>
       </div>
@@ -116,13 +116,22 @@
 
               <div id="comboConfig" class="hidden">
                 <div class="info-box mt-sm">
-                  <strong>English is compulsory.</strong> Choose 3 additional subjects. Standard JAMB format: 60 English + 40 per subject = 180 questions.
+                  <strong>English is compulsory.</strong> Choose 3 additional subjects. Standard JAMB format: 60 English + 40 per subject.
                 </div>
                 <div class="form-grid mt-sm">
                   <label class="field-label">Subject 2 <select id="comboSubject1" class="select-input"></select></label>
                   <label class="field-label">Subject 3 <select id="comboSubject2" class="select-input"></select></label>
                   <label class="field-label">Subject 4 <select id="comboSubject3" class="select-input"></select></label>
-                  <label class="field-label">Questions <input class="text-input" value="Standard JAMB: 180" disabled /></label>
+                  <label class="field-label">
+                    Questions per Subject
+                    <select id="comboQCountSelect" class="select-input">
+                      <option value="standard">Standard (60 Eng + 40×3)</option>
+                      <option value="10">Quick — 10 per subject</option>
+                      <option value="20">Short — 20 per subject</option>
+                      <option value="30">Medium — 30 per subject</option>
+                      <option value="40">Full — 40 per subject</option>
+                    </select>
+                  </label>
                 </div>
               </div>
 
@@ -210,6 +219,7 @@
               <div class="qhead-left">
                 <span class="q-badge" id="questionNumberBadge">Question 1</span>
                 <span class="q-subject-tag" id="questionSubjectMeta"></span>
+                <span class="q-subject-pos hidden" id="subjectPositionTag"></span>
               </div>
               <button id="backHomeBtn" class="exit-btn">✕ Exit</button>
             </div>
@@ -256,7 +266,7 @@
 
         <footer class="attribution">
           Questions sourced from JAMB past examinations and publicly available UTME materials.
-          <span class="attr-logo">◈ JAMB CBT</span>
+          <span class="attr-logo">◈ My JAMB App</span>
         </footer>
       </section>
 

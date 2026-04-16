@@ -18,6 +18,7 @@
     comboSubject1: document.getElementById('comboSubject1'),
     comboSubject2: document.getElementById('comboSubject2'),
     comboSubject3: document.getElementById('comboSubject3'),
+    comboQCountSelect: document.getElementById('comboQCountSelect'),
     modeSelect: document.getElementById('modeSelect'),
     questionCountSelect: document.getElementById('questionCountSelect'),
     durationSelect: document.getElementById('durationSelect'),
@@ -44,6 +45,7 @@
     // Quiz main
     questionNumberBadge: document.getElementById('questionNumberBadge'),
     questionSubjectMeta: document.getElementById('questionSubjectMeta'),
+    subjectPositionTag: document.getElementById('subjectPositionTag'),
     questionText: document.getElementById('questionText'),
     diagramBox: document.getElementById('diagramBox'),
     optionsList: document.getElementById('optionsList'),
@@ -214,20 +216,25 @@
       return null;
     }
 
+    const countVal = el.comboQCountSelect ? el.comboQCountSelect.value : 'standard';
+    const isStandard = countVal === 'standard';
+    const engCount = isStandard ? 60 : parseInt(countVal);
+    const otherCount = isStandard ? 40 : parseInt(countVal);
+
     const allSubjects = ['english', ...unique];
     const subjectRanges = {};
     let offset = 0;
     let allQuestions = [];
 
     const enPool = shuffle([...QUESTION_BANK.english]);
-    const enQs = enPool.slice(0, Math.min(60, enPool.length)).map(q => ({ ...q, sourceSubject: 'english' }));
+    const enQs = enPool.slice(0, Math.min(engCount, enPool.length)).map(q => ({ ...q, sourceSubject: 'english' }));
     subjectRanges['english'] = { start: offset, end: offset + enQs.length - 1 };
     offset += enQs.length;
     allQuestions.push(...enQs);
 
     unique.forEach(subject => {
       const pool = shuffle([...QUESTION_BANK[subject]]);
-      const qs = pool.slice(0, Math.min(40, pool.length)).map(q => ({ ...q, sourceSubject: subject }));
+      const qs = pool.slice(0, Math.min(otherCount, pool.length)).map(q => ({ ...q, sourceSubject: subject }));
       subjectRanges[subject] = { start: offset, end: offset + qs.length - 1 };
       offset += qs.length;
       allQuestions.push(...qs);
@@ -357,6 +364,17 @@
 
     el.questionNumberBadge.textContent = `Question ${state.currentIndex + 1} of ${state.currentQuestions.length}`;
     el.questionSubjectMeta.textContent = fmt(q.sourceSubject || state.subject);
+
+    // Subject position indicator (e.g. "Q6 of 40 in Physics")
+    const range = state.subjectRanges[q.sourceSubject];
+    if (range && el.subjectPositionTag) {
+      const posInSubject = state.currentIndex - range.start + 1;
+      const totalInSubject = range.end - range.start + 1;
+      el.subjectPositionTag.textContent = `${posInSubject} / ${totalInSubject} in ${fmt(q.sourceSubject)}`;
+      el.subjectPositionTag.classList.remove('hidden');
+    } else if (el.subjectPositionTag) {
+      el.subjectPositionTag.classList.add('hidden');
+    }
     el.questionText.innerHTML = escHtml(q.question).replace(/\n/g, '<br>');
 
     const hasDiagram = Boolean(q.diagram);
