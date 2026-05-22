@@ -1112,9 +1112,7 @@ main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
   justify-content: space-between;
   gap: .75rem;
   background: linear-gradient(135deg, var(--navy,#0b1f3a), #0f2847);
-  border-radius: 12px 12px 0 0;
-  padding: .65rem 1rem;
-  margin: -1.5rem -1.5rem .85rem -1.5rem;
+  padding: .65rem 1.75rem;
   border-bottom: 1.5px solid var(--amber,#f5a623);
   flex-wrap: wrap;
 }
