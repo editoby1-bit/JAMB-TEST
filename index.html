@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My JAMB App</title>
+  <title>My JAMB App — UTME Past Questions + AI Explanations</title>
+  <meta name="description" content="The only JAMB app with AI explanations. 563 questions across 11 subjects. Full combo simulation. ₦1,500."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body>
   <div id="app">
@@ -254,6 +256,7 @@
             <div id="resultBreakdown" class="result-breakdown"></div>
             <div class="nav-row center mt-md">
               <button id="reviewBtn" class="ghost-btn">Review Answers</button>
+              <button id="shareResultBtn" class="primary-btn">📊 Share Result</button>
               <button id="restartBtn" class="start-btn">Back to Home</button>
             </div>
           </div>
@@ -271,7 +274,142 @@
       </section>
 
     </main>
-  </div>
+
+    <!-- CROSS-APP LINK -->
+    <a href="https://editoby1-bit.github.io/MY-EXAMS-APP/" class="cross-app-link" target="_blank" title="My Exams App — WAEC, NECO, GCE, NABTEB">
+      📚 My Exams App →
+    </a>
+
+    <!-- CHALLENGE BUTTON -->
+    <button id="jambChallengeBtn" class="jamb-challenge-btn hidden">🏆 Challenge a Friend</button>
+
+    <!-- PAYWALL -->
+    <div id="jambPaywall" class="jpw-overlay hidden">
+      <div class="jpw-card">
+        <button class="jpw-close" id="jambPaywallClose">✕</button>
+        <div class="jpw-badge" id="jambPaywallBadge">FREE TRIAL COMPLETE</div>
+        <h2 class="jpw-title">Unlock My JAMB App</h2>
+        <p class="jpw-sub">The only JAMB app with AI explanations. Challenge friends. Full combo simulation. ₦1,500 — that's it.</p>
+
+        <div class="jpw-hero-price">
+          <span class="jpw-amount">₦1,500</span>
+          <span class="jpw-period">Full access</span>
+        </div>
+        <p class="jpw-positioning">Most JAMB apps charge ₦1,000–₦2,000 as a one-time fee and give you nothing but questions. We give you questions <em>and</em> AI that explains every answer.</p>
+
+        <ul class="jpw-perks">
+          <li>✓ 563 questions across 11 subjects</li>
+          <li>✓ Full JAMB combo simulation (60 Eng + 40×3)</li>
+          <li>✓ <strong>100 AI explanations</strong> — unique to us</li>
+          <li>✓ Challenge friends — community quiz</li>
+          <li>✓ Share your results with friends</li>
+          <li>✓ Practice and Exam modes</li>
+          <li>✓ Works offline</li>
+        </ul>
+
+        <button class="jpw-pay-btn" id="jambPayBtn">Get Access — ₦1,500 →</button>
+        <p class="jpw-note">Already have My Exams App Student Pass? Your access covers JAMB too.</p>
+
+        <div class="jpw-code-row">
+          <input id="jambCodeInput" class="jpw-code-input" placeholder="Have an access code?" autocomplete="off"/>
+          <button id="jambRedeemBtn" class="jpw-redeem-btn">Redeem</button>
+        </div>
+        <p class="jpw-demo">Demo code: <strong>MEA-DEMO-2025</strong></p>
+      </div>
+    </div>
+
+    <!-- AI EXPLANATION PANEL -->
+    <div id="aiPanel" class="ai-panel hidden">
+      <div class="ai-panel-inner">
+        <div class="ai-panel-head">
+          <span class="ai-panel-title">🧠 AI Explanation</span>
+          <div class="ai-credits-badge" id="aiCreditsBadge">100 credits left</div>
+          <button class="ai-panel-close" id="aiPanelClose">✕</button>
+        </div>
+        <div id="aiPanelContent" class="ai-panel-content">
+          <div class="ai-loading" id="aiLoading">
+            <div class="ai-spinner"></div>
+            <span>Thinking...</span>
+          </div>
+          <div id="aiResponse" class="ai-response hidden"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI EXPLAIN BUTTON — injected near question -->
+    <button id="aiExplainBtn" class="ai-explain-btn hidden">🧠 Explain This</button>
+
+    <!-- COMMUNITY QUIZ MODAL -->
+    <div id="jambQuizModal" class="jqc-overlay hidden">
+      <div class="jqc-card">
+        <button class="jqc-close" id="jambQcClose">✕</button>
+        <div id="jambQcHome">
+          <div class="jqc-icon">🏆</div>
+          <h2 class="jqc-title">JAMB Challenge</h2>
+          <p class="jqc-sub">Same questions. You vs your friends. Who scores higher?</p>
+          <div class="jqc-actions">
+            <button class="jqc-btn jqc-primary" id="jambQcCreate">Create Challenge →</button>
+            <button class="jqc-btn jqc-secondary" id="jambQcJoin">Join with Code</button>
+          </div>
+          <div class="jqc-join-row hidden" id="jambJoinRow">
+            <input id="jambJoinCode" class="jqc-code-input" placeholder="Enter code" maxlength="10"/>
+            <button class="jqc-btn jqc-primary" id="jambJoinConfirm">Join →</button>
+          </div>
+        </div>
+        <div id="jambQcCreate2" class="hidden">
+          <h3 class="jqc-section">Set Up Challenge</h3>
+          <div class="jqc-form">
+            <div class="jqc-field"><label class="jqc-label">Subject</label><select id="jambQcSubject" class="jqc-select"></select></div>
+            <div class="jqc-field"><label class="jqc-label">Questions</label>
+              <select id="jambQcCount" class="jqc-select">
+                <option value="5">5 Questions</option>
+                <option value="10" selected>10 Questions</option>
+                <option value="20">20 Questions</option>
+              </select>
+            </div>
+          </div>
+          <button class="jqc-btn jqc-primary" id="jambQcGenerate" style="width:100%">Generate Code →</button>
+          <button class="jqc-btn jqc-ghost" id="jambQcBack">← Back</button>
+        </div>
+        <div id="jambQcShare2" class="hidden">
+          <div class="jqc-icon">🎯</div>
+          <h3 class="jqc-section">Challenge Created!</h3>
+          <div class="jqc-code-display" id="jambCodeDisplay">MEA-000</div>
+          <button class="jqc-btn jqc-primary" id="jambQcShareLink" style="width:100%;margin-bottom:.5rem">📤 Share Link</button>
+          <button class="jqc-btn jqc-primary" id="jambQcStartOwn" style="width:100%">Start My Attempt →</button>
+        </div>
+        <div id="jambQcLeaderboard" class="hidden">
+          <div class="jqc-icon">📊</div>
+          <h3 class="jqc-section">Challenge Results</h3>
+          <div id="jambLeaderboardList" class="jqc-leaderboard"></div>
+          <button class="jqc-btn jqc-primary" id="jambQcNew" style="width:100%;margin-top:.75rem">New Challenge →</button>
+          <button class="jqc-btn jqc-ghost" id="jambQcDone">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHARED SESSION VIEW -->
+    <div id="jambSharedModal" class="jss-overlay hidden">
+      <div class="jss-card">
+        <div class="jss-header">
+          <span class="jss-logo">◈ My<em>JAMB</em>App</span>
+          <button class="jss-close" id="jambSsClose">✕</button>
+        </div>
+        <div id="jambSsContent" class="jss-content">
+          <div class="jss-emoji" id="jambSsEmoji">🎯</div>
+          <div class="jss-score" id="jambSsScore">0%</div>
+          <div class="jss-meta" id="jambSsMeta"></div>
+          <div class="jss-stats" id="jambSsStats"></div>
+        </div>
+        <div class="jss-footer">
+          <p class="jss-cta">Think you can beat it?</p>
+          <button class="jss-try" id="jambSsTry">Start Same Subject →</button>
+          <p class="jss-note">My JAMB App — The only JAMB app with AI explanations. ₦1,500.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- #app -->
 
   <script src="questions.js"></script>
   <script src="app.js"></script>
