@@ -1185,3 +1185,30 @@ main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
   background: rgba(245,166,35,.1);
   border-color: var(--amber,#f5a623);
 }
+
+/* ── Full suite nudge inside JAMB paywall ── */
+.jpw-suite-nudge {
+  margin-top: 1rem;
+  padding-top: .85rem;
+  border-top: 1px solid rgba(255,255,255,.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+}
+.jpw-suite-text {
+  font-size: .72rem;
+  color: rgba(255,255,255,.4);
+}
+.jpw-suite-link {
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--amber,#f5a623);
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.jpw-suite-link:hover { opacity: .75; }
+.jpw-suite-note {
+  font-size: .68rem;
+  color: rgba(255,255,255,.28);
+}
