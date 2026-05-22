@@ -67,6 +67,16 @@
 
           <!-- LOGIN + SESSION CONFIG -->
           <div class="card setup-card">
+
+            <!-- Upgrade bar — visible to free users inside login card -->
+            <div class="jamb-upgrade-bar hidden" id="jambUpgradeBar">
+              <div class="jub-left">
+                <span class="jub-icon">⚡</span>
+                <span id="jambUpgradeText">Unlock full access — ₦1,500. AI explanations included.</span>
+              </div>
+              <button class="jub-btn" id="jambUpgradeBarBtn">Upgrade →</button>
+            </div>
+
             <div class="card-section">
               <h3 class="section-label">Student Login</h3>
               <div class="login-row">
@@ -167,6 +177,18 @@
                 <span id="historyTitle" class="muted-tag">No student selected</span>
               </div>
               <div id="historyList" class="history-list empty-state">Login with a student name to view history.</div>
+            </div>
+          </div>
+
+          <!-- Cross-sell — My Exams App -->
+          <div class="jamb-crosssell-card" id="jambCrosssell">
+            <div class="jcs-inner">
+              <span class="jcs-icon">📚</span>
+              <div class="jcs-body">
+                <div class="jcs-title" id="jcsTitleText">Writing WAEC or NECO this year?</div>
+                <div class="jcs-sub">My Exams App covers 15 subjects across WAEC, NECO, GCE and NABTEB — with snap-and-mark theory. Your JAMB subscription covers it.</div>
+              </div>
+              <a href="https://editoby1-bit.github.io/MY-EXAMS-APP/" class="jcs-btn" target="_blank">Try It Free →</a>
             </div>
           </div>
 

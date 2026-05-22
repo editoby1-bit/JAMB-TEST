@@ -1102,3 +1102,88 @@ main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
 .jss-cta { font-size:.8rem; color:rgba(255,255,255,.5); margin-bottom:.5rem; }
 .jss-try { width:100%; background:var(--amber,#f5a623); color:var(--navy,#0b1f3a); border:none; border-radius:99px; padding:.7rem; font-weight:700; cursor:pointer; margin-bottom:.5rem; }
 .jss-note { font-size:.68rem; color:rgba(255,255,255,.3); }
+
+/* ══════════════════════════════════════════
+   UPGRADE BAR (inside login card)
+══════════════════════════════════════════ */
+.jamb-upgrade-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  background: linear-gradient(135deg, var(--navy,#0b1f3a), #0f2847);
+  border-radius: 12px 12px 0 0;
+  padding: .65rem 1rem;
+  margin: -1.5rem -1.5rem .85rem -1.5rem;
+  border-bottom: 1.5px solid var(--amber,#f5a623);
+  flex-wrap: wrap;
+}
+.jamb-upgrade-bar.hidden { display: none; }
+.jub-left {
+  display: flex; align-items: center; gap: .5rem;
+  flex: 1; min-width: 0;
+}
+.jub-icon { font-size: 1rem; flex-shrink: 0; }
+#jambUpgradeText {
+  font-size: .8rem; font-weight: 600;
+  color: rgba(255,255,255,.88);
+  line-height: 1.4;
+}
+.jub-btn {
+  background: var(--amber,#f5a623);
+  color: var(--navy,#0b1f3a);
+  border: none; border-radius: 99px;
+  padding: .38rem .85rem;
+  font-size: .78rem; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.jub-btn:hover { background: #ffc14d; }
+
+/* ══════════════════════════════════════════
+   CROSS-SELL CARD
+══════════════════════════════════════════ */
+.jamb-crosssell-card {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(11,31,58,0.6), rgba(15,40,71,0.4));
+  border: 1px solid rgba(245,166,35,0.2);
+  border-left: 3px solid var(--amber,#f5a623);
+  border-radius: 10px;
+  padding: .85rem 1rem;
+  margin-top: .25rem;
+}
+.jcs-inner {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  flex-wrap: wrap;
+}
+.jcs-icon { font-size: 1.4rem; flex-shrink: 0; }
+.jcs-body { flex: 1; min-width: 0; }
+.jcs-title {
+  font-size: .85rem; font-weight: 700;
+  color: rgba(255,255,255,.9);
+  margin-bottom: .2rem;
+}
+.jcs-sub {
+  font-size: .75rem;
+  color: rgba(255,255,255,.5);
+  line-height: 1.5;
+}
+.jcs-btn {
+  background: transparent;
+  color: var(--amber,#f5a623);
+  border: 1px solid rgba(245,166,35,.35);
+  border-radius: 99px;
+  padding: .38rem .85rem;
+  font-size: .78rem; font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all .2s;
+}
+.jcs-btn:hover {
+  background: rgba(245,166,35,.1);
+  border-color: var(--amber,#f5a623);
+}
