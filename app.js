@@ -4,6 +4,45 @@
     currentUser: 'jamb-cbt-current-user-v3'
   };
 
+  // ── New feature constants — defined at top so available throughout ──
+  const SK_ACCESS     = 'jamb-access-v1';
+  const SK_FREE       = 'jamb-free-v1';
+  const SK_TIER       = 'jamb-tier-v1';
+  const SK_EASOLD     = 'jamb-ea-sold-v1';
+  const SK_AI_CREDITS = 'jamb-ai-credits-v1';
+  const JAMB_FREE_LIMIT = 10;
+  const JAMB_EA_CAP     = 100;
+  const AI_QUARTERLY    = 100;
+  const PAYSTACK_KEY    = 'pk_test_1ac5e055de30ca320129b0e5b6f57d0df7ab2281';
+  // 🔑 Replace above with pk_live_ key when Paystack approves
+
+  function savePref(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  function loadPref(k,d=null){try{const v=localStorage.getItem(k);return v!==null?JSON.parse(v):d;}catch(e){return d;}}
+  function checkAccess(){const d=loadPref(SK_ACCESS);return !!(d?.expires&&new Date(d.expires)>new Date());}
+  function getFreeUsed(){return loadPref(SK_FREE)?.n||0;}
+  function getFreeUsedCount(){return loadPref(SK_FREE)?.n||0;}
+  function getCurrentQuarter(){const d=new Date();return `${d.getFullYear()}-Q${Math.ceil((d.getMonth()+1)/3)}`;}
+  function getAICredits(){const d=loadPref(SK_AI_CREDITS);if(!d||d.quarter!==getCurrentQuarter()){savePref(SK_AI_CREDITS,{n:AI_QUARTERLY,quarter:getCurrentQuarter()});return AI_QUARTERLY;}return d.n;}
+  function useAICredit(){const c=getAICredits();if(c<=0)return false;savePref(SK_AI_CREDITS,{n:c-1,quarter:getCurrentQuarter()});return true;}
+  function refreshChallengeBtn(){const btn=document.getElementById('jambChallengeBtn');if(!btn)return;if(state&&state.currentUser)btn.classList.remove('hidden');else btn.classList.add('hidden');}
+  function refreshUpgradeBar(){
+    const bar=document.getElementById('jambUpgradeBar');
+    const txt=document.getElementById('jambUpgradeText');
+    if(!bar)return;
+    if(checkAccess()){bar.classList.add('hidden');return;}
+    bar.classList.remove('hidden');
+    if(txt){
+      const used=getFreeUsedCount();
+      const msgs=[
+        `⚡ ${used} of 10 free sessions used — unlock full access for ₦1,500`,
+        `🧠 The only JAMB app with AI explanations — ₦1,500`,
+        `🏆 Subscribe to challenge friends and unlock community quiz`,
+        `📅 ${10-used} free session${10-used===1?'':'s'} remaining — upgrade anytime`,
+      ];
+      txt.textContent=msgs[Math.floor(Date.now()/30000)%msgs.length];
+    }
+  }
+
   const el = {
     homeScreen: document.getElementById('homeScreen'),
     quizScreen: document.getElementById('quizScreen'),
@@ -719,26 +758,6 @@
   /* ════════════════════════════════════════════════════
      PAYWALL + ACCESS CONTROL
   ════════════════════════════════════════════════════ */
-  const SK_ACCESS = 'jamb-access-v1';
-  const SK_FREE   = 'jamb-free-v1';
-  const SK_TIER   = 'jamb-tier-v1';
-  const SK_EASOLD = 'jamb-ea-sold-v1';
-  const JAMB_FREE_LIMIT    = 10;
-  const JAMB_EA_CAP        = 100;
-  const PAYSTACK_KEY       = 'pk_test_1ac5e055de30ca320129b0e5b6f57d0df7ab2281';
-  // 🔑 Replace above with pk_live_ key when Paystack approves
-
-  function savePref(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch(e) {} }
-  function loadPref(k, d=null) { try { const v=localStorage.getItem(k); return v!==null?JSON.parse(v):d; } catch(e) { return d; } }
-
-  function checkAccess() {
-    const d = loadPref(SK_ACCESS);
-    return !!(d?.expires && new Date(d.expires) > new Date());
-  }
-
-  function getFreeUsed() {
-    return loadPref(SK_FREE)?.n || 0;
-  }
 
   function grantAccess(days, tier) {
     const exp = new Date();
@@ -750,12 +769,6 @@
     alert(`✅ Access granted for ${days} days! Welcome to My JAMB App.`);
   }
 
-  function refreshChallengeBtn() {
-    const btn = document.getElementById('jambChallengeBtn');
-    if (!btn) return;
-    if (state.currentUser) btn.classList.remove('hidden');
-    else btn.classList.add('hidden');
-  }
 
   function showPaywall(reason) {
     const badge = document.getElementById('jambPaywallBadge');
@@ -831,30 +844,6 @@
   /* ════════════════════════════════════════════════════
      AI EXPLANATIONS
   ════════════════════════════════════════════════════ */
-  const SK_AI_CREDITS = 'jamb-ai-credits-v1';
-  const AI_QUARTERLY  = 100;
-
-  function getAICredits() {
-    const d = loadPref(SK_AI_CREDITS);
-    // Reset quarterly
-    if (!d || !d.quarter || d.quarter !== getCurrentQuarter()) {
-      savePref(SK_AI_CREDITS, { n: AI_QUARTERLY, quarter: getCurrentQuarter() });
-      return AI_QUARTERLY;
-    }
-    return d.n;
-  }
-
-  function useAICredit() {
-    const credits = getAICredits();
-    if (credits <= 0) return false;
-    savePref(SK_AI_CREDITS, { n: credits - 1, quarter: getCurrentQuarter() });
-    return true;
-  }
-
-  function getCurrentQuarter() {
-    const d = new Date();
-    return `${d.getFullYear()}-Q${Math.ceil((d.getMonth()+1)/3)}`;
-  }
 
   function updateAICreditsBadge() {
     const badge = document.getElementById('aiCreditsBadge');
@@ -1142,67 +1131,26 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
   /* ════════════════════════════════════════════════════
      UPGRADE BAR + CROSS-SELL
   ════════════════════════════════════════════════════ */
-
-  const UPGRADE_MSGS = [
-    `⚡ ${getFreeUsedCount()} of 10 free sessions used — unlock full access for ₦1,500`,
-    `🧠 The only JAMB app with AI explanations — ₦1,500 full access`,
-    `🏆 Challenge your friends — subscribe to unlock community quiz`,
-    `📸 Snap-and-mark theory answers available on My Exams App with your subscription`,
-  ];
-
-  function getFreeUsedCount() { return loadPref(SK_FREE)?.n || 0; }
-
   const CROSSSELL_MSGS = [
-    { title: 'Writing WAEC this year?', sub: 'My Exams App covers 15 subjects — WAEC, NECO, GCE, NABTEB. Your JAMB subscription covers it too.' },
-    { title: 'NECO coming up next?', sub: 'Same subscription. Switch to My Exams App and drill NECO past questions with full marking schemes.' },
-    { title: 'Done with JAMB prep?', sub: 'My Exams App has 665+ past questions across 4 exam bodies. Your access transfers — no extra payment.' },
+    { title: 'Writing WAEC this year?',      sub: 'My Exams App covers 15 subjects — WAEC, NECO, GCE, NABTEB. Your JAMB subscription covers it too.' },
+    { title: 'NECO coming up next?',          sub: 'Same subscription. Switch to My Exams App and drill NECO past questions with full marking schemes.' },
+    { title: 'Done with JAMB prep?',          sub: 'My Exams App has 665+ past questions across 4 exam bodies. Your access transfers — no extra payment.' },
     { title: 'Score high in JAMB. Ace WAEC too.', sub: 'One subscription covers both apps. My Exams App — try it free today.' },
-    { title: 'Theory giving you trouble?', sub: 'My Exams App has snap-and-mark — write your answer, snap it, get marked against the official scheme.' },
+    { title: 'Theory giving you trouble?',    sub: 'My Exams App has snap-and-mark — write your answer, snap it, get marked against the official scheme.' },
   ];
 
   function initUpgradeBar() {
-    const bar = document.getElementById('jambUpgradeBar');
     const btn = document.getElementById('jambUpgradeBarBtn');
-    if (!bar) return;
-
-    refreshUpgradeBar();
     if (btn) btn.addEventListener('click', () => showPaywall('upgrade'));
-
-    // Rotate upgrade message every 30s
+    refreshUpgradeBar();
     setInterval(refreshUpgradeBar, 30000);
-
-    // Rotate cross-sell message every 45s
     rotateCrosssell();
     setInterval(rotateCrosssell, 45000);
   }
 
-  function refreshUpgradeBar() {
-    const bar = document.getElementById('jambUpgradeBar');
-    const txt = document.getElementById('jambUpgradeText');
-    if (!bar) return;
-
-    if (checkAccess()) {
-      bar.classList.add('hidden');
-      return;
-    }
-    bar.classList.remove('hidden');
-    if (txt) {
-      const used = getFreeUsedCount();
-      const msgs = [
-        `⚡ ${used} of 10 free sessions used — unlock full access for ₦1,500`,
-        `🧠 The only JAMB app with AI explanations — ₦1,500`,
-        `🏆 Subscribe to challenge friends and unlock community quiz`,
-        `📅 ${10 - used} free session${10-used===1?'':'s'} remaining — upgrade anytime`,
-      ];
-      const idx = Math.floor(Date.now() / 30000) % msgs.length;
-      txt.textContent = msgs[idx];
-    }
-  }
-
   function rotateCrosssell() {
-    const card = document.getElementById('jambCrosssell');
+    const card  = document.getElementById('jambCrosssell');
     if (!card) return;
-    // Show subtly for everyone — it is informational not pushy
     const idx   = Math.floor(Date.now() / 45000) % CROSSSELL_MSGS.length;
     const msg   = CROSSSELL_MSGS[idx];
     const title = document.getElementById('jcsTitleText');
