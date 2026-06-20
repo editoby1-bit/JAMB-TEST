@@ -13,7 +13,7 @@
   const JAMB_FREE_LIMIT = 10;
   const JAMB_EA_CAP     = 100;
   const AI_QUARTERLY    = 100;
-  const PAYSTACK_KEY    = 'pk_test_1ac5e055de30ca320129b0e5b6f57d0df7ab2281';
+  const PAYSTACK_KEY    = 'pk_live_5d12ee2a90900116dc222107e059a06214c085ff';
   // 🔑 Replace above with pk_live_ key when Paystack approves
 
   function savePref(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
