@@ -28,9 +28,15 @@
   function refreshUpgradeBar(){
     const bar=document.getElementById('jambUpgradeBar');
     const txt=document.getElementById('jambUpgradeText');
+    const card=document.getElementById('jambUpgradeCard');
     if(!bar)return;
-    if(checkAccess()){bar.classList.add('hidden');return;}
+    if(checkAccess()){
+      bar.classList.add('hidden');
+      if(card) card.classList.add('hidden');
+      return;
+    }
     bar.classList.remove('hidden');
+    if(card) card.classList.remove('hidden');
     if(txt){
       const used=getFreeUsedCount();
       const msgs=[
@@ -1142,6 +1148,8 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
   function initUpgradeBar() {
     const btn = document.getElementById('jambUpgradeBarBtn');
     if (btn) btn.addEventListener('click', () => showPaywall('upgrade'));
+    const cardBtn = document.getElementById('jambUpgradeCardBtn');
+    if (cardBtn) cardBtn.addEventListener('click', () => showPaywall('upgrade'));
     refreshUpgradeBar();
     setInterval(refreshUpgradeBar, 30000);
     rotateCrosssell();
