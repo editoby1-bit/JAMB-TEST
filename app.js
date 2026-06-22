@@ -1,4 +1,24 @@
 (() => {
+  // Show Working mode constants
+  const SW_SUBJECTS    = ['mathematics','physics','chemistry','economics'];
+  const SW_SUBJECTS_LBL = { mathematics:'Mathematics', physics:'Physics', chemistry:'Chemistry', economics:'Economics' };
+  const SK_SW_CREDITS  = 'jamb-sw-credits-v1';
+  const SW_QUARTERLY   = 50; // snaps per quarter
+  const SNAP_API_URL   = 'https://editoby-api.vercel.app/api/mark';
+
+  function getSWCredits() {
+    const qtr = getCurrentQuarter();
+    const d   = loadPref(SK_SW_CREDITS);
+    if (!d || d.quarter !== qtr) { savePref(SK_SW_CREDITS,{n:SW_QUARTERLY,quarter:qtr}); return SW_QUARTERLY; }
+    return d.n;
+  }
+  function useSWCredit() {
+    const c = getSWCredits();
+    if (c<=0) return false;
+    savePref(SK_SW_CREDITS,{n:c-1,quarter:getCurrentQuarter()});
+    return true;
+  }
+
   const storageKeys = {
     users: 'jamb-cbt-users-v3',
     currentUser: 'jamb-cbt-current-user-v3'
@@ -433,6 +453,24 @@
     if (checkAccess()) showAIButton();
     else hideAIButton();
 
+    // Show Working mode panel
+    const swPanel = document.getElementById('showWorkingPanel');
+    const isCalcSubject = SW_SUBJECTS.includes(state.subject);
+    if (state.mode === 'showworking' && isCalcSubject) {
+      if (swPanel) swPanel.classList.remove('hidden');
+      // Reset for new question
+      state.swDone = false;
+      const swResult = document.getElementById('swResult');
+      if (swResult) swResult.classList.add('hidden');
+      const swCredits = document.getElementById('swCredits');
+      if (swCredits) swCredits.textContent = getSWCredits() + ' snaps left';
+      // Lock options until working is snapped
+      lockOptionsUntilWorking(false);
+    } else {
+      if (swPanel) swPanel.classList.add('hidden');
+      lockOptionsUntilWorking(true); // unlock always if not show working mode
+    }
+
     el.questionNumberBadge.textContent = `Question ${state.currentIndex + 1} of ${state.currentQuestions.length}`;
     el.questionSubjectMeta.textContent = fmt(q.sourceSubject || state.subject);
 
@@ -640,7 +678,18 @@
   }
 
   function syncDurationUi() {
-    el.durationSelect.disabled = el.modeSelect.value !== 'exam';
+    const mode = el.modeSelect.value;
+    el.durationSelect.disabled = mode !== 'exam';
+    // Show working mode — show subject restriction note
+    const swNote = document.getElementById('swSubjectsNote');
+    if (swNote) {
+      if (mode === 'showworking') {
+        swNote.textContent = '⚠️ Show Working is available for: Mathematics, Physics, Chemistry, Economics only.';
+        swNote.style.display = 'block';
+      } else {
+        swNote.style.display = 'none';
+      }
+    }
   }
 
   function syncStartButton() {
@@ -1165,6 +1214,185 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
     const sub   = card.querySelector('.jcs-sub');
     if (title) title.textContent = msg.title;
     if (sub)   sub.textContent   = msg.sub;
+  }
+
+  /* ════════════════════════════════
+     SHOW WORKING MODE
+  ════════════════════════════════ */
+
+  function lockOptionsUntilWorking(unlock) {
+    const opts = document.querySelectorAll('.option-btn');
+    opts.forEach(btn => {
+      btn.style.opacity    = unlock ? '' : '0.4';
+      btn.style.pointerEvents = unlock ? '' : 'none';
+      btn.style.cursor     = unlock ? '' : 'not-allowed';
+    });
+    const lockMsg = document.getElementById('swLockMsg');
+    if (lockMsg) lockMsg.style.display = unlock ? 'none' : 'block';
+  }
+
+  function triggerSWSnap() {
+    if (!checkAccess()) { showPaywall('feature'); return; }
+    const credits = getSWCredits();
+    if (credits <= 0) {
+      alert('No working snaps left this quarter.\n\nTop up: ₦300 = 10 snaps.');
+      return;
+    }
+    document.getElementById('swFileInput')?.click();
+  }
+
+  function handleSWFile(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    e.target.value = '';
+    compressForSW(file).then(sendWorkingToMark).catch(err => {
+      console.error(err);
+      alert('Could not process image. Please try again.');
+    });
+  }
+
+  function compressForSW(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = ev => {
+        const img = new Image();
+        img.onerror = reject;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let w = img.width, h = img.height;
+          if (w > 900) { h = Math.round(h * 900/w); w = 900; }
+          canvas.width = w; canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = '#fff';
+          ctx.fillRect(0, 0, w, h);
+          ctx.drawImage(img, 0, 0, w, h);
+          resolve({ base64: canvas.toDataURL('image/jpeg', 0.8).split(',')[1], mediaType: 'image/jpeg' });
+        };
+        img.src = ev.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function sendWorkingToMark({ base64, mediaType }) {
+    const q = state.currentQuestions[state.currentIndex];
+    if (!q) return;
+
+    const proc = document.getElementById('swProcessing');
+    if (proc) proc.classList.remove('hidden');
+
+    if (!useSWCredit()) {
+      if (proc) proc.classList.add('hidden');
+      alert('No working snaps remaining.');
+      return;
+    }
+
+    const subjectName = SW_SUBJECTS_LBL[state.subject] || state.subject;
+    const correctOpt  = q.options[q.answer];
+
+    const prompt = `You are a JAMB examiner checking a student's working for a ${subjectName} question.
+
+QUESTION: ${q.question}
+OPTIONS: ${q.options.map((o,i)=>String.fromCharCode(65+i)+'. '+o).join(' | ')}
+CORRECT ANSWER: ${correctOpt}
+
+The student has shown their working on paper. Evaluate ONLY the method and steps — do NOT reveal which option letter is correct.
+
+Return ONLY valid JSON:
+{
+  "workingCorrect": true or false,
+  "approach": "one sentence describing the student's approach",
+  "steps": [
+    { "step": "description of what student did", "correct": true/false, "comment": "brief feedback" }
+  ],
+  "feedback": "2-3 sentence overall feedback on the working method",
+  "hint": "one hint to guide them to the answer without revealing it"
+}`;
+
+    try {
+      const res = await fetch(SNAP_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          image: base64, mediaType,
+          question: prompt,
+          scheme: [{ point: 'Correct working method', marks: 1 }],
+          totalMarks: 1,
+          subject: subjectName,
+          examBody: 'JAMB',
+        }),
+      });
+
+      if (proc) proc.classList.add('hidden');
+
+      const data = await res.json();
+      // Parse the feedback from the API — the API returns breakdown/feedback
+      // We sent a custom prompt so parse from the feedback field
+      let parsed;
+      try {
+        // Try to extract JSON from the feedback field
+        const raw = data.feedback || '';
+        const match = raw.match(/\{[\s\S]*\}/);
+        parsed = match ? JSON.parse(match[0]) : null;
+      } catch(e) { parsed = null; }
+
+      showSWResult(parsed, data);
+
+    } catch(err) {
+      if (proc) proc.classList.add('hidden');
+      alert('Could not reach marking server. Check your connection.');
+    }
+  }
+
+  function showSWResult(parsed, rawData) {
+    const swResult = document.getElementById('swResult');
+    const swResultHead = document.getElementById('swResultHead');
+    const swResultFeedback = document.getElementById('swResultFeedback');
+    const swResultSteps = document.getElementById('swResultSteps');
+    if (!swResult) return;
+
+    const correct = parsed?.workingCorrect ?? (rawData?.percent >= 50);
+    const feedback = parsed?.feedback || rawData?.feedback || 'Working reviewed.';
+    const hint     = parsed?.hint || '';
+    const steps    = parsed?.steps || rawData?.breakdown || [];
+
+    swResultHead.innerHTML = correct
+      ? '<span class="sw-correct">✓ Good working method!</span>'
+      : '<span class="sw-wrong">✗ Check your working — see feedback below</span>';
+
+    swResultFeedback.textContent = feedback;
+
+    if (steps.length) {
+      swResultSteps.innerHTML = steps.map(s => `
+        <div class="sw-step ${s.correct||s.awarded>0 ? 'sw-step-ok' : 'sw-step-err'}">
+          <span class="sw-step-icon">${s.correct||s.awarded>0 ? '✓' : '✗'}</span>
+          <div class="sw-step-body">
+            <div class="sw-step-desc">${escHtml(s.step||s.point||'')}</div>
+            ${s.comment ? `<div class="sw-step-comment">${escHtml(s.comment)}</div>` : ''}
+          </div>
+        </div>`).join('');
+    }
+
+    if (hint) {
+      swResultFeedback.innerHTML += `<div class="sw-hint">💡 ${escHtml(hint)}</div>`;
+    }
+
+    state.swDone = true;
+    swResult.classList.remove('hidden');
+    // Unlock options now that working has been submitted
+    lockOptionsUntilWorking(true);
+
+    // Update credits badge
+    const swCredits = document.getElementById('swCredits');
+    if (swCredits) swCredits.textContent = getSWCredits() + ' snaps left';
+  }
+
+  function swProceed() {
+    // Hide the panel and let student select answer
+    const swPanel = document.getElementById('showWorkingPanel');
+    if (swPanel) swPanel.classList.add('hidden');
+    lockOptionsUntilWorking(true);
   }
 
 })();

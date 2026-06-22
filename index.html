@@ -103,6 +103,7 @@
                   <select id="modeSelect" class="select-input">
                     <option value="practice">Practice Mode</option>
                     <option value="exam">Exam Mode</option>
+                    <option value="showworking">✍️ Show Working</option>
                   </select>
                 </label>
               </div>
@@ -427,6 +428,35 @@
           <button class="jqc-btn jqc-primary" id="jambQcNew" style="width:100%;margin-top:.75rem">New Challenge →</button>
           <button class="jqc-btn jqc-ghost" id="jambQcDone">Done</button>
         </div>
+      </div>
+    </div>
+
+    <!-- SHOW WORKING PANEL -->
+    <div id="showWorkingPanel" class="sw-panel hidden">
+      <div class="sw-panel-inner">
+        <div class="sw-head">
+          <span class="sw-title">✍️ Show Your Working</span>
+          <span class="sw-credits" id="swCredits"></span>
+        </div>
+        <p class="sw-instruction">Write your working on paper, then snap it. The AI will check your method before you select your answer.</p>
+        <div class="sw-subjects-note" id="swSubjectsNote"></div>
+        <button class="sw-snap-btn" id="swSnapBtn">📸 Snap My Working</button>
+        <input type="file" id="swFileInput" accept="image/*" capture="environment" style="display:none"/>
+        <div class="sw-result hidden" id="swResult">
+          <div class="sw-result-head" id="swResultHead"></div>
+          <div class="sw-result-feedback" id="swResultFeedback"></div>
+          <div class="sw-result-steps" id="swResultSteps"></div>
+          <button class="sw-proceed-btn" id="swProceedBtn">✓ Now Select Your Answer →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOW WORKING PROCESSING -->
+    <div id="swProcessing" class="sw-processing hidden">
+      <div class="sw-processing-inner">
+        <div class="sw-spinner"></div>
+        <div class="sw-processing-title">Checking your working...</div>
+        <div class="sw-processing-sub">AI is reviewing your method</div>
       </div>
     </div>
 
