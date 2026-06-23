@@ -455,7 +455,7 @@
 
     // Show Working mode panel
     const swPanel = document.getElementById('showWorkingPanel');
-    const isCalcSubject = SW_SUBJECTS.includes(state.subject);
+    const isCalcSubject = SW_SUBJECTS.includes((el.subjectSelect?.value||state.subject||'').toLowerCase());
     if (state.mode === 'showworking' && isCalcSubject) {
       if (swPanel) swPanel.classList.remove('hidden');
       // Reset for new question
@@ -693,7 +693,14 @@
   }
 
   function syncStartButton() {
-    el.startBtn.textContent = el.modeSelect.value === 'exam' ? 'Start Exam' : 'Start Practice';
+    const mode = el.modeSelect.value;
+    if (!mode) {
+      el.startBtn.textContent = 'Select a Mode to Start';
+      el.startBtn.disabled = true;
+      return;
+    }
+    el.startBtn.disabled = false;
+    el.startBtn.textContent = mode === 'exam' ? 'Start Exam' : mode === 'showworking' ? 'Start Show Working' : 'Start Practice';
   }
 
   function syncSessionTypeUi() {
@@ -1337,7 +1344,8 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
       return;
     }
 
-    const subjectName = SW_SUBJECTS_LBL[state.subject] || state.subject;
+    const subjectKey  = (el.subjectSelect?.value||state.subject||'').toLowerCase();
+    const subjectName = SW_SUBJECTS_LBL[subjectKey] || state.subject;
     const correctOpt  = q.options[q.answer];
 
     const prompt = `You are a JAMB examiner checking a student's working for a ${subjectName} question.
