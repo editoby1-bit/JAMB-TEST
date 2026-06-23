@@ -1,9 +1,9 @@
 (() => {
   // Show Working mode constants
-  const SW_SUBJECTS    = ['mathematics','physics','chemistry','economics'];
-  const SW_SUBJECTS_LBL = { mathematics:'Mathematics', physics:'Physics', chemistry:'Chemistry', economics:'Economics' };
+  const SW_SUBJECTS    = ['mathematics','physics','chemistry','economics','accounting'];
+  const SW_SUBJECTS_LBL = { mathematics:'Mathematics', physics:'Physics', chemistry:'Chemistry', economics:'Economics', accounting:'Accounting' };
   const SK_SW_CREDITS  = 'jamb-sw-credits-v1';
-  const SW_QUARTERLY   = 50; // snaps per quarter
+  const SW_QUARTERLY   = 20; // snaps per quarter
   const SNAP_API_URL   = 'https://editoby-api.vercel.app/api/mark';
 
   function getSWCredits() {
@@ -1235,10 +1235,59 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
     if (!checkAccess()) { showPaywall('feature'); return; }
     const credits = getSWCredits();
     if (credits <= 0) {
-      alert('No working snaps left this quarter.\n\nTop up: ₦300 = 10 snaps.');
+      showSWTopUp();
       return;
     }
     document.getElementById('swFileInput')?.click();
+  }
+
+  function showSWTopUp() {
+    const modal = document.getElementById('exitConfirmModal');
+    const icon  = document.getElementById('exitModalIcon');
+    const title = document.getElementById('exitModalTitle');
+    const sub   = document.getElementById('exitModalSub');
+    if (!modal) return;
+    icon.textContent  = '📸';
+    title.textContent = 'Snaps Exhausted';
+    sub.textContent   = 'You have used all 20 Show Working snaps for this quarter. Top up with 10 more snaps for ₦300.';
+    const stay  = document.getElementById('exitModalStay');
+    const leave = document.getElementById('exitModalLeave');
+    const newStay  = stay.cloneNode(true);
+    const newLeave = leave.cloneNode(true);
+    stay.parentNode.replaceChild(newStay, stay);
+    leave.parentNode.replaceChild(newLeave, leave);
+    document.getElementById('exitModalStay').textContent  = 'Not Now';
+    document.getElementById('exitModalLeave').textContent = 'Top Up — ₦300 →';
+    document.getElementById('exitModalStay').addEventListener('click',  () => modal.classList.add('hidden'));
+    document.getElementById('exitModalLeave').addEventListener('click', () => {
+      modal.classList.add('hidden');
+      handleSWTopUpPayment();
+    });
+    modal.classList.remove('hidden');
+  }
+
+  function handleSWTopUpPayment() {
+    const email = prompt('Enter your email to continue:');
+    if (!email?.includes('@')) { if (email !== null) alert('Please enter a valid email.'); return; }
+    const handler = window.PaystackPop.setup({
+      key: PAYSTACK_KEY,
+      email,
+      amount: 30000,
+      currency: 'NGN',
+      ref: 'SW-TOPUP-' + Date.now(),
+      metadata: { custom_fields: [
+        { display_name: 'Product', variable_name: 'product', value: 'Show Working Top-up 10 snaps' },
+      ]},
+      onClose() {},
+      callback() {
+        const current = getSWCredits();
+        savePref(SK_SW_CREDITS, { n: current + 10, quarter: getCurrentQuarter() });
+        const badge = document.getElementById('swCredits');
+        if (badge) badge.textContent = getSWCredits() + ' snaps left';
+        alert('✅ 10 snaps added! You now have ' + getSWCredits() + ' snaps remaining.');
+      }
+    });
+    handler.openIframe();
   }
 
   function handleSWFile(e) {
