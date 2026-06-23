@@ -199,6 +199,42 @@
     el.restartBtn.addEventListener('click', () => showScreen('home'));
     el.resetProgressBtn.addEventListener('click', resetProgress);
     el.switchUserBtn.addEventListener('click', switchUser);
+    // Button group selectors replacing dropdowns
+    document.querySelectorAll('#sessionTypeBtns .mode-select-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#sessionTypeBtns .mode-select-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const hidden = document.getElementById('sessionTypeSelect');
+        if (hidden) hidden.value = btn.dataset.value;
+        syncSessionTypeUi();
+        syncStartButton();
+      });
+    });
+
+    document.querySelectorAll('#modeBtns .mode-select-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#modeBtns .mode-select-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const hidden = document.getElementById('modeSelect');
+        if (hidden) hidden.value = btn.dataset.value;
+        syncDurationUi();
+        syncStartButton();
+      });
+    });
+
+    // SW collapse button
+    const swCollapseBtn = document.getElementById('swCollapseBtn');
+    if (swCollapseBtn) swCollapseBtn.addEventListener('click', () => {
+      const body = document.getElementById('swBody');
+      const collapsed = body?.style.display === 'none';
+      if (body) body.style.display = collapsed ? '' : 'none';
+      swCollapseBtn.textContent = collapsed ? '▾' : '▸';
+    });
+
+    // SW lock bar snap button
+    const swLockSnapBtn = document.getElementById('swLockSnapBtn');
+    if (swLockSnapBtn) swLockSnapBtn.addEventListener('click', triggerSWSnap);
+
     el.modeSelect.addEventListener('change', () => { syncDurationUi(); syncStartButton(); });
     el.sessionTypeSelect.addEventListener('change', syncSessionTypeUi);
     el.toggleExplanationBtn.addEventListener('click', toggleReviewExplanation);
@@ -466,9 +502,13 @@
       if (swCredits) swCredits.textContent = getSWCredits() + ' snaps left';
       // Lock options until working is snapped
       lockOptionsUntilWorking(false);
+      const lockBar = document.getElementById('swLockBar');
+      if (lockBar) lockBar.classList.remove('hidden');
     } else {
       if (swPanel) swPanel.classList.add('hidden');
-      lockOptionsUntilWorking(true); // unlock always if not show working mode
+      lockOptionsUntilWorking(true);
+      const lockBar = document.getElementById('swLockBar');
+      if (lockBar) lockBar.classList.add('hidden');
     }
 
     el.questionNumberBadge.textContent = `Question ${state.currentIndex + 1} of ${state.currentQuestions.length}`;
@@ -693,14 +733,15 @@
   }
 
   function syncStartButton() {
-    const mode = el.modeSelect.value;
-    if (!mode) {
-      el.startBtn.textContent = 'Select a Mode to Start';
+    const mode    = document.getElementById('modeSelect')?.value || '';
+    const session = document.getElementById('sessionTypeSelect')?.value || '';
+    if (!mode || !session) {
+      el.startBtn.textContent = 'Choose Session Type & Mode';
       el.startBtn.disabled = true;
       return;
     }
     el.startBtn.disabled = false;
-    el.startBtn.textContent = mode === 'exam' ? 'Start Exam' : mode === 'showworking' ? 'Start Show Working' : 'Start Practice';
+    el.startBtn.textContent = mode === 'exam' ? 'Start Exam' : mode === 'showworking' ? 'Start Show Working ✍️' : 'Start Practice';
   }
 
   function syncSessionTypeUi() {
@@ -1437,8 +1478,9 @@ Return ONLY valid JSON:
 
     state.swDone = true;
     swResult.classList.remove('hidden');
-    // Unlock options now that working has been submitted
     lockOptionsUntilWorking(true);
+    const lockBar = document.getElementById('swLockBar');
+    if (lockBar) lockBar.classList.add('hidden');
 
     // Update credits badge
     const swCredits = document.getElementById('swCredits');

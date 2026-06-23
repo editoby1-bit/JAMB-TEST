@@ -438,11 +438,14 @@
         <div class="sw-head">
           <span class="sw-title">✍️ Show Your Working</span>
           <span class="sw-credits" id="swCredits"></span>
+          <button class="sw-collapse-btn" id="swCollapseBtn" title="Collapse">▾</button>
         </div>
-        <p class="sw-instruction">Write your working on paper, then snap it. The AI will check your method before you select your answer.</p>
-        <div class="sw-subjects-note" id="swSubjectsNote"></div>
-        <button class="sw-snap-btn" id="swSnapBtn">📸 Snap My Working</button>
+        <div class="sw-body" id="swBody">
+          <p class="sw-instruction">📌 <strong>Write your solution on paper first, then tap Snap My Working.</strong> The AI checks your method — answer options unlock after your snap.</p>
+          <div class="sw-subjects-note" id="swSubjectsNote"></div>
+          <button class="sw-snap-btn" id="swSnapBtn">📸 Snap My Working</button>
         <input type="file" id="swFileInput" accept="image/*" capture="environment" style="display:none"/>
+        </div><!-- sw-body -->
         <div class="sw-result hidden" id="swResult">
           <div class="sw-result-head" id="swResultHead"></div>
           <div class="sw-result-feedback" id="swResultFeedback"></div>

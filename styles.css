@@ -1402,3 +1402,96 @@ main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
 .sw-processing-sub {
   font-size: .82rem; color: rgba(255,255,255,.6);
 }
+
+/* ══════════════════════════════
+   MODE/SESSION BUTTON SELECTORS
+══════════════════════════════ */
+.mode-btn-group {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.mode-select-btn {
+  flex: 1;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .2rem;
+  padding: .65rem .5rem;
+  background: var(--white,#fff);
+  border: 1.5px solid var(--border,#e0d8c8);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .2s;
+  text-align: center;
+}
+.mode-select-btn:hover {
+  border-color: var(--amber,#f5a623);
+  background: rgba(245,166,35,.05);
+}
+.mode-select-btn.active {
+  border-color: var(--amber,#f5a623);
+  background: rgba(245,166,35,.1);
+  box-shadow: 0 0 0 3px rgba(245,166,35,.15);
+}
+.msb-icon { font-size: 1.25rem; }
+.msb-label {
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--navy,#0b1f3a);
+}
+.mode-select-btn.active .msb-label { color: var(--amber-dk,#c47d0a); }
+.msb-sub {
+  font-size: .68rem;
+  color: rgba(0,0,0,.45);
+  line-height: 1.3;
+}
+
+/* ══════════════════════════════
+   SHOW WORKING LOCK BAR
+══════════════════════════════ */
+.sw-lock-bar {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  background: rgba(245,166,35,.1);
+  border: 1px solid rgba(245,166,35,.35);
+  border-radius: 10px;
+  padding: .6rem .9rem;
+  margin-bottom: .75rem;
+  flex-wrap: wrap;
+}
+.sw-lock-bar.hidden { display: none; }
+.sw-lock-icon { font-size: 1rem; flex-shrink: 0; }
+.sw-lock-text {
+  flex: 1;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--navy,#0b1f3a);
+  line-height: 1.4;
+}
+.sw-lock-snap-btn {
+  background: var(--amber,#f5a623);
+  color: var(--navy,#0b1f3a);
+  border: none;
+  border-radius: 99px;
+  padding: .38rem .9rem;
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* SW collapse button */
+.sw-collapse-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.5);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: .1rem .3rem;
+  flex-shrink: 0;
+}
+.sw-collapse-btn:hover { color: var(--amber,#f5a623); }
