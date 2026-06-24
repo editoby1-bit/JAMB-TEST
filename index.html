@@ -90,23 +90,46 @@
 
             <div class="card-section">
               <h3 class="section-label">Configure Session</h3>
-              <div class="form-grid">
-                <label class="field-label">
-                  Session Type
-                  <select id="sessionTypeSelect" class="select-input">
-                    <option value="single">Single Subject Drill</option>
-                    <option value="combo">Full JAMB Combination</option>
-                  </select>
-                </label>
-                <label class="field-label">
-                  Mode
-                  <select id="modeSelect" class="select-input">
-                    <option value="" disabled selected>— Select Mode —</option>
-                    <option value="practice">Practice Mode</option>
-                    <option value="exam">Exam Mode</option>
-                    <option value="showworking">✍️ Show Working Mode</option>
-                  </select>
-                </label>
+
+              <!-- Hidden inputs for JS compatibility -->
+              <input type="hidden" id="sessionTypeSelect" value=""/>
+              <input type="hidden" id="modeSelect" value=""/>
+
+              <div class="config-btn-group">
+                <div class="config-group-label">Session Type</div>
+                <div class="config-btns" id="sessionTypeBtns">
+                  <button class="config-btn" data-group="session" data-value="single">
+                    <span class="cb-icon">📖</span>
+                    <span class="cb-label">Single Subject</span>
+                    <span class="cb-sub">Drill one subject</span>
+                  </button>
+                  <button class="config-btn" data-group="session" data-value="combo">
+                    <span class="cb-icon">🎯</span>
+                    <span class="cb-label">Full JAMB Combo</span>
+                    <span class="cb-sub">4 subjects · real format</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="config-btn-group">
+                <div class="config-group-label">Mode</div>
+                <div class="config-btns" id="modeBtns">
+                  <button class="config-btn" data-group="mode" data-value="practice">
+                    <span class="cb-icon">📝</span>
+                    <span class="cb-label">Practice</span>
+                    <span class="cb-sub">Instant feedback</span>
+                  </button>
+                  <button class="config-btn" data-group="mode" data-value="exam">
+                    <span class="cb-icon">⏱</span>
+                    <span class="cb-label">Exam</span>
+                    <span class="cb-sub">Timed · no hints</span>
+                  </button>
+                  <button class="config-btn" data-group="mode" data-value="showworking">
+                    <span class="cb-icon">✍️</span>
+                    <span class="cb-label">Show Working</span>
+                    <span class="cb-sub">Snap before answering</span>
+                  </button>
+                </div>
               </div>
 
               <div id="singleSubjectWrap">
@@ -267,6 +290,33 @@
             <div class="question-body">
               <h2 id="questionText" class="question-text">Question text</h2>
               <div id="diagramBox" class="diagram-box hidden"></div>
+
+              <!-- Show Working panel — inline above options -->
+              <div id="showWorkingPanel" class="sw-panel hidden">
+                <div class="sw-head">
+                  <span class="sw-title">✍️ Show Your Working</span>
+                  <span class="sw-credits" id="swCredits"></span>
+                  <button class="sw-close-btn" id="swCloseBtn">✕</button>
+                </div>
+                <p class="sw-instruction">📌 <strong>Write your solution on paper, then tap Snap.</strong> Answer options unlock after AI checks your method.</p>
+                <div class="sw-subjects-note" id="swSubjectsNote"></div>
+                <button class="sw-snap-btn" id="swSnapBtn">📸 Snap My Working</button>
+                <input type="file" id="swFileInput" accept="image/*" capture="environment" style="display:none"/>
+                <div class="sw-result hidden" id="swResult">
+                  <div class="sw-result-head" id="swResultHead"></div>
+                  <div class="sw-result-feedback" id="swResultFeedback"></div>
+                  <div class="sw-result-steps" id="swResultSteps"></div>
+                  <button class="sw-proceed-btn" id="swProceedBtn">✓ Select Your Answer Now →</button>
+                </div>
+              </div>
+
+              <!-- Lock bar — shows when options are locked -->
+              <div class="sw-lock-bar hidden" id="swLockBar">
+                <span>🔒</span>
+                <span class="sw-lock-text">Snap your working to unlock answer options</span>
+                <button class="sw-lock-snap-btn" id="swLockSnapBtn">📸 Snap</button>
+              </div>
+
               <div id="optionsList" class="options-list"></div>
             </div>
 
@@ -428,29 +478,6 @@
           <div id="jambLeaderboardList" class="jqc-leaderboard"></div>
           <button class="jqc-btn jqc-primary" id="jambQcNew" style="width:100%;margin-top:.75rem">New Challenge →</button>
           <button class="jqc-btn jqc-ghost" id="jambQcDone">Done</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- SHOW WORKING PANEL -->
-    <div id="showWorkingPanel" class="sw-panel hidden">
-      <div class="sw-panel-inner">
-        <div class="sw-head">
-          <span class="sw-title">✍️ Show Your Working</span>
-          <span class="sw-credits" id="swCredits"></span>
-          <button class="sw-collapse-btn" id="swCollapseBtn" title="Collapse">▾</button>
-        </div>
-        <div class="sw-body" id="swBody">
-          <p class="sw-instruction">📌 <strong>Write your solution on paper first, then tap Snap My Working.</strong> The AI checks your method — answer options unlock after your snap.</p>
-          <div class="sw-subjects-note" id="swSubjectsNote"></div>
-          <button class="sw-snap-btn" id="swSnapBtn">📸 Snap My Working</button>
-        <input type="file" id="swFileInput" accept="image/*" capture="environment" style="display:none"/>
-        </div><!-- sw-body -->
-        <div class="sw-result hidden" id="swResult">
-          <div class="sw-result-head" id="swResultHead"></div>
-          <div class="sw-result-feedback" id="swResultFeedback"></div>
-          <div class="sw-result-steps" id="swResultSteps"></div>
-          <button class="sw-proceed-btn" id="swProceedBtn">✓ Now Select Your Answer →</button>
         </div>
       </div>
     </div>

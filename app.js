@@ -199,41 +199,35 @@
     el.restartBtn.addEventListener('click', () => showScreen('home'));
     el.resetProgressBtn.addEventListener('click', resetProgress);
     el.switchUserBtn.addEventListener('click', switchUser);
-    // Button group selectors replacing dropdowns
-    document.querySelectorAll('#sessionTypeBtns .mode-select-btn').forEach(btn => {
+    // Config button groups
+    document.querySelectorAll('.config-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('#sessionTypeBtns .mode-select-btn').forEach(b => b.classList.remove('active'));
+        const group = btn.dataset.group;
+        document.querySelectorAll(`.config-btn[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-        const hidden = document.getElementById('sessionTypeSelect');
+        const hiddenId = group === 'session' ? 'sessionTypeSelect' : 'modeSelect';
+        const hidden = document.getElementById(hiddenId);
         if (hidden) hidden.value = btn.dataset.value;
-        syncSessionTypeUi();
+        if (group === 'session') syncSessionTypeUi();
+        if (group === 'mode') syncDurationUi();
         syncStartButton();
       });
     });
 
-    document.querySelectorAll('#modeBtns .mode-select-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('#modeBtns .mode-select-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const hidden = document.getElementById('modeSelect');
-        if (hidden) hidden.value = btn.dataset.value;
-        syncDurationUi();
-        syncStartButton();
-      });
-    });
-
-    // SW collapse button
-    const swCollapseBtn = document.getElementById('swCollapseBtn');
-    if (swCollapseBtn) swCollapseBtn.addEventListener('click', () => {
-      const body = document.getElementById('swBody');
-      const collapsed = body?.style.display === 'none';
-      if (body) body.style.display = collapsed ? '' : 'none';
-      swCollapseBtn.textContent = collapsed ? '▾' : '▸';
+    // SW close button
+    const swCloseBtn = document.getElementById('swCloseBtn');
+    if (swCloseBtn) swCloseBtn.addEventListener('click', () => {
+      const panel = document.getElementById('showWorkingPanel');
+      if (panel) panel.classList.add('hidden');
     });
 
     // SW lock bar snap button
     const swLockSnapBtn = document.getElementById('swLockSnapBtn');
-    if (swLockSnapBtn) swLockSnapBtn.addEventListener('click', triggerSWSnap);
+    if (swLockSnapBtn) swLockSnapBtn.addEventListener('click', () => {
+      const panel = document.getElementById('showWorkingPanel');
+      if (panel) panel.classList.remove('hidden');
+      triggerSWSnap();
+    });
 
     el.modeSelect.addEventListener('change', () => { syncDurationUi(); syncStartButton(); });
     el.sessionTypeSelect.addEventListener('change', syncSessionTypeUi);
@@ -501,6 +495,9 @@
       const swCredits = document.getElementById('swCredits');
       if (swCredits) swCredits.textContent = getSWCredits() + ' snaps left';
       // Lock options until working is snapped
+      // Show SW panel inline and lock bar
+      const swPanel2 = document.getElementById('showWorkingPanel');
+      if (swPanel2) swPanel2.classList.remove('hidden');
       lockOptionsUntilWorking(false);
       const lockBar = document.getElementById('swLockBar');
       if (lockBar) lockBar.classList.remove('hidden');

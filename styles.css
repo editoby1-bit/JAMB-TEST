@@ -1280,20 +1280,13 @@ main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
    SHOW WORKING MODE
 ══════════════════════════════ */
 .sw-panel {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 120;
-  max-height: 60vh;
-  overflow-y: auto;
+  background: #0d1f38;
+  border: 1.5px solid var(--amber,#f5a623);
+  border-radius: 12px;
+  padding: 1rem 1.25rem 1.25rem;
+  margin-bottom: 1rem;
 }
 .sw-panel.hidden { display: none; }
-.sw-panel-inner {
-  background: #0d1f38;
-  border-top: 2px solid var(--amber,#f5a623);
-  border-radius: 16px 16px 0 0;
-  padding: 1.25rem 1.5rem 2rem;
-  max-width: 720px; margin: 0 auto;
-}
 .sw-head {
   display: flex; align-items: center;
   gap: .75rem; margin-bottom: .5rem;
@@ -1495,3 +1488,63 @@ main { padding: 2rem 2rem 4rem; max-width: 1200px; margin: 0 auto; }
   flex-shrink: 0;
 }
 .sw-collapse-btn:hover { color: var(--amber,#f5a623); }
+
+/* SW close button */
+.sw-close-btn {
+  background: rgba(255,255,255,.1);
+  border: none;
+  color: rgba(255,255,255,.7);
+  border-radius: 6px;
+  padding: .2rem .55rem;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.sw-close-btn:hover { background: rgba(255,255,255,.2); color: white; }
+
+/* ══════════════════════════════
+   CONFIG BUTTON GROUPS
+══════════════════════════════ */
+.config-btn-group { margin-bottom: 1rem; }
+.config-group-label {
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(0,0,0,.45);
+  margin-bottom: .45rem;
+}
+.config-btns {
+  display: flex; gap: .5rem; flex-wrap: wrap;
+}
+.config-btn {
+  flex: 1; min-width: 90px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: .15rem;
+  padding: .6rem .4rem;
+  background: var(--white,#fff);
+  border: 1.5px solid var(--border,#e0d8c8);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .18s;
+  text-align: center;
+}
+.config-btn:hover {
+  border-color: var(--amber,#f5a623);
+  background: rgba(245,166,35,.05);
+}
+.config-btn.active {
+  border-color: var(--amber,#f5a623);
+  background: rgba(245,166,35,.1);
+  box-shadow: 0 0 0 3px rgba(245,166,35,.15);
+}
+.cb-icon { font-size: 1.2rem; }
+.cb-label {
+  font-size: .8rem; font-weight: 700;
+  color: var(--navy,#0b1f3a);
+}
+.config-btn.active .cb-label { color: #a06800; }
+.cb-sub {
+  font-size: .65rem;
+  color: rgba(0,0,0,.4);
+  line-height: 1.3;
+}
