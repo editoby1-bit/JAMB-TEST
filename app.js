@@ -295,6 +295,7 @@
 
     if (state.timerId) { clearInterval(state.timerId); state.timerId = null; }
     if (state.mode === 'exam') startTimer();
+    if (state.mode === 'showworking') showSWIntroBanner();
 
     el.sidebarStudent.textContent = state.student;
     el.sidebarMode.textContent = state.mode === 'exam'
@@ -544,10 +545,24 @@
         }
       }
 
-      btn.addEventListener('click', () => selectAnswer(idx));
+      btn.addEventListener('click', () => {
+        // Show Working mode — if not yet snapped, show warning instead
+        if (state.mode === 'showworking' && !state.swDone) {
+          showSWSnapWarning();
+          return;
+        }
+        selectAnswer(idx);
+      });
       btn.disabled = state.reviewMode;
       el.optionsList.appendChild(btn);
     });
+
+    // Apply visual lock after options are built
+    if (state.mode === 'showworking' && !state.swDone) {
+      lockOptionsUntilWorking(false);
+    } else {
+      lockOptionsUntilWorking(true);
+    }
 
     // Explanation logic
     const shouldShowExpl = (
@@ -1264,6 +1279,65 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
   /* ════════════════════════════════
      SHOW WORKING MODE
   ════════════════════════════════ */
+
+  function showSWSnapWarning() {
+    // Small toast warning — snap required first
+    let toast = document.getElementById('swSnapWarning');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'swSnapWarning';
+      toast.style.cssText = [
+        'position:fixed','bottom:5.5rem','left:50%','transform:translateX(-50%)',
+        'background:#0d1f38','color:white',
+        'border:1.5px solid var(--amber,#f5a623)',
+        'border-radius:10px','padding:.65rem 1.1rem',
+        'font-size:.82rem','font-weight:600',
+        'text-align:center','z-index:9999',
+        'max-width:320px','width:calc(100% - 2rem)',
+        'box-shadow:0 4px 20px rgba(0,0,0,.4)',
+        'animation:toastSlideUp .2s ease',
+      ].join(';');
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = '✍️ <strong>Snap your working first</strong> to unlock answer options.';
+    toast.style.display = 'block';
+    // Re-open SW panel
+    const panel = document.getElementById('showWorkingPanel');
+    if (panel) panel.classList.remove('hidden');
+    clearTimeout(toast._timer);
+    toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 3000);
+  }
+
+  function showSWIntroBanner() {
+    // One-time banner when entering Show Working mode
+    let banner = document.getElementById('swIntroBanner');
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'swIntroBanner';
+      banner.style.cssText = [
+        'position:fixed','top:70px','left:50%','transform:translateX(-50%)',
+        'background:#0d1f38','color:white',
+        'border:2px solid var(--amber,#f5a623)',
+        'border-radius:14px','padding:1rem 1.25rem',
+        'font-size:.85rem','line-height:1.6',
+        'text-align:center','z-index:9999',
+        'max-width:420px','width:calc(100% - 2rem)',
+        'box-shadow:0 8px 32px rgba(0,0,0,.5)',
+      ].join(';');
+      banner.innerHTML = [
+        '<div style="font-size:1.5rem;margin-bottom:.35rem">✍️</div>',
+        '<strong style="font-size:.95rem;color:var(--amber,#f5a623)">Show Working Mode</strong><br/>',
+        'Write your solution on paper before selecting an answer.<br/>',
+        'Snap your working — AI checks your method, then options unlock.<br/>',
+        '<button id="swIntroBannerClose" style="margin-top:.65rem;background:var(--amber,#f5a623);color:#0b1f3a;border:none;border-radius:99px;padding:.4rem 1.1rem;font-weight:700;font-size:.82rem;cursor:pointer">Got it →</button>',
+      ].join('');
+      document.body.appendChild(banner);
+      document.getElementById('swIntroBannerClose')?.addEventListener('click', () => { banner.style.display = 'none'; });
+    }
+    banner.style.display = 'block';
+    clearTimeout(banner._timer);
+    banner._timer = setTimeout(() => { banner.style.display = 'none'; }, 5000);
+  }
 
   function lockOptionsUntilWorking(unlock) {
     const opts = document.querySelectorAll('.option-btn');
