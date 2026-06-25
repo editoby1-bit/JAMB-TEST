@@ -1319,65 +1319,40 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
      GENTLE VALIDATION POPUPS
   ════════════════════════════════ */
   function showGentlePopup(msg, anchorEl) {
-    let popup = document.getElementById('gentlePopup');
-    if (!popup) {
-      popup = document.createElement('div');
-      popup.id = 'gentlePopup';
-      popup.style.cssText = [
-        'position:fixed','z-index:9998',
-        'background:rgba(11,31,58,0.97)',
-        'color:white',
-        'border:1px solid rgba(245,166,35,.6)',
-        'border-radius:10px',
-        'padding:.6rem 1rem',
-        'font-size:.82rem','font-weight:600',
-        'max-width:280px','line-height:1.45',
-        'text-align:center',
-        'box-shadow:0 4px 20px rgba(0,0,0,.4)',
-        'pointer-events:none',
-        'transition:opacity .2s',
-      ].join(';');
-      document.body.appendChild(popup);
-    }
-    popup.textContent = msg;
-    popup.style.transform = '';
-    popup.style.opacity   = '0';
-    popup.style.display   = 'block';
+    // Remove any existing popup
+    document.querySelectorAll('.gentle-popup').forEach(p => p.remove());
 
-    const place = () => {
-      if (!anchorEl) {
-        popup.style.top       = '50%';
-        popup.style.left      = '50%';
-        popup.style.transform = 'translate(-50%,-50%)';
-        popup.style.opacity   = '1';
-        return;
-      }
-      const r  = anchorEl.getBoundingClientRect();
-      const pw = popup.offsetWidth  || 280;
-      const ph = popup.offsetHeight || 44;
-      // Centre horizontally over anchor
-      let left = r.left + r.width / 2 - pw / 2;
-      left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
-      // Position above anchor; if too close to top, go below
-      let top = r.top - ph - 10;
-      if (top < 60) top = r.bottom + 10;
-      popup.style.left    = left + 'px';
-      popup.style.top     = top  + 'px';
-      popup.style.opacity = '1';
-    };
+    const popup = document.createElement('div');
+    popup.className = 'gentle-popup';
+    popup.textContent = msg;
+    popup.style.cssText = [
+      'display:block',
+      'background:rgba(11,31,58,0.97)',
+      'color:white',
+      'border:1.5px solid rgba(245,166,35,.7)',
+      'border-radius:10px',
+      'padding:.6rem 1rem',
+      'font-size:.82rem','font-weight:600',
+      'text-align:center',
+      'line-height:1.45',
+      'margin-bottom:.5rem',
+      'box-shadow:0 4px 16px rgba(0,0,0,.35)',
+      'animation:gentlePopIn .18s ease',
+    ].join(';');
 
     if (anchorEl) {
-      // Scroll anchor into view first, then position
+      // Insert directly before the anchor element
+      anchorEl.parentNode.insertBefore(popup, anchorEl);
       anchorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      setTimeout(place, 300);
     } else {
-      requestAnimationFrame(place);
+      document.body.appendChild(popup);
+      popup.style.cssText += ';position:fixed;top:80px;left:50%;transform:translateX(-50%);max-width:300px;z-index:9999';
     }
 
-    clearTimeout(popup._t);
-    popup._t = setTimeout(() => {
+    setTimeout(() => {
       popup.style.opacity = '0';
-      setTimeout(() => { popup.style.display = 'none'; }, 200);
+      popup.style.transition = 'opacity .3s';
+      setTimeout(() => popup.remove(), 300);
     }, 3000);
   }
 
