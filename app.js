@@ -1341,31 +1341,38 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
     }
     popup.textContent = msg;
     popup.style.transform = '';
-    popup.style.opacity = '0';
-    popup.style.display = 'block';
+    popup.style.opacity   = '0';
+    popup.style.display   = 'block';
 
-    requestAnimationFrame(() => {
-      if (anchorEl) {
-        const r   = anchorEl.getBoundingClientRect();
-        const pw  = popup.offsetWidth  || 280;
-        const ph  = popup.offsetHeight || 44;
-        // Try to position above the element
-        let top  = r.top - ph - 10;
-        let left = r.left + r.width / 2 - pw / 2;
-        // If above the viewport, position below instead
-        if (top < 10) top = r.bottom + 10;
-        // Keep within viewport horizontally
-        left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
-        popup.style.top  = top + 'px';
-        popup.style.left = left + 'px';
-      } else {
-        // Centre of screen
+    const place = () => {
+      if (!anchorEl) {
         popup.style.top       = '50%';
         popup.style.left      = '50%';
-        popup.style.transform = 'translate(-50%, -50%)';
+        popup.style.transform = 'translate(-50%,-50%)';
+        popup.style.opacity   = '1';
+        return;
       }
+      const r  = anchorEl.getBoundingClientRect();
+      const pw = popup.offsetWidth  || 280;
+      const ph = popup.offsetHeight || 44;
+      // Centre horizontally over anchor
+      let left = r.left + r.width / 2 - pw / 2;
+      left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
+      // Position above anchor; if too close to top, go below
+      let top = r.top - ph - 10;
+      if (top < 60) top = r.bottom + 10;
+      popup.style.left    = left + 'px';
+      popup.style.top     = top  + 'px';
       popup.style.opacity = '1';
-    });
+    };
+
+    if (anchorEl) {
+      // Scroll anchor into view first, then position
+      anchorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      setTimeout(place, 300);
+    } else {
+      requestAnimationFrame(place);
+    }
 
     clearTimeout(popup._t);
     popup._t = setTimeout(() => {
