@@ -568,10 +568,12 @@
         }
       }
 
-      btn.addEventListener('click', () => {
-        // Show Working mode — if not yet snapped, show warning instead
+      btn.addEventListener('click', (e) => {
+        // Show Working mode — if not yet snapped, show warning near clicked option
         if (state.mode === 'showworking' && !state.swDone) {
-          showSWSnapWarning();
+          showGentlePopup('✍️ Snap your working first to unlock answers', e.currentTarget);
+          const panel = document.getElementById('showWorkingPanel');
+          if (panel) panel.classList.remove('hidden');
           return;
         }
         selectAnswer(idx);
@@ -772,13 +774,21 @@
     const session = document.getElementById('sessionTypeSelect')?.value || '';
     const subject = el.subjectSelect?.value || '';
     const needsSubject = session === 'single' && !subject;
-    if (!mode || !session || needsSubject) {
-      el.startBtn.textContent = needsSubject ? 'Select a Subject to Start' : 'Choose Session Type & Mode';
-      el.startBtn.disabled = true;
-      return;
-    }
+
+    // Never disable — always clickable so popup can guide the user
     el.startBtn.disabled = false;
-    el.startBtn.textContent = mode === 'exam' ? 'Start Exam' : mode === 'showworking' ? 'Start Show Working ✍️' : 'Start Practice';
+
+    if (!session && !mode) {
+      el.startBtn.textContent = 'Choose Session Type & Mode →';
+    } else if (!session) {
+      el.startBtn.textContent = 'Choose Session Type →';
+    } else if (!mode) {
+      el.startBtn.textContent = 'Choose a Mode →';
+    } else if (needsSubject) {
+      el.startBtn.textContent = 'Choose a Subject →';
+    } else {
+      el.startBtn.textContent = mode === 'exam' ? 'Start Exam' : mode === 'showworking' ? 'Start Show Working ✍️' : 'Start Practice';
+    }
   }
 
   function syncSessionTypeUi() {
@@ -1317,37 +1327,42 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
         'position:fixed','z-index:9998',
         'background:rgba(11,31,58,0.97)',
         'color:white',
-        'border:1px solid rgba(245,166,35,.5)',
+        'border:1px solid rgba(245,166,35,.6)',
         'border-radius:10px',
-        'padding:.55rem .9rem',
-        'font-size:.8rem','font-weight:500',
-        'max-width:260px','line-height:1.45',
-        'box-shadow:0 4px 16px rgba(0,0,0,.3)',
+        'padding:.6rem 1rem',
+        'font-size:.82rem','font-weight:600',
+        'max-width:280px','line-height:1.45',
+        'text-align:center',
+        'box-shadow:0 4px 20px rgba(0,0,0,.4)',
         'pointer-events:none',
         'transition:opacity .2s',
       ].join(';');
       document.body.appendChild(popup);
     }
     popup.textContent = msg;
+    popup.style.transform = '';
     popup.style.opacity = '0';
     popup.style.display = 'block';
 
-    // Position near anchor element if provided
-    if (anchorEl) {
-      const r = anchorEl.getBoundingClientRect();
-      popup.style.top  = (r.top - popup.offsetHeight - 8 + window.scrollY) + 'px';
-      popup.style.left = Math.max(8, r.left + r.width/2 - 130) + 'px';
-    } else {
-      popup.style.top  = '80px';
-      popup.style.left = '50%';
-      popup.style.transform = 'translateX(-50%)';
-    }
-
-    // Reposition after render
     requestAnimationFrame(() => {
       if (anchorEl) {
-        const r = anchorEl.getBoundingClientRect();
-        popup.style.top = (r.top - popup.offsetHeight - 8 + window.scrollY) + 'px';
+        const r   = anchorEl.getBoundingClientRect();
+        const pw  = popup.offsetWidth  || 280;
+        const ph  = popup.offsetHeight || 44;
+        // Try to position above the element
+        let top  = r.top - ph - 10;
+        let left = r.left + r.width / 2 - pw / 2;
+        // If above the viewport, position below instead
+        if (top < 10) top = r.bottom + 10;
+        // Keep within viewport horizontally
+        left = Math.max(8, Math.min(left, window.innerWidth - pw - 8));
+        popup.style.top  = top + 'px';
+        popup.style.left = left + 'px';
+      } else {
+        // Centre of screen
+        popup.style.top       = '50%';
+        popup.style.left      = '50%';
+        popup.style.transform = 'translate(-50%, -50%)';
       }
       popup.style.opacity = '1';
     });
