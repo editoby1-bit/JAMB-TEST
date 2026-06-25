@@ -171,10 +171,14 @@
 
   function populateSubjects() {
     const subjects = Object.keys(QUESTION_BANK);
-    el.subjectSelect.innerHTML = subjects
-      .map(s => `<option value="${escHtml(s)}">${fmt(s)}</option>`)
-      .join('');
+    // Single subject — no default, force conscious selection
+    el.subjectSelect.innerHTML =
+      '<option value="" disabled>— Select Subject —</option>' +
+      subjects.map(s => `<option value="${escHtml(s)}">${fmt(s)}</option>`).join('');
+    // Force browser to show placeholder — must set value after innerHTML
+    el.subjectSelect.value = '';
 
+    // Combo — English is always first fixed subject, no change needed
     const combo = subjects.filter(s => s !== 'english');
     const opts = combo.map(s => `<option value="${escHtml(s)}">${fmt(s)}</option>`).join('');
     [el.comboSubject1, el.comboSubject2, el.comboSubject3].forEach(sel => { sel.innerHTML = opts; });
@@ -230,6 +234,7 @@
     });
 
     el.modeSelect.addEventListener('change', () => { syncDurationUi(); syncStartButton(); });
+    el.subjectSelect.addEventListener('change', () => syncStartButton());
     el.sessionTypeSelect.addEventListener('change', syncSessionTypeUi);
     el.toggleExplanationBtn.addEventListener('click', toggleReviewExplanation);
     // New features
@@ -256,6 +261,24 @@
     if (!state.currentUser) {
       loginStudent();
       if (!state.currentUser) return;
+    }
+
+    // Validate all selections with gentle popups
+    const sessionType = document.getElementById('sessionTypeSelect')?.value || '';
+    const mode        = document.getElementById('modeSelect')?.value || '';
+    const subject     = el.subjectSelect?.value || '';
+
+    if (!sessionType) {
+      showGentlePopup('👆 Please select a Session Type first', document.getElementById('sessionTypeBtns'));
+      return;
+    }
+    if (!mode) {
+      showGentlePopup('👆 Please select a Mode first', document.getElementById('modeBtns'));
+      return;
+    }
+    if (sessionType === 'single' && !subject) {
+      showGentlePopup('👆 Please select a Subject first', el.subjectSelect);
+      return;
     }
 
     // Paywall check
@@ -747,8 +770,10 @@
   function syncStartButton() {
     const mode    = document.getElementById('modeSelect')?.value || '';
     const session = document.getElementById('sessionTypeSelect')?.value || '';
-    if (!mode || !session) {
-      el.startBtn.textContent = 'Choose Session Type & Mode';
+    const subject = el.subjectSelect?.value || '';
+    const needsSubject = session === 'single' && !subject;
+    if (!mode || !session || needsSubject) {
+      el.startBtn.textContent = needsSubject ? 'Select a Subject to Start' : 'Choose Session Type & Mode';
       el.startBtn.disabled = true;
       return;
     }
@@ -1280,32 +1305,64 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
      SHOW WORKING MODE
   ════════════════════════════════ */
 
-  function showSWSnapWarning() {
-    // Small toast warning — snap required first
-    let toast = document.getElementById('swSnapWarning');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.id = 'swSnapWarning';
-      toast.style.cssText = [
-        'position:fixed','bottom:5.5rem','left:50%','transform:translateX(-50%)',
-        'background:#0d1f38','color:white',
-        'border:1.5px solid var(--amber,#f5a623)',
-        'border-radius:10px','padding:.65rem 1.1rem',
-        'font-size:.82rem','font-weight:600',
-        'text-align:center','z-index:9999',
-        'max-width:320px','width:calc(100% - 2rem)',
-        'box-shadow:0 4px 20px rgba(0,0,0,.4)',
-        'animation:toastSlideUp .2s ease',
+  /* ════════════════════════════════
+     GENTLE VALIDATION POPUPS
+  ════════════════════════════════ */
+  function showGentlePopup(msg, anchorEl) {
+    let popup = document.getElementById('gentlePopup');
+    if (!popup) {
+      popup = document.createElement('div');
+      popup.id = 'gentlePopup';
+      popup.style.cssText = [
+        'position:fixed','z-index:9998',
+        'background:rgba(11,31,58,0.97)',
+        'color:white',
+        'border:1px solid rgba(245,166,35,.5)',
+        'border-radius:10px',
+        'padding:.55rem .9rem',
+        'font-size:.8rem','font-weight:500',
+        'max-width:260px','line-height:1.45',
+        'box-shadow:0 4px 16px rgba(0,0,0,.3)',
+        'pointer-events:none',
+        'transition:opacity .2s',
       ].join(';');
-      document.body.appendChild(toast);
+      document.body.appendChild(popup);
     }
-    toast.innerHTML = '✍️ <strong>Snap your working first</strong> to unlock answer options.';
-    toast.style.display = 'block';
-    // Re-open SW panel
+    popup.textContent = msg;
+    popup.style.opacity = '0';
+    popup.style.display = 'block';
+
+    // Position near anchor element if provided
+    if (anchorEl) {
+      const r = anchorEl.getBoundingClientRect();
+      popup.style.top  = (r.top - popup.offsetHeight - 8 + window.scrollY) + 'px';
+      popup.style.left = Math.max(8, r.left + r.width/2 - 130) + 'px';
+    } else {
+      popup.style.top  = '80px';
+      popup.style.left = '50%';
+      popup.style.transform = 'translateX(-50%)';
+    }
+
+    // Reposition after render
+    requestAnimationFrame(() => {
+      if (anchorEl) {
+        const r = anchorEl.getBoundingClientRect();
+        popup.style.top = (r.top - popup.offsetHeight - 8 + window.scrollY) + 'px';
+      }
+      popup.style.opacity = '1';
+    });
+
+    clearTimeout(popup._t);
+    popup._t = setTimeout(() => {
+      popup.style.opacity = '0';
+      setTimeout(() => { popup.style.display = 'none'; }, 200);
+    }, 3000);
+  }
+
+  function showSWSnapWarning() {
+    showGentlePopup('✍️ Snap your working first to unlock answers');
     const panel = document.getElementById('showWorkingPanel');
     if (panel) panel.classList.remove('hidden');
-    clearTimeout(toast._timer);
-    toast._timer = setTimeout(() => { toast.style.display = 'none'; }, 3000);
   }
 
   function showSWIntroBanner() {
@@ -1342,12 +1399,14 @@ Use plain English. Be encouraging. Keep it brief — this student is studying un
   function lockOptionsUntilWorking(unlock) {
     const opts = document.querySelectorAll('.option-btn');
     opts.forEach(btn => {
-      btn.style.opacity    = unlock ? '' : '0.4';
-      btn.style.pointerEvents = unlock ? '' : 'none';
-      btn.style.cursor     = unlock ? '' : 'not-allowed';
+      // Don't grey out — just block via click handler
+      // Visual greyout confuses students into thinking app is broken
+      btn.style.opacity    = '';
+      btn.style.pointerEvents = '';
+      btn.style.cursor     = '';
     });
-    const lockMsg = document.getElementById('swLockMsg');
-    if (lockMsg) lockMsg.style.display = unlock ? 'none' : 'block';
+    const lockBar = document.getElementById('swLockBar');
+    if (lockBar) lockBar.classList.toggle('hidden', unlock);
   }
 
   function triggerSWSnap() {
