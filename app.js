@@ -269,15 +269,15 @@
     const subject     = el.subjectSelect?.value || '';
 
     if (!sessionType) {
-      showGentlePopup('👆 Please select a Session Type first', document.getElementById('sessionTypeBtns'));
+      showGentlePopup('👇 Please select a Session Type first', document.getElementById('sessionTypeBtns'));
       return;
     }
     if (!mode) {
-      showGentlePopup('👆 Please select a Mode first', document.getElementById('modeBtns'));
+      showGentlePopup('👇 Please select a Mode first', document.getElementById('modeBtns'));
       return;
     }
     if (sessionType === 'single' && !subject) {
-      showGentlePopup('👆 Please select a Subject first', el.subjectSelect);
+      showGentlePopup('👇 Please select a Subject first', el.subjectSelect);
       return;
     }
 
